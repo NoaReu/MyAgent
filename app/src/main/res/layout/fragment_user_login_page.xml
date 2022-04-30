@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FramelayoutUserLoginPage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userPages.UserLoginPageFragment" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/my_agent_logo_no_background_img" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="30dp">
+
+
+            <EditText
+                android:id="@+id/usernameUserLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:backgroundTint="@color/light_blue"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/UserNameTitel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:textColor="@color/light_blue"
+                android:text="שם משתמש" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="30dp">
+
+            <EditText
+                android:id="@+id/PasswordUSERLOGIN"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:backgroundTint="@color/light_blue"
+                android:inputType="numberPassword" />
+
+            <TextView
+                android:id="@+id/passwordTitel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.8"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:textColor="@color/light_blue"
+
+                android:text="סיסמה" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginBtnUSERLOGIN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/light_blue"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="אישור" />
+
+
+    </LinearLayout>
+</FrameLayout>
