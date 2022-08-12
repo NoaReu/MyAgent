@@ -66,7 +66,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="שם פרטי" />
+                    android:text="שם פרטי"
+                    android:textSize="24dp"/>
 
 
             </LinearLayout>
@@ -87,7 +88,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="שם משפחה" />
+                    android:text="שם משפחה"
+                    android:textSize="24dp"/>
 
             </LinearLayout>
 
@@ -109,7 +111,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="תעודת זהות" />
+                    android:text="תעודת זהות"
+                    android:textSize="24dp"/>
 
             </LinearLayout>
 
@@ -130,7 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="נייד" />
+                    android:text="נייד"
+                    android:textSize="24dp"/>
 
             </LinearLayout>
 
@@ -151,7 +155,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="מייל" />
+                    android:text="מייל"
+                    android:textSize="24dp"/>
 
             </LinearLayout>
 
@@ -173,7 +178,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="סיסמה" />
+                    android:text="סיסמה"
+                    android:textSize="24dp"/>
 
             </LinearLayout>
 
@@ -192,7 +198,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="אימות סיסמה" />
+                    android:text="אימות סיסמה"
+                    android:textSize="24dp"/>
 
             </LinearLayout>
 
@@ -202,7 +209,7 @@
                 android:text="@string/confirm_btn"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/teal_200"
-
+android:textSize="30dp"
 
                 />
         </LinearLayout>
