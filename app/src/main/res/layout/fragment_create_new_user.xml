@@ -56,13 +56,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:orientation="horizontal">
-
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"/>
                 <TextView
                     android:id="@+id/private_name_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="שם פרטי" />
+
 
             </LinearLayout>
 
@@ -70,13 +74,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
-
+                <EditText
+                    android:id="last_name_create_user_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"/>
                 <TextView
                     android:id="@+id/last_name_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="שם משפחה" />
 
             </LinearLayout>
 
@@ -90,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="תעודת זהות" />
 
             </LinearLayout>
 
@@ -104,7 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="נייד" />
 
             </LinearLayout>
 
@@ -118,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="מייל" />
 
             </LinearLayout>
 
@@ -132,7 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="סיסמה" />
 
             </LinearLayout>
 
