@@ -59,7 +59,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"/>
+                    android:layout_weight="0.6"
+                    android:hint="ישראל"/>
                 <TextView
                     android:id="@+id/private_name_create_user"
                     android:layout_width="match_parent"
@@ -74,11 +75,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
+
                 <EditText
-                    android:id="last_name_create_user_text"
+                    android:id="@+id/last_name_text_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.6"/>
+                    android:layout_weight="0.6"
+                    android:hint="ישראלי"/>
                 <TextView
                     android:id="@+id/last_name_create_user"
                     android:layout_width="match_parent"
@@ -92,6 +95,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
                 android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/id_number_text_create_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:inputType="number"
+                    android:hint="111111111"/>
 
                 <TextView
                     android:id="@+id/id_number_create_user"
@@ -107,6 +118,13 @@
                 android:layout_height="64dp"
                 android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/phone_number_text_create_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:inputType="phone"
+                    android:hint="050-1234567"/>
                 <TextView
                     android:id="@+id/phone_number_create_user"
                     android:layout_width="match_parent"
@@ -121,6 +139,13 @@
                 android:layout_height="62dp"
                 android:orientation="horizontal">
 
+                <EditText
+                    android:id="@+id/mail_address_text_create_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:inputType="textEmailAddress"
+                    android:hint="israel.israeli@gmail.com"/>
                 <TextView
                     android:id="@+id/mail_address_create_user"
                     android:layout_width="match_parent"
@@ -135,6 +160,14 @@
                 android:layout_height="73dp"
                 android:orientation="horizontal">
 
+
+                <EditText
+                    android:id="@+id/password_text_create_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="textPassword" />
+
                 <TextView
                     android:id="@+id/password_create_user"
                     android:layout_width="match_parent"
@@ -148,13 +181,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
                 android:orientation="horizontal">
-
+                <EditText
+                    android:id="@+id/confirmation_password_text_create_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="12"
+                    android:inputType="textPassword" />
                 <TextView
                     android:id="@+id/confirmation_password_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="אימות סיסמה" />
 
             </LinearLayout>
 
@@ -162,6 +200,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/confirm_btn"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/teal_200"
+
+
                 />
         </LinearLayout>
     </LinearLayout>
