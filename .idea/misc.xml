@@ -3,24 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.131" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/drawable/ic_launcher_background.xml" value="0.131" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/drawable/my_agent_logo_no_background1_background.xml" value="0.131" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/drawable/my_agent_logo_no_background_background.xml" value="0.131" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/activity_main.xml" value="0.3567708333333333" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_blank.xml" value="0.3567708333333333" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_create_new_user.xml" value="0.2893258426966292" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_entrance_page.xml" value="0.3567708333333333" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_home_page_agent.xml" value="0.3567708333333333" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_user_car_pictures.xml" value="0.3038949275362319" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_user_home_page.xml" value="0.3567708333333333" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_user_login_page.xml" value="0.3567708333333333" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.131" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.131" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background.xml" value="0.1935" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background1.xml" value="0.1935" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background1_round.xml" value="0.1935" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background_round.xml" value="0.1935" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2595" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2595" />
+        <entry key="app/src/main/res/drawable/my_agent_logo_no_background.xml" value="0.356" />
+        <entry key="app/src/main/res/drawable/my_agent_logo_no_background1_background.xml" value="0.2595" />
+        <entry key="app/src/main/res/drawable/my_agent_logo_no_background_background.xml" value="0.2595" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/fragment_create_new_user.xml" value="0.3546875" />
+        <entry key="app/src/main/res/layout/fragment_customer_info_at_agent.xml" value="0.3390625" />
+        <entry key="app/src/main/res/layout/fragment_entrance_page.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/fragment_home_page_agent.xml" value="0.3546875" />
+        <entry key="app/src/main/res/layout/fragment_login_users.xml" value="0.3319746376811594" />
+        <entry key="app/src/main/res/layout/fragment_suit_accident_area_pictures.xml" value="0.17249240121580547" />
+        <entry key="app/src/main/res/layout/fragment_suit_side2_car_licence.xml" value="0.17249240121580547" />
+        <entry key="app/src/main/res/layout/fragment_suit_side2_id_card.xml" value="0.17249240121580547" />
+        <entry key="app/src/main/res/layout/fragment_suit_side2_insurance.xml" value="0.17249240121580547" />
+        <entry key="app/src/main/res/layout/fragment_suit_side2_pictures.xml" value="0.17249240121580547" />
+        <entry key="app/src/main/res/layout/fragment_suit_user_car_of_accident_pick.xml" value="0.17249240121580547" />
+        <entry key="app/src/main/res/layout/fragment_suit_user_car_pictures.xml" value="0.17249240121580547" />
+        <entry key="app/src/main/res/layout/fragment_user_home_page.xml" value="0.3546875" />
+        <entry key="app/src/main/res/layout/fragment_user_login_page.xml" value="0.3546875" />
       </map>
     </option>
   </component>

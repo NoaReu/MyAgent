@@ -1,14 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/customerInfoAtAgent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".agentPages.CustomerInfoAtAgent">
+    tools:context=".agentPages.CustomerInfoAtAgent" >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:layout_marginTop="15dp">
+
+
+            <TextView
+                android:id="@+id/header_home_page_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:backgroundTint="@color/white"
+                android:fontFamily="Ariel"
+                android:text="@string/header_create_user"
+                android:textColor="@color/teal_700"
+                android:textSize="40sp"
+
+                />
+
+            <ImageView
+
+                android:id="@+id/imageView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:src="@drawable/my_agent_logo_no_background_img" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/private_name_customer_info_at_agent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/private_name__customer_info_at_agent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"/>
+                <TextView
+                    android:id="@+id/private_name_customer_info_at_agent_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="שם פרטי" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/last_name_customer_info_at_agent_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/last_name_customer_info_at_agent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"/>
+                <TextView
+                    android:id="@+id/last_name_customer_info_at_agent_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="שם משפחה" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/id_number_customer_info_at_agent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"/>
+                <TextView
+                    android:id="@+id/id_number_customer_info_at_agent_text"
+                    android:layout_width="342dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="תעודת זהות" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/phone_number_customer_info_at_agent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"/>
+                <TextView
+                    android:id="@+id/phone_number_customer_info_at_agent_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="נייד" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/mail_address_customer_info_at_agent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"/>
+                <TextView
+                    android:id="@+id/mail_address_customer_info_at_agent_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="מייל" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/address_customer_info_at_agent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"/>
+                <TextView
+                    android:id="@+id/address_customer_info_at_agent_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="כתובת" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="עדכון פרטים"
+                />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="בקשות חדשות"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ביטוחים קיימים"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>
