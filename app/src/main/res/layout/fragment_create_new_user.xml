@@ -56,11 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:orientation="horizontal">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:hint="ישראל"/>
+
                 <TextView
                     android:id="@+id/private_name_create_user"
                     android:layout_width="match_parent"
@@ -68,7 +64,11 @@
                     android:layout_weight="1"
                     android:text="שם פרטי"
                     android:textSize="24dp"/>
-
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="0.6"
+                    android:hint="ישראל"/>
 
             </LinearLayout>
 
@@ -77,12 +77,7 @@
                 android:layout_height="50dp"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/last_name_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:hint="ישראלי"/>
+
                 <TextView
                     android:id="@+id/last_name_create_user"
                     android:layout_width="match_parent"
@@ -90,7 +85,12 @@
                     android:layout_weight="1"
                     android:text="שם משפחה"
                     android:textSize="24dp"/>
-
+                <EditText
+                    android:id="@+id/last_name_text_create_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:hint="ישראלי"/>
             </LinearLayout>
 
             <LinearLayout
@@ -98,13 +98,7 @@
                 android:layout_height="62dp"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/id_number_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:inputType="number"
-                    android:hint="111111111"/>
+
 
                 <TextView
                     android:id="@+id/id_number_create_user"
@@ -113,7 +107,13 @@
                     android:layout_weight="1"
                     android:text="תעודת זהות"
                     android:textSize="24dp"/>
-
+                <EditText
+                    android:id="@+id/id_number_text_create_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:inputType="number"
+                    android:hint="111111111"/>
             </LinearLayout>
 
             <LinearLayout
@@ -121,13 +121,7 @@
                 android:layout_height="64dp"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/phone_number_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:inputType="phone"
-                    android:hint="050-1234567"/>
+
                 <TextView
                     android:id="@+id/phone_number_create_user"
                     android:layout_width="match_parent"
@@ -135,7 +129,13 @@
                     android:layout_weight="1"
                     android:text="נייד"
                     android:textSize="24dp"/>
-
+                <EditText
+                    android:id="@+id/phone_number_text_create_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:inputType="phone"
+                    android:hint="050-1234567"/>
             </LinearLayout>
 
             <LinearLayout
@@ -143,13 +143,7 @@
                 android:layout_height="62dp"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/mail_address_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:inputType="textEmailAddress"
-                    android:hint="israel.israeli@gmail.com"/>
+
                 <TextView
                     android:id="@+id/mail_address_create_user"
                     android:layout_width="match_parent"
@@ -157,7 +151,13 @@
                     android:layout_weight="1"
                     android:text="מייל"
                     android:textSize="24dp"/>
-
+                <EditText
+                    android:id="@+id/mail_address_text_create_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.6"
+                    android:inputType="textEmailAddress"
+                    android:hint="israel.israeli@gmail.com"/>
             </LinearLayout>
 
             <LinearLayout
@@ -166,12 +166,7 @@
                 android:orientation="horizontal">
 
 
-                <EditText
-                    android:id="@+id/password_text_create_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="12"
-                    android:inputType="textPassword" />
+
 
                 <TextView
                     android:id="@+id/password_create_user"
@@ -180,19 +175,20 @@
                     android:layout_weight="1"
                     android:text="סיסמה"
                     android:textSize="24dp"/>
-
+                <EditText
+                    android:id="@+id/password_text_create_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:ems="12"
+                    android:inputType="textPassword"
+                    android:hint="*********"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
                 android:orientation="horizontal">
-                <EditText
-                    android:id="@+id/confirmation_password_text_create_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="12"
-                    android:inputType="textPassword" />
+
                 <TextView
                     android:id="@+id/confirmation_password_create_user"
                     android:layout_width="match_parent"
@@ -200,7 +196,13 @@
                     android:layout_weight="1"
                     android:text="אימות סיסמה"
                     android:textSize="24dp"/>
-
+                <EditText
+                    android:id="@+id/confirmation_password_text_create_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:ems="12"
+                    android:inputType="textPassword"
+                    android:hint="*********"/>
             </LinearLayout>
 
             <Button
@@ -209,7 +211,7 @@
                 android:text="@string/confirm_btn"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/teal_200"
-android:textSize="30dp"
+                android:textSize="30dp"
 
                 />
         </LinearLayout>
