@@ -56,18 +56,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:orientation="horizontal">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:hint="ישראל"/>
+
                 <TextView
                     android:id="@+id/private_name_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="שם פרטי"
-                    android:textSize="24dp"/>
+                    android:textSize="24dp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="0.6"
+                    android:hint="ישראל"/>
 
 
             </LinearLayout>
@@ -169,14 +171,15 @@
                 <EditText
                     android:id="@+id/password_text_create_user"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:ems="12"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:hint="*********"/>
 
                 <TextView
                     android:id="@+id/password_create_user"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:text="סיסמה"
                     android:textSize="24dp"/>
@@ -190,9 +193,10 @@
                 <EditText
                     android:id="@+id/confirmation_password_text_create_user"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:ems="12"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:hint="*********"/>
                 <TextView
                     android:id="@+id/confirmation_password_create_user"
                     android:layout_width="match_parent"
