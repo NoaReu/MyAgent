@@ -59,9 +59,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:orientation="horizontal"
             android:layout_height="208dp">
 
 
+            <ImageView
+
+                android:id="@+id/whatsapp_logo_at_the_customer_created_successfully_at_agent"
+                android:layout_width="136dp"
+                android:layout_height="73dp"
+                android:layout_gravity="center"
+                android:src="@drawable/whatsapplogo" />
 
 
         </LinearLayout>
