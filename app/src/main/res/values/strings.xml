@@ -6,5 +6,8 @@
     <string name="confirm_btn">אישור פרטי לקוח</string>
     <string name="person_default_name">Israel Israeli</string>
     <string name="header_search_for_customer">חיפוש לקוח</string>
+    <string name="app_logo_picture">app_logo_picture</string>
+    <string name="customer_successfully_created">הלקוח נוצר בהצלחה</string>
+    <string name="share_via">שתף באמצעות</string>
 
 </resources>
