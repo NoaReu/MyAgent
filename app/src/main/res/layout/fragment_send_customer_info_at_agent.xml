@@ -76,7 +76,7 @@
                 android:layout_width="136dp"
                 android:layout_height="73dp"
                 android:layout_gravity="center"
-                android:src="@drawable/gmail_logo" />
+                android:src="@drawable/gmaillogo" />
 
             <ImageView
 
