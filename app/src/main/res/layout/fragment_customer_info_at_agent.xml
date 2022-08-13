@@ -66,7 +66,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="שם פרטי" />
+                    android:text="שם פרטי"
+                    android:textSize="24dp"/>
 
 
             </LinearLayout>
@@ -86,6 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="24dp"
                     android:text="שם משפחה" />
 
             </LinearLayout>
@@ -104,6 +106,7 @@
                     android:layout_width="342dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textSize="24dp"
                     android:text="תעודת זהות" />
 
 
@@ -122,6 +125,7 @@
                     android:id="@+id/phone_number_customer_info_at_agent_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="24dp"
                     android:layout_weight="1"
                     android:text="נייד" />
 
@@ -140,6 +144,7 @@
                     android:id="@+id/mail_address_customer_info_at_agent_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="24dp"
                     android:layout_weight="1"
                     android:text="מייל" />
 
@@ -158,6 +163,7 @@
                     android:id="@+id/address_customer_info_at_agent_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="24dp"
                     android:layout_weight="1"
                     android:text="כתובת" />
 
@@ -169,6 +175,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/teal_200"
+                android:textSize="24dp"
                 android:text="עדכון פרטים"
                 />
 
@@ -176,17 +184,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="50dp">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="בקשות חדשות"/>
+                    android:text="בקשות \n חדשות"
+                    android:textSize="24dp"
+                    android:layout_marginRight="5dp"
+
+                    android:backgroundTint="@color/teal_200"
+                    />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ביטוחים קיימים"/>
+                    android:textSize="24dp"
+                    android:backgroundTint="@color/teal_200"
+                    android:text="ביטוחים \n קיימים"/>
 
             </LinearLayout>
         </LinearLayout>
