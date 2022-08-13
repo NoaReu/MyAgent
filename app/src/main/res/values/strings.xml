@@ -9,5 +9,7 @@
     <string name="app_logo_picture">app_logo_picture</string>
     <string name="customer_successfully_created">הלקוח נוצר בהצלחה</string>
     <string name="share_via">שתף באמצעות</string>
+    <string name="suits">תביעות</string>
+    <string name="status">סטטוס</string>
 
 </resources>

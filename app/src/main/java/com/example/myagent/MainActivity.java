@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.example.myagent.agentPages.AgentSuitsList;
 import com.example.myagent.agentPages.CreateNewUserFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.main_activity, new CreateNewUserFragment()).commit();
+        fragmentTransaction.add(R.id.main_activity, new AgentSuitsList()).commit();
 
     }
 
