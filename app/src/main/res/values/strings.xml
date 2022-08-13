@@ -5,5 +5,6 @@
     <string name="header_create_user">יצירת לקוח</string>
     <string name="confirm_btn">אישור פרטי לקוח</string>
     <string name="person_default_name">Israel Israeli</string>
+    <string name="header_search_for_customer">חיפוש לקוח</string>
 
 </resources>
