@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/SendCustomerInfoAtAgent"
+    tools:context=".agentPages.SendCustomerInfoAtAgent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="419dp"
+            android:orientation="horizontal">
+
+            <ImageView
+
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="419dp"
+                android:layout_gravity="center"
+                android:src="@drawable/my_agent_logo_no_background_img" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/the_customer_created_successfully_text"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:gravity="center"
+                android:text="הלקוח נוצר בהצלחה"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/share_via_text"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:gravity="center"
+            android:text="שתף באמצעות"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="208dp">
+
+
+            <ImageView
+
+                android:id="@+id/whatsapp_logo_at_the_customer_created_successfully_at_agent"
+                android:layout_width="136dp"
+                android:layout_height="73dp"
+                android:layout_gravity="center"
+                android:src="@drawable/whatsapplogo" />
+            <ImageView
+
+                android:id="@+id/mail_logo_at_the_customer_created_successfully_at_agent"
+                android:layout_width="136dp"
+                android:layout_height="73dp"
+                android:layout_gravity="center"
+                android:src="@drawable/gmail_logo" />
+
+            <ImageView
+
+                android:id="@+id/sms_logo_at_the_customer_created_successfully_at_agent"
+                android:layout_width="136dp"
+                android:layout_height="73dp"
+                android:layout_gravity="center"
+                android:src="@drawable/sms_logo" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
