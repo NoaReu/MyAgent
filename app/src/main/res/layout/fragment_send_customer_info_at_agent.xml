@@ -70,7 +70,21 @@
                 android:layout_height="73dp"
                 android:layout_gravity="center"
                 android:src="@drawable/whatsapplogo" />
+            <ImageView
 
+                android:id="@+id/mail_logo_at_the_customer_created_successfully_at_agent"
+                android:layout_width="136dp"
+                android:layout_height="73dp"
+                android:layout_gravity="center"
+                android:src="@drawable/gmail_logo" />
+
+            <ImageView
+
+                android:id="@+id/sms_logo_at_the_customer_created_successfully_at_agent"
+                android:layout_width="136dp"
+                android:layout_height="73dp"
+                android:layout_gravity="center"
+                android:src="@drawable/sms_logo" />
 
         </LinearLayout>
     </LinearLayout>
