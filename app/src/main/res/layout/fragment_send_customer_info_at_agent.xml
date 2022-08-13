@@ -69,7 +69,7 @@
                 android:layout_width="136dp"
                 android:layout_height="73dp"
                 android:layout_gravity="center"
-                android:src="@drawable/whatsapplogo" />
+                android:src="" />
             <ImageView
 
                 android:id="@+id/mail_logo_at_the_customer_created_successfully_at_agent"
