@@ -30,7 +30,7 @@
                android:layout_weight="0.8"
                android:backgroundTint="@color/white"
                android:fontFamily="ariel"
-               android:text="@string/header_create_user"
+               android:text="@string/header_search_for_customer"
                android:textColor="@color/teal_700"
                android:textSize="40sp"/>
 
