@@ -14,6 +14,15 @@
     <string name="header_insurance_list">רשימת ביטוחים</string>
     <string name="header_new_insurance_requests">בקשות לביטוח חדש</string>
     <string name="enter_customer_name">הקלד שם לקוח...</string>
+    <string name="address_customer_info_at_agent">כתובת</string>
+    <string name="phone_number_at_customer_info_at_agent">נייד</string>
+    <string name="id_customer_info_at_agent">תעודת זהות</string>
+    <string name="last_name_customer_info_at_agent">שם משפחה</string>
+    <string name="new_requests">בקשות \n חדשות</string>
+    <string name="existing_insurances">ביטוחים \n קיימים</string>
+    <string name="mail_at_customer_info_at_agent">מייל</string>
+    <string name="praivet_name_at_customer_info_at_agent">שם פרטי</string>
+    <string name="update_details_at_customer_info_at_agent">עדכון פרטים</string>
 
     <string-array name="status_of_suit">
         <item>חדש</item>

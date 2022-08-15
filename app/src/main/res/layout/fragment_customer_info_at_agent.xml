@@ -24,6 +24,7 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
+                android:contentDescription="@string/app_logo_picture"
                 android:src="@drawable/my_agent_logo_no_background_img" />
             <TextView
                 android:id="@+id/header_home_page_user"
@@ -67,7 +68,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
+                    android:autofillHints=""
                     android:background="@drawable/edit_text_box_design"
+                    android:inputType="textPersonName|text"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
@@ -83,15 +86,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="שם משפחה"
-                    android:textSize="24dp" />
+                    android:text="@string/last_name_customer_info_at_agent"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/last_name_customer_info_at_agent"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
+                    android:autofillHints=""
                     android:background="@drawable/edit_text_box_design"
+                    android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
@@ -106,8 +111,8 @@
                     android:layout_width="342dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="24dp"
-                    android:text="תעודת זהות" />
+                    android:textSize="24sp"
+                    android:text="@string/id_customer_info_at_agent" />
 
                 <EditText
                     android:id="@+id/id_number_customer_info_at_agent"
@@ -115,7 +120,8 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:background="@drawable/edit_text_box_design"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -130,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
                     android:layout_weight="1"
-                    android:text="נייד" />
+                    android:text="@string/phone_number_at_customer_info_at_agent" />
 
                 <EditText
                     android:id="@+id/phone_number_customer_info_at_agent"
@@ -138,7 +144,8 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:background="@drawable/edit_text_box_design"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="" />
             </LinearLayout>
 
             <LinearLayout
@@ -160,7 +167,8 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:background="@drawable/edit_text_box_design"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="" />
             </LinearLayout>
 
             <LinearLayout
@@ -174,15 +182,17 @@
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
                     android:layout_weight="1"
-                    android:text="כתובת" />
+                    android:text="@string/address_customer_info_at_agent" />
 
                 <EditText
                     android:id="@+id/address_customer_info_at_agent"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
+                    android:autofillHints=""
                     android:background="@drawable/edit_text_box_design"
                     android:gravity="center"
+                    android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
@@ -194,7 +204,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#FFFFFF"
-                    android:text="@string/update_details"
+                    android:text="@string/update_details_at_customer_info_at_agent"
                     android:textColor="#29ADB6"
                     android:textSize="24sp"
                     app:strokeColor="#B3B3B3"
@@ -221,7 +231,8 @@
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     app:strokeColor="#B3B3B3"
-                    app:strokeWidth="1dp" />
+                    app:strokeWidth="1dp"
+                    tools:ignore="TextContrastCheck" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -230,7 +241,8 @@
                     android:text="@string/existing_insurances"
                     android:textSize="24sp"
                     app:strokeColor="#B3B3B3"
-                    app:strokeWidth="1dp" />
+                    app:strokeWidth="1dp"
+                    tools:ignore="TextContrastCheck" />
 
             </LinearLayout>
         </LinearLayout>
