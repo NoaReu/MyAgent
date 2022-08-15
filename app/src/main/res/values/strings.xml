@@ -11,5 +11,12 @@
     <string name="share_via">שתף באמצעות</string>
     <string name="suits">תביעות</string>
     <string name="status">סטטוס</string>
+    <string name="header_insurance_list">רשימת ביטוחים</string>
+    <string name="header_new_insurance_requests">בקשות לביטוח חדש</string>
 
+    <string-array name="status_of_suit">
+        <item>חדש</item>
+        <item>בתהליך</item>
+        <item>טופל</item>
+    </string-array>
 </resources>

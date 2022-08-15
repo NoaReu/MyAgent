@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/suit_list_at_agent_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".agentPages.AgentSuitsList">
-
-
+    tools:context=".agentPages.NewInsuranceRequestListAtAgent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +30,7 @@
                 android:layout_weight="0.8"
                 android:backgroundTint="@color/white"
                 android:fontFamily="Ariel"
-                android:text="רשימת תביעות"
+                android:text="@string/header_insurance_list"
                 android:textColor="@color/teal_700"
                 android:textSize="40sp"
 
@@ -59,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.8"
                     android:gravity="center"
-                    android:text="@string/suits" />
+                    android:text="@string/header_new_insurance_requests" />
 
                 <TextView
                     android:id="@+id/textView4"
@@ -76,7 +73,7 @@
                 android:orientation="vertical">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/new_suits_at_agent_recycler_view"
+                    android:id="@+id/new_insurance_at_agent_recycler_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
