@@ -38,7 +38,7 @@
        </LinearLayout>
 
        <LinearLayout
-           android:id="@+id/search_customer_recucler_view"
+           android:id="@+id/search_customer_recycler_view_layout"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:layout_alignParentBottom="true"
@@ -48,15 +48,19 @@
 
            <LinearLayout
                android:layout_width="match_parent"
-               android:layout_height="40dp"
+               android:layout_height="48dp"
                android:orientation="horizontal">
+
+
 
                <TextView
                    android:id="@+id/textView2"
                    android:layout_width="wrap_content"
                    android:layout_height="match_parent"
                    android:layout_weight="0.8"
-                   android:text="הקלד שם לקוח..." />
+                   android:ems="10"
+                   android:inputType="textPersonName"
+                   android:text="@string/enter_customer_name" />
 
                <ImageView
                    android:id="@+id/imageView4"
