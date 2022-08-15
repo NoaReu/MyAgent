@@ -29,20 +29,20 @@
                 android:id="@+id/WelcomeUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_gravity="right"
-                android:textColor="@color/dark_blue"
-                android:text=" ישראל ישראלי" />
+                android:text=" ישראל ישראלי"
+                android:textColor="#036A64"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text=" שלום"
+                android:textColor="#036A64"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/dark_blue"
-                android:text=" שלום" />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -56,60 +56,68 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp">
+
                 <Button
                     android:id="@+id/userPrevReqUSERHOMEPAGE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#29ADB6"
+                    android:text="צפייה\n בבקשות"
+                    android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:backgroundTint="@color/light_blue"
-                    android:text="צפייה\n בבקשות" />
+                    app:strokeColor="#B3B3B3"
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/docPrevReqUSERHOMEPAGE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#29ADB6"
+                    android:text="מסמכים\n קיימים"
+                    android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:backgroundTint="@color/light_blue"
-                    android:text="מסמכים\n קיימים" />
+                    app:strokeColor="#B3B3B3"
+                    app:strokeWidth="1dp" />
             </TableRow>
             <TableRow
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp">
+
                 <Button
                     android:id="@+id/newSuitUSERHOMEPAGE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="#29ADB6"
                     android:text="תביעה\n חדשה"
+                    android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:strokeColor="#B3B3B3"
+                    app:strokeWidth="1dp" />
+
                 <Button
                     android:id="@+id/insuranceNewCaseUSERHOMEPAGE"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="#29ADB6"
                     android:text="ביטוח\n חדש"
+                    android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:strokeColor="#B3B3B3"
+                    app:strokeWidth="1dp" />
             </TableRow>
         </TableLayout>
     </LinearLayout>
-    <Button
-        android:id="@+id/logoutUSERHOMEPAGE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/light_blue"
-        android:text="Sign out" />
 </FrameLayout>

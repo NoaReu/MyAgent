@@ -13,6 +13,11 @@
     <string name="status">סטטוס</string>
     <string name="header_insurance_list">רשימת ביטוחים</string>
     <string name="header_new_insurance_requests">בקשות לביטוח חדש</string>
+    <string name="existing_insurances">ביטוחים \n קיימים</string>
+    <string name="update_details">עדכון פרטים</string>
+    <string name="new_requests">בקשות \n חדשות</string>
+    <string name="mail_at_customer_info_at_agent">מייל</string>
+    <string name="praivet_name_at_customer_info_at_agent">שם פרטי</string>
 
     <string-array name="status_of_suit">
         <item>חדש</item>

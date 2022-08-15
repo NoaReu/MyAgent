@@ -28,20 +28,20 @@
                 android:id="@+id/WelcomeAgentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textStyle="bold"
                 android:layout_gravity="right"
-                android:textColor="@color/dark_blue"
-                android:text=" סוכן" />
+                android:text=" סוכן"
+                android:textColor="#036A64"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text=" שלום"
+                android:textColor="#036A64"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/dark_blue"
-                android:text=" שלום" />
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -62,54 +62,68 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="#29ADB6"
                     android:text="חיפוש \n לקוח"
+                    android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:strokeColor="#B3B3B3" />
+
                 <Button
                     android:id="@+id/createUser_HOME_PAGE_AGENT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#29ADB6"
+                    android:text="יצירת \nלקוח"
+                    android:textColor="@color/white"
                     android:textSize="20dp"
                     android:textStyle="bold"
-                    android:backgroundTint="@color/light_blue"
-                    android:text="יצירת \nלקוח" />
+                    app:strokeColor="#B3B3B3" />
             </TableRow>
             <TableRow
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp">
+
                 <Button
                     android:id="@+id/Suits_HOME_PAGE_AGENT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="#29ADB6"
                     android:text="תביעות"
+                    android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:strokeColor="#B3B3B3" />
+
                 <Button
                     android:id="@+id/insurances_HOME_PAGE_AGENT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/light_blue"
+                    android:backgroundTint="#29ADB6"
                     android:text="ביטוחים"
+                    android:textColor="@color/white"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:strokeColor="#B3B3B3" />
             </TableRow>
         </TableLayout>
     </LinearLayout>
+
     <Button
         android:id="@+id/logout_HOME_PAGE_AGENT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="bottom"
-        android:backgroundTint="@color/light_blue"
-        android:text="יציאה" />
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#29ADB6"
+        android:text="יציאה"
+        android:textColor="@color/white"
+        app:strokeColor="#B3B3B3" />
 </FrameLayout>
