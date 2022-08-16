@@ -14,6 +14,8 @@
     <string name="header_insurance_list">רשימת ביטוחים</string>
     <string name="header_new_insurance_requests">בקשות לביטוח חדש</string>
     <string name="enter_customer_name">הקלד שם לקוח...</string>
+    <string name="header_customer_new_ins_request">בקשות לביטוחים</string>
+    <string name="header_request_ins">בקשות</string>
 
     <string-array name="status_of_suit">
         <item>חדש</item>
