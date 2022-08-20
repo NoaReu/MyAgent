@@ -27,6 +27,7 @@
     <string name="update_details_at_customer_info_at_agent">עדכון פרטים</string>
     <string name="retype_password">אימות סיסמה</string>
     <string name="customer_info">פרטי לקוח</string>
+    <string name="hint_mail_address">israel.israeli@gmail.com</string>
 
 
     <string-array name="status_of_suit">
