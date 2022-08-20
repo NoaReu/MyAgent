@@ -191,10 +191,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/confirm_btn"
+                android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/BTN_background_dark"
                 android:textSize="30dp"
-                app:cornerRadius="@android:dimen/thumbnail_width"
+                android:background="@drawable/button_design"
+                android:padding="10dp"
                 />
         </LinearLayout>
 

@@ -34,7 +34,7 @@
             android:layout_weight="0.8"
             android:backgroundTint="@color/white"
             android:fontFamily="Ariel"
-            android:text="@string/header_suit_list"
+            android:text="@string/register_header"
             android:textColor="@color/teal_700"
             android:textSize="40sp"
             android:gravity="center"
@@ -233,9 +233,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/BTN_background_dark"
-                android:text="@string/confirm_btn"
+                android:text="@string/register_header"
+                android:textColor="@color/white"
                 android:textSize="30dp"
-                app:cornerRadius="@android:dimen/thumbnail_width" />
+                android:background="@drawable/button_design"
+                android:padding="10dp"
+                 />
         </LinearLayout>
 
 

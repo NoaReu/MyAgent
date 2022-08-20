@@ -249,11 +249,12 @@
                     android:text="ביטוחים קיימים"
                     android:textSize="24sp"
                     android:textStyle="bold"
-
+                    android:textColor="@color/white"
                     app:strokeColor="#B3B3B3"
                     app:strokeWidth="1dp"
                     tools:ignore="TextContrastCheck"
-                    app:cornerRadius="@android:dimen/thumbnail_width"
+                    android:background="@drawable/button_design"
+                    android:padding="10dp"
                     />
 
             </LinearLayout>

@@ -32,7 +32,8 @@
             android:textStyle="bold"
             app:strokeColor="#88F4F4F4"
             app:strokeWidth="1dp"
-            app:cornerRadius="@android:dimen/thumbnail_width"
+            android:background="@drawable/button_design"
+
 
             />
 
@@ -50,7 +51,7 @@
             android:textStyle="bold"
             app:strokeColor="#88F4F4F4"
             app:strokeWidth="1dp"
-            app:cornerRadius="@android:dimen/thumbnail_width"
+            android:background="@drawable/button_design"
             />
 
         <Button
@@ -66,7 +67,7 @@
             android:textColor="#29ADB6"
             android:paddingRight="50dp"
             android:text="שכחתי סיסמה?"
-            app:cornerRadius="@android:dimen/thumbnail_width"
+
             />
     </LinearLayout>
 
