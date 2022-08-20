@@ -89,14 +89,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-
-            android:backgroundTint="#FFFBFB"
+            android:backgroundTint="@color/white"
             android:text="אישור"
             android:textColor="#0B7A82"
             android:textSize="20dp"
             android:textStyle="bold"
             app:strokeColor="@color/light_grey"
-            app:strokeWidth="1dp" />
+            app:strokeWidth="1dp"
+            app:cornerRadius="@android:dimen/thumbnail_width"
+            />
 
 
     </LinearLayout>

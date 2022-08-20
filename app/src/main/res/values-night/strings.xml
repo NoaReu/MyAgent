@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="header_suit_list">רשימת תביעות</string>
+    <string name="praivet_name_at_customer_info_at_agent">שם פרטי</string>
+    <string name="id_customer_info_at_agent">תעודת זהות</string>
+    <string name="phone_number_at_customer_info_at_agent">נייד</string>
+    <string name="address_customer_info_at_agent">כתובת</string>
+    <string name="update_details_at_customer_info_at_agent">שלח עדכון</string>
+    <string name="retype_password">אימות סיסמה</string>
+    <string name="customer_info">פרטי לקוח</string>
 </resources>

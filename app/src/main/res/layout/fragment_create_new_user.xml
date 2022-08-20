@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/createNewUserFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".agentPages.CreateNewUserFragment" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -165,62 +163,21 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="73dp"
-                android:orientation="horizontal">
 
 
-                <TextView
-                    android:id="@+id/password_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:text="סיסמה"
-                    android:textSize="24dp" />
 
-                <EditText
-                    android:id="@+id/password_text_create_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:ems="12"
-                    android:inputType="textPassword"
-                    android:hint="*********"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="76dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/confirmation_password_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="אימות סיסמה"
-                    android:textSize="24dp" />
-
-                <EditText
-                    android:id="@+id/confirmation_password_text_create_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="48dp"
-                    android:ems="12"
-                    android:inputType="textPassword"
-                    android:hint="*********"/>
-
-            </LinearLayout>
 
             <Button
+                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/confirm_btn"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/teal_200"
+                android:backgroundTint="@color/BTN_background_dark"
                 android:textSize="30dp"
+                app:cornerRadius="@android:dimen/thumbnail_width"
                 />
         </LinearLayout>
-    </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>
+

@@ -33,7 +33,8 @@
                 android:layout_weight="0.8"
                 android:backgroundTint="@color/white"
                 android:fontFamily="Ariel"
-                android:text="@string/header_create_user"
+                android:gravity="center"
+                android:text="@string/customer_info"
                 android:textColor="@color/teal_700"
                 android:textSize="40sp"
 
@@ -60,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/praivet_name_at_customer_info_at_agent"
+                    android:text="@string/private_name_at_customer_info_at_agent"
                     android:textSize="24sp"/>
 
                 <EditText
@@ -159,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
                     android:layout_weight="1"
-                    android:text="@string/mail_at_customer_info_at_agent" />
+                    android:text="@string/mail_header" />
 
                 <EditText
                     android:id="@+id/mail_address_customer_info_at_agent"
@@ -209,7 +210,9 @@
                     android:textSize="24sp"
                     app:strokeColor="#B3B3B3"
                     app:strokeWidth="1dp"
-                    tools:ignore="TextContrastCheck" />
+                    tools:ignore="TextContrastCheck"
+                    app:cornerRadius="@android:dimen/thumbnail_width"
+                    />
 
             </LinearLayout>
 
@@ -227,22 +230,26 @@
                     android:layout_marginEnd="15dp"
                     android:backgroundTint="#29ADB6"
 
-                    android:text="@string/new_requests"
+                    android:text="תביעות"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     app:strokeColor="#B3B3B3"
                     app:strokeWidth="1dp"
-                    tools:ignore="TextContrastCheck" />
+                    tools:ignore="TextContrastCheck"
+                    app:cornerRadius="@android:dimen/thumbnail_width"
+                    />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#29ADB6"
-                    android:text="@string/existing_insurances"
+                    android:text="ביטוחים קיימים"
                     android:textSize="24sp"
                     app:strokeColor="#B3B3B3"
                     app:strokeWidth="1dp"
-                    tools:ignore="TextContrastCheck" />
+                    tools:ignore="TextContrastCheck"
+                    app:cornerRadius="@android:dimen/thumbnail_width"
+                    />
 
             </LinearLayout>
         </LinearLayout>

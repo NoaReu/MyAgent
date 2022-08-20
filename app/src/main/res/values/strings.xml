@@ -19,6 +19,15 @@
     <string name="draft">טיוטה</string>
     <string name="header_suit_list">רשימת תביעות</string>
     <string name="mail_header">דואר אלקטרוני</string>
+    <string name="private_name_at_customer_info_at_agent">שם פרטי</string>
+    <string name="last_name_customer_info_at_agent">שם משפחה</string>
+    <string name="id_customer_info_at_agent">תעודת זהות</string>
+    <string name="phone_number_at_customer_info_at_agent">נייד</string>
+    <string name="address_customer_info_at_agent">כתובת</string>
+    <string name="update_details_at_customer_info_at_agent">עדכון פרטים</string>
+    <string name="retype_password">אימות סיסמה</string>
+    <string name="customer_info">פרטי לקוח</string>
+
 
     <string-array name="status_of_suit">
         <item>חדש</item>
