@@ -211,6 +211,8 @@
                     android:textSize="24sp"
                     app:strokeColor="#B3B3B3"
                     app:strokeWidth="1dp"
+                    android:textStyle="bold"
+
                     tools:ignore="TextContrastCheck"
                     app:cornerRadius="@android:dimen/thumbnail_width"
                     />
@@ -230,7 +232,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="15dp"
                     android:backgroundTint="#29ADB6"
-
+                    android:textStyle="bold"
                     android:text="תביעות"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"
@@ -246,6 +248,8 @@
                     android:backgroundTint="#29ADB6"
                     android:text="ביטוחים קיימים"
                     android:textSize="24sp"
+                    android:textStyle="bold"
+
                     app:strokeColor="#B3B3B3"
                     app:strokeWidth="1dp"
                     tools:ignore="TextContrastCheck"
