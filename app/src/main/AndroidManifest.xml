@@ -8,6 +8,7 @@
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/Theme.MyAgent">
         <activity
             android:name=".MainActivity"
