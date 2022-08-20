@@ -29,6 +29,7 @@
     <string name="customer_info">פרטי לקוח</string>
     <string name="hint_mail_address">israel.israeli@gmail.com</string>
     <string name="register_header">הרשמה</string>
+    <string name="new_doc">חדש</string>
 
 
     <string-array name="status_of_suit">

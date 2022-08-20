@@ -57,14 +57,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="חדש" />
+            android:contentDescription="@string/new_doc" />
 
         <TextView
             android:id="@+id/ins_status_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="חדש" />
+            android:text="@string/new_doc" />
 
     </LinearLayout>
 
