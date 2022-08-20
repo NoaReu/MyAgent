@@ -54,7 +54,8 @@
                 android:id="@+id/private_name_customer_info_at_agent_layout"
                 android:layout_width="match_parent"
                 android:layout_height="63dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:id="@+id/private_name_customer_info_at_agent_text"
