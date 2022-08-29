@@ -1,5 +1,6 @@
 package com.example.myagent.services;
 
+import com.example.myagent.objects.Agent;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class DBService {
@@ -18,7 +19,7 @@ public class DBService {
         this.db = FirebaseFirestore.getInstance();
     }
 
-    public void getDataForAgent(String DBType ){
+    public void registerAgent(Agent agent ){
 
     }
 

@@ -7,7 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 
 /**
@@ -62,8 +66,35 @@ public class AgentRegistration extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          View view= inflater.inflate(R.layout.fragment_agent_registration, container, false);
+         Button regBtn = (Button) view.findViewById(R.id.confirm_agent_info_btn);
+         TextView privateName= (TextView)  view.findViewById(R.id.reg_agent_private_name_textview);
+         TextView lastName= (TextView)  view.findViewById(R.id.reg_agent_last_name_textview);
+         TextView agentId= (TextView)  view.findViewById(R.id.reg_agent_id_textview);
+         TextView phone= (TextView)  view.findViewById(R.id.reg_agent_phone_number_textview);
+         TextView email= (TextView)  view.findViewById(R.id.reg_agent_email_textview);
+         TextView pw= (TextView)  view.findViewById(R.id.reg_agent_password_textview);
+         TextView confPw= (TextView)  view.findViewById(R.id.reg_agent_confirmation_password_textview);
 
+         regBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               if(!privateName.getText().toString().equals("") && !lastName.getText().toString().equals("") && !agentId.getText().toString().equals("")
+                 && !phone.getText().toString().equals("") && !email.getText().toString().equals("") && !pw.getText().toString().equals("") && !confPw.getText().toString().equals("")){
 
+                   Toast.makeText(getActivity(), "all fields are filled",Toast.LENGTH_SHORT).show();
+               }else{
+                   if(privateName.getText().toString().equals("")) privateName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                   if(lastName.getText().toString().equals("")) lastName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                   if(agentId.getText().toString().equals("")) agentId.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                   if(phone.getText().toString().equals("")) phone.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                   if(email.getText().toString().equals("")) email.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                   if(pw.getText().toString().equals("")) pw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                   if(confPw.getText().toString().equals("")) confPw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                   Toast.makeText(getActivity(), "please complete all missing fields",Toast.LENGTH_SHORT).show();
+               }
+
+            }
+         });
         return view;
     }
 }

@@ -10,5 +10,6 @@
     <color name="light_blue">#9DC4C7</color>
     <color name="dark_blue">#020932</color>
     <color name="light_grey">#C3BFBF</color>
+    <color name="warning_red">#FF1403</color>
     <color name="BTN_background_dark">#29ADB6</color>
 </resources>
