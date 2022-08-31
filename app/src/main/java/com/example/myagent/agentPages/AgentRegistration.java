@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
+import com.example.myagent.objects.Agent;
+import com.example.myagent.services.DBService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,36 +67,72 @@ public class AgentRegistration extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         View view= inflater.inflate(R.layout.fragment_agent_registration, container, false);
-         Button regBtn = (Button) view.findViewById(R.id.confirm_agent_info_btn);
-         TextView privateName= (TextView)  view.findViewById(R.id.reg_agent_private_name_textview);
-         TextView lastName= (TextView)  view.findViewById(R.id.reg_agent_last_name_textview);
-         TextView agentId= (TextView)  view.findViewById(R.id.reg_agent_id_textview);
-         TextView phone= (TextView)  view.findViewById(R.id.reg_agent_phone_number_textview);
-         TextView email= (TextView)  view.findViewById(R.id.reg_agent_email_textview);
-         TextView pw= (TextView)  view.findViewById(R.id.reg_agent_password_textview);
-         TextView confPw= (TextView)  view.findViewById(R.id.reg_agent_confirmation_password_textview);
+        View view= inflater.inflate(R.layout.fragment_agent_registration, container, false);
+        Button regBtn = (Button) view.findViewById(R.id.confirm_agent_info_btn);
+        TextView privateName= (TextView)  view.findViewById(R.id.reg_agent_private_name_textview);
+        TextView lastName= (TextView)  view.findViewById(R.id.reg_agent_last_name_textview);
+        TextView agentId= (TextView)  view.findViewById(R.id.reg_agent_id_textview);
+        TextView phone= (TextView)  view.findViewById(R.id.reg_agent_phone_number_textview);
+        TextView email= (TextView)  view.findViewById(R.id.reg_agent_email_textview);
+        TextView pw= (TextView)  view.findViewById(R.id.reg_agent_password_textview);
+        TextView confPw= (TextView)  view.findViewById(R.id.reg_agent_confirmation_password_textview);
 
-         regBtn.setOnClickListener(new View.OnClickListener() {
+        regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               if(!privateName.getText().toString().equals("") && !lastName.getText().toString().equals("") && !agentId.getText().toString().equals("")
-                 && !phone.getText().toString().equals("") && !email.getText().toString().equals("") && !pw.getText().toString().equals("") && !confPw.getText().toString().equals("")){
-
-                   Toast.makeText(getActivity(), "all fields are filled",Toast.LENGTH_SHORT).show();
-               }else{
-                   if(privateName.getText().toString().equals("")) privateName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                   if(lastName.getText().toString().equals("")) lastName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                   if(agentId.getText().toString().equals("")) agentId.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                   if(phone.getText().toString().equals("")) phone.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                   if(email.getText().toString().equals("")) email.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                   if(pw.getText().toString().equals("")) pw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                   if(confPw.getText().toString().equals("")) confPw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                   Toast.makeText(getActivity(), "please complete all missing fields",Toast.LENGTH_SHORT).show();
+                boolean canWeGoToDBRegistration=false;
+                if(!privateName.getText().toString().equals("") && !lastName.getText().toString().equals("") && !agentId.getText().toString().equals("")
+                   && !phone.getText().toString().equals("") && !email.getText().toString().equals("") && !pw.getText().toString().equals("") && !confPw.getText().toString().equals("")) {
+                   Toast.makeText(getActivity(), "כל השדות מלאים", Toast.LENGTH_SHORT).show();
+                    canWeGoToDBRegistration=true;
+                }else{
+                    if(privateName.getText().toString().equals("")) privateName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                    if(lastName.getText().toString().equals("")) lastName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                    if(agentId.getText().toString().equals("")) agentId.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                    if(phone.getText().toString().equals("")) phone.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                    if(email.getText().toString().equals("")) email.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                    if(pw.getText().toString().equals("")) pw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                    if(confPw.getText().toString().equals("")) confPw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+                    Toast.makeText(getActivity(), "יש להשלים את כל השדות",Toast.LENGTH_SHORT).show();
+                }
+                if(privateName.getText().toString().length()<2 || MainActivity.isValidString(privateName.getText().toString())) {
+                    Toast.makeText(getActivity(), "שם פרטי לא תקין", Toast.LENGTH_SHORT).show();
+                    canWeGoToDBRegistration=false;
+                }
+                if(lastName.getText().toString().length()<2 || MainActivity.isValidString(lastName.getText().toString())) {
+                    Toast.makeText(getActivity(), "שם משפחה לא תקין", Toast.LENGTH_SHORT).show();
+                    canWeGoToDBRegistration=false;
+                }
+                if(agentId.getText().toString().length()!=9 || !MainActivity.isValidID(agentId.getText().toString())){
+                    Toast.makeText(getActivity(), "תעודת זהות לא תקינה יש להזין 9 ספרות", Toast.LENGTH_SHORT).show();
+                    canWeGoToDBRegistration=false;
+                }
+                if( !MainActivity.isValidPhone(phone.getText().toString())){
+                    Toast.makeText(getActivity(), "מספר טלפון לא תקין", Toast.LENGTH_SHORT).show();
+                    canWeGoToDBRegistration=false;
+                }
+                //todo: email Validation!!!! - search for function
+                if(pw.getText().toString().length()<9 || !MainActivity.isValidPW(pw.getText().toString()) ||
+                        confPw.getText().toString().length()<9 || !MainActivity.isValidPW(confPw.getText().toString()) ||
+                        !confPw.getText().toString().equals(pw.getText().toString())){
+                    canWeGoToDBRegistration=false;
+                    Toast.makeText(getActivity(), "הסיסמה או אימות הסיסמה אינם תקינים", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "סיסמה חייבת להיות בת 8 ספרות ולהכיל אותיות לועזיות קטנות וגדולות, מספרים ותוים מיוחדים (!#$%&@)", Toast.LENGTH_SHORT).show();
+                }
+               if(canWeGoToDBRegistration){
+                   Agent agent=new Agent(privateName.getText().toString(),
+                           lastName.getText().toString(),
+                           agentId.getText().toString(),
+                           phone.getText().toString(),
+                           email.getText().toString(),
+                           pw.getText().toString());
+                   DBService dbService= DBService.getInstance();
+                   dbService.registerAgent(agent);
                }
-
             }
-         });
+        });
+
+
         return view;
     }
 }
