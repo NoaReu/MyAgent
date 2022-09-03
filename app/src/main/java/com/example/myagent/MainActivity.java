@@ -1,17 +1,26 @@
 package com.example.myagent;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.myagent.agentPages.AgentRegistration;
 import com.example.myagent.agentPages.AgentSuitsList;
 import com.example.myagent.agentPages.CreateNewUserFragment;
 import com.example.myagent.objects.Agent;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +51,33 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void registerAgent(Agent agent ){
+        mAuth.createUserWithEmailAndPassword(agent.getEmail(), agent.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                //todo: add on complete to know we succeeded
+                if (task.isSuccessful()){
+                    FirebaseUser user = task.getResult().getUser();
+                    // todo: send verification to know if the user is valid::  user.sendEmailVerification();
+                    db.collection(agent.getId()).document(mAuth.getUid()).set(agent).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(getApplicationContext(), "successfully written agent to DB",Toast.LENGTH_SHORT).show();
+                            Log.d("DB", "Register agent success");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), "failed written agent to DB",Toast.LENGTH_SHORT).show();
+                            Log.e("DB", "Register agent failure");
+                        }
+                    });
+                }
 
+
+            }
+        });
+    }
 
 
 
@@ -80,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     public static boolean isValidPW(String string) {
+        string=string.trim();
         if(string.length()<8) return false;
         boolean capital=false;
         boolean lowLetter=false;
@@ -90,18 +126,22 @@ public class MainActivity extends AppCompatActivity {
             if(validCapital.contains(string.charAt(i)+"")){
                 capital=true;
                 isValidChar=true;
+                Log.d("validation", "capital");
             }
             if(validLetters.contains(string.charAt(i)+"")){
                 lowLetter=true;
                 isValidChar=true;
+                Log.d("validation", "lower letter");
             }
             if(validNumbers.contains(string.charAt(i)+"")){
                 number=true;
                 isValidChar=true;
+                Log.d("validation", "number");
             }
             if(validSpecial.contains(string.charAt(i)+"")){
                 special=true;
                 isValidChar=true;
+                Log.d("validation", "special");
             }
             if(!isValidChar)return false;
         }

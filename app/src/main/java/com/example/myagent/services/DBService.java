@@ -1,5 +1,6 @@
 package com.example.myagent.services;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,41 +34,7 @@ public class DBService {
         this.mAuth=FirebaseAuth.getInstance();
     }
 
-    public void registerAgent(Agent agent ){
-        mAuth.createUserWithEmailAndPassword(agent.getEmail(), agent.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                //todo: add on complete to know we succeeded
-                if (task.isSuccessful()){
-                    FirebaseUser user = task.getResult().getUser();
-                   // todo: send verification to know if the user is valid::  user.sendEmailVerification();
-                    db.collection(agent.getId()).document(mAuth.getUid()).set(agent).addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void unused) {
-                            //TODO: success upload data to db
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            //TODO: onFailure::  failure upload data to db
-                        }
-                    });
-                }
-                /*FirebaseAuth auth = FirebaseAuth.getInstance();
-auth.signInWithEmailAndPassword(email, password)
-    .addOnCompleteListener(new OnCompleteListener() {
-        @Override
-        public void onComplete(Task task) {
-            if (task.isSuccessful()) {
-                FirebaseUser user = task.getResult().getUser();
-                String email = user.getEmail();
-                // ...
-            }
-        }
-    });*/
-            }
-        });
-    }
+
 
 
 

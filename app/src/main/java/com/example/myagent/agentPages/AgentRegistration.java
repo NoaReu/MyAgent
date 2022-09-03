@@ -112,8 +112,7 @@ public class AgentRegistration extends Fragment {
                     canWeGoToDBRegistration=false;
                 }
                 //todo: email Validation!!!! - search for function
-                if(pw.getText().toString().length()<9 || !MainActivity.isValidPW(pw.getText().toString()) ||
-                        confPw.getText().toString().length()<9 || !MainActivity.isValidPW(confPw.getText().toString()) ||
+                if(pw.getText().toString().length()<8 || !MainActivity.isValidPW(pw.getText().toString()) ||
                         !confPw.getText().toString().equals(pw.getText().toString())){
                     canWeGoToDBRegistration=false;
                     Toast.makeText(getActivity(), "הסיסמה או אימות הסיסמה אינם תקינים", Toast.LENGTH_SHORT).show();
@@ -127,7 +126,8 @@ public class AgentRegistration extends Fragment {
                            email.getText().toString(),
                            pw.getText().toString());
                    DBService dbService= DBService.getInstance();
-                   dbService.registerAgent(agent);
+                   MainActivity mainActivity=(MainActivity) getActivity();
+                   mainActivity.registerAgent(agent);
                }
             }
         });
