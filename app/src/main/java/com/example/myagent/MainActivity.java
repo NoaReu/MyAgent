@@ -15,6 +15,7 @@ import com.example.myagent.agentPages.AgentRegistration;
 import com.example.myagent.agentPages.AgentSuitsList;
 import com.example.myagent.agentPages.CreateNewUserFragment;
 import com.example.myagent.objects.Agent;
+import com.example.myagent.objects.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
     FirebaseFirestore db;
     String agentUID;
+    Agent appAgent; // will be initialized only at signed in agent function
 
+    public Agent getAppAgent(){
+        return this.appAgent;
+    }
     static String validNumbers="1234567890";
     static String validCapital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     static String validLetters="'אבגדהוזחטיכךלמםנןסעפףצץקרשתabcdefghijklmnopqrstuvw\"xyz";
@@ -55,7 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void createNewUserForAgent(User user) {
 
+    }
     public void registerAgent(Agent agent , String email, String pw){
 
        //todo: check if agent is already exist
@@ -85,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     public static boolean isValidEmail(String email){
         if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
@@ -161,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return capital && lowLetter && number && special ;
     }
+
 
 
 }

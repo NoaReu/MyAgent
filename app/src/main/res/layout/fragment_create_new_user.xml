@@ -64,10 +64,11 @@
                     android:textSize="24dp" />
 
                 <EditText
+                    android:id="@+id/first_name_text_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_weight="0.6"
-                    android:hint="ישראל"/>
+                    android:hint="ישראל" />
 
 
             </LinearLayout>
@@ -187,17 +188,17 @@
 
 
             <Button
-                android:layout_marginTop="20dp"
+                android:id="@+id/register_user_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_design"
+                android:backgroundTint="@color/BTN_background_dark"
+                android:padding="10dp"
                 android:text="@string/confirm_btn"
                 android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/BTN_background_dark"
-                android:textSize="30dp"
-                android:background="@drawable/button_design"
-                android:padding="10dp"
-                />
+                android:textSize="30dp" />
         </LinearLayout>
 
 </LinearLayout>

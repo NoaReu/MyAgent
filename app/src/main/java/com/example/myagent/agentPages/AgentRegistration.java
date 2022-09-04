@@ -80,7 +80,7 @@ public class AgentRegistration extends Fragment {
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean canWeGoToDBRegistration=false;
+                boolean canWeGoToDBRegistration=true;
 //                if(!privateName.getText().toString().equals("") && !lastName.getText().toString().equals("") && !agentId.getText().toString().equals("")
 //                   && !phone.getText().toString().equals("") && !email.getText().toString().equals("") && !pw.getText().toString().equals("") && !confPw.getText().toString().equals("")) {
 //                   Toast.makeText(getActivity(), "כל השדות מלאים", Toast.LENGTH_SHORT).show();
@@ -137,7 +137,7 @@ public class AgentRegistration extends Fragment {
 
                    MainActivity mainActivity=(MainActivity) getActivity();
                    mainActivity.registerAgent(agent, email.getText().toString() ,pw.getText().toString() );
-
+                   Toast.makeText(getActivity(), "yeyyyyyyyyyyy", Toast.LENGTH_SHORT).show();
                }
             }
         });
