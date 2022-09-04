@@ -76,6 +76,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_weight="0.6"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:inputType="textPersonName"
                     android:hint="ישראל" />
 
 
@@ -99,6 +102,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:inputType="textPersonName"
                     android:hint="ישראלי"/>
 
             </LinearLayout>

@@ -81,53 +81,63 @@ public class AgentRegistration extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean canWeGoToDBRegistration=false;
-                if(!privateName.getText().toString().equals("") && !lastName.getText().toString().equals("") && !agentId.getText().toString().equals("")
-                   && !phone.getText().toString().equals("") && !email.getText().toString().equals("") && !pw.getText().toString().equals("") && !confPw.getText().toString().equals("")) {
-                   Toast.makeText(getActivity(), "כל השדות מלאים", Toast.LENGTH_SHORT).show();
-                    canWeGoToDBRegistration=true;
-                }else{
-                    if(privateName.getText().toString().equals("")) privateName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                    if(lastName.getText().toString().equals("")) lastName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                    if(agentId.getText().toString().equals("")) agentId.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                    if(phone.getText().toString().equals("")) phone.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                    if(email.getText().toString().equals("")) email.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                    if(pw.getText().toString().equals("")) pw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                    if(confPw.getText().toString().equals("")) confPw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-                    Toast.makeText(getActivity(), "יש להשלים את כל השדות",Toast.LENGTH_SHORT).show();
-                }
+//                if(!privateName.getText().toString().equals("") && !lastName.getText().toString().equals("") && !agentId.getText().toString().equals("")
+//                   && !phone.getText().toString().equals("") && !email.getText().toString().equals("") && !pw.getText().toString().equals("") && !confPw.getText().toString().equals("")) {
+//                   Toast.makeText(getActivity(), "כל השדות מלאים", Toast.LENGTH_SHORT).show();
+//                    canWeGoToDBRegistration=true;
+//                }else{
+//                    if(privateName.getText().toString().equals("")) privateName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+//                    if(lastName.getText().toString().equals("")) lastName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+//                    if(agentId.getText().toString().equals("")) agentId.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+//                    if(phone.getText().toString().equals("")) phone.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+//                    if(email.getText().toString().equals("")) email.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+//                    if(pw.getText().toString().equals("")) pw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+//                    if(confPw.getText().toString().equals("")) confPw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
+//                    Toast.makeText(getActivity(), "יש להשלים את כל השדות",Toast.LENGTH_SHORT).show();
+//                }
                 if(privateName.getText().toString().length()<2 || MainActivity.isValidString(privateName.getText().toString())) {
                     Toast.makeText(getActivity(), "שם פרטי לא תקין", Toast.LENGTH_SHORT).show();
+                    privateName.requestFocus();
                     canWeGoToDBRegistration=false;
                 }
-                if(lastName.getText().toString().length()<2 || MainActivity.isValidString(lastName.getText().toString())) {
+                else if(lastName.getText().toString().length()<2 || MainActivity.isValidString(lastName.getText().toString())) {
                     Toast.makeText(getActivity(), "שם משפחה לא תקין", Toast.LENGTH_SHORT).show();
+                    lastName.requestFocus();
                     canWeGoToDBRegistration=false;
                 }
-                if(agentId.getText().toString().length()!=9 || !MainActivity.isValidID(agentId.getText().toString())){
+                else if(agentId.getText().toString().length()!=9 || !MainActivity.isValidID(agentId.getText().toString())){
                     Toast.makeText(getActivity(), "תעודת זהות לא תקינה יש להזין 9 ספרות", Toast.LENGTH_SHORT).show();
+                    agentId.requestFocus();
                     canWeGoToDBRegistration=false;
                 }
-                if( !MainActivity.isValidPhone(phone.getText().toString())){
+                else if( !MainActivity.isValidPhone(phone.getText().toString())){
                     Toast.makeText(getActivity(), "מספר טלפון לא תקין", Toast.LENGTH_SHORT).show();
+                    phone.requestFocus();
                     canWeGoToDBRegistration=false;
                 }
                 //todo: email Validation!!!! - search for function
-                if(pw.getText().toString().length()<8 || !MainActivity.isValidPW(pw.getText().toString()) ||
+                else if(!MainActivity.isValidEmail(email.getText().toString().trim())){
+                    Toast.makeText(getActivity(), "כתובת המייל אינה תקינה", Toast.LENGTH_SHORT).show();
+                    email.requestFocus();
+                    canWeGoToDBRegistration=false;
+                }
+                else if(pw.getText().toString().length()<8 || !MainActivity.isValidPW(pw.getText().toString()) ||
                         !confPw.getText().toString().equals(pw.getText().toString())){
+                    pw.requestFocus();
                     canWeGoToDBRegistration=false;
                     Toast.makeText(getActivity(), "הסיסמה או אימות הסיסמה אינם תקינים", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), "סיסמה חייבת להיות בת 8 ספרות ולהכיל אותיות לועזיות קטנות וגדולות, מספרים ותוים מיוחדים (!#$%&@)", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "סיסמה חייבת להיות בת 8 ספרות ולהכיל אותיות לועזיות קטנות וגדולות, מספרים ותוים מיוחדים (!#$%&@*?)", Toast.LENGTH_SHORT).show();
                 }
                if(canWeGoToDBRegistration){
-                   Agent agent=new Agent(privateName.getText().toString(),
+                   Agent agent=new Agent(
+                           privateName.getText().toString(),
                            lastName.getText().toString(),
                            agentId.getText().toString(),
-                           phone.getText().toString(),
-                           email.getText().toString(),
-                           pw.getText().toString());
-                   DBService dbService= DBService.getInstance();
+                           phone.getText().toString());
+
                    MainActivity mainActivity=(MainActivity) getActivity();
-                   mainActivity.registerAgent(agent);
+                   mainActivity.registerAgent(agent, email.getText().toString() ,pw.getText().toString() );
+
                }
             }
         });

@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.widget.Toast;
 
 import com.example.myagent.agentPages.AgentRegistration;
@@ -21,6 +22,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,11 +33,12 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FragmentManager fragmentManager;
     FirebaseFirestore db;
+    String agentUID;
 
     static String validNumbers="1234567890";
     static String validCapital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    static String validLetters="abcdefghijklmnopqrstuvwxyz";
-    static String validSpecial="!#$%&@";
+    static String validLetters="'אבגדהוזחטיכךלמםנןסעפףצץקרשתabcdefghijklmnopqrstuvw\"xyz";
+    static String validSpecial="!#$%&@*?";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        agentUID="";
 
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -51,43 +56,52 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void registerAgent(Agent agent ){
-        mAuth.createUserWithEmailAndPassword(agent.getEmail(), agent.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    public void registerAgent(Agent agent , String email, String pw){
+
+       //todo: check if agent is already exist
+        mAuth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                //todo: add on complete to know we succeeded
                 if (task.isSuccessful()){
-                    FirebaseUser user = task.getResult().getUser();
-                    // todo: send verification to know if the user is valid::  user.sendEmailVerification();
-                    db.collection(agent.getId()).document(mAuth.getUid()).set(agent).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    Toast.makeText(MainActivity.this, "success to register", Toast.LENGTH_SHORT).show();
+                    agentUID=task.getResult().getUser().getUid();
+                    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+                    firebaseFirestore.collection("agents").document(mAuth.getUid()).set(agent).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(getApplicationContext(), "successfully written agent to DB",Toast.LENGTH_SHORT).show();
-                            Log.d("DB", "Register agent success");
+                            Toast.makeText(MainActivity.this,"success upload data to db",Toast.LENGTH_LONG).show();
+
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(), "failed written agent to DB",Toast.LENGTH_SHORT).show();
-                            Log.e("DB", "Register agent failure");
+                            Toast.makeText(MainActivity.this,"failed upload data to db",Toast.LENGTH_LONG).show();
+
                         }
                     });
+                }else{
+                    Toast.makeText(MainActivity.this, "failed to register", Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
     }
 
-
+    public static boolean isValidEmail(String email){
+        if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            return true;
+        }
+        return false;
+    }
 
     public static boolean isValidString(String string){
         for(int i=0; i<string.length(); i++){
-            if(string.charAt(i)<65 || (string.charAt(i)>90 && string.charAt(i)<97) || string.charAt(i)>122|| string.charAt(i)!=' '||string.charAt(i)!='-')
+            if(!validCapital.contains(string.charAt(i)+"") && !validLetters.contains(string.charAt(i)+"") && string.charAt(i)!='-')
+               Log.e("validation", string.charAt(i)+"");
                 return false;
         }
         return true;
     }
+
     public static boolean isValidID(String id){
         int sum=0;
         boolean isEven=true;
