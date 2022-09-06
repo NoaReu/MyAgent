@@ -85,37 +85,37 @@
         tools:layout="@layout/fragment_send_success_for_customer_info_at_agent" />
     <fragment
         android:id="@+id/suitAccidentAreaPicturesFragment"
-        android:name="com.example.myagent.userPages.suitPages.suitAccidentAreaPicturesFragment"
+        android:name="com.example.myagent.userPages.suitPages.SuitAccidentAreaPicturesFragment"
         android:label="fragment_suit_accident_area_pictures"
         tools:layout="@layout/fragment_suit_accident_area_pictures" />
     <fragment
         android:id="@+id/suitSide2CarLicenceFragment"
-        android:name="com.example.myagent.userPages.suitPages.suitSide2CarLicenceFragment"
+        android:name="com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment"
         android:label="fragment_suit_side2_car_licence"
         tools:layout="@layout/fragment_suit_side2_car_licence" />
     <fragment
         android:id="@+id/suitSide2IdCardFragment"
-        android:name="com.example.myagent.userPages.suitPages.suitSide2IdCardFragment"
+        android:name="com.example.myagent.userPages.suitPages.SuitSide2IdCardFragment"
         android:label="fragment_suit_side2_id_card"
         tools:layout="@layout/fragment_suit_side2_id_card" />
     <fragment
         android:id="@+id/suitSide2InsuranceFragment"
-        android:name="com.example.myagent.userPages.suitPages.suitSide2InsuranceFragment"
+        android:name="com.example.myagent.userPages.suitPages.SuitSide2InsuranceFragment"
         android:label="fragment_suit_side2_insurance"
         tools:layout="@layout/fragment_suit_side2_insurance" />
     <fragment
         android:id="@+id/suitSide2PicturesFragment"
-        android:name="com.example.myagent.userPages.suitPages.suitSide2PicturesFragment"
+        android:name="com.example.myagent.userPages.suitPages.SuitSide2PicturesFragment"
         android:label="fragment_suit_side2_pictures"
         tools:layout="@layout/fragment_suit_side2_pictures" />
     <fragment
         android:id="@+id/suitUserCarOfAccidentPickFragment"
-        android:name="com.example.myagent.userPages.suitPages.suitUserCarOfAccidentPickFragment"
+        android:name="com.example.myagent.userPages.suitPages.SuitUserCarOfAccidentPickFragment"
         android:label="fragment_suit_user_car_of_accident_pick"
         tools:layout="@layout/fragment_suit_user_car_of_accident_pick" />
     <fragment
         android:id="@+id/suitUserCarPicturesFragment"
-        android:name="com.example.myagent.userPages.suitPages.suitUserCarPicturesFragment"
+        android:name="com.example.myagent.userPages.suitPages.SuitUserCarPicturesFragment"
         android:label="fragment_suit_user_car_pictures"
         tools:layout="@layout/fragment_suit_user_car_pictures" />
     <fragment

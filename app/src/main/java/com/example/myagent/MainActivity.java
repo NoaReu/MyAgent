@@ -12,7 +12,9 @@ import android.widget.Toast;
 import com.example.myagent.agentPages.AgentRegistration;
 import com.example.myagent.objects.Agent;
 import com.example.myagent.objects.User;
-import com.example.myagent.userPages.suitPages.suitUserCarPicturesFragment;
+import com.example.myagent.userPages.UserLoginPageFragment;
+import com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment;
+import com.example.myagent.userPages.suitPages.SuitUserCarPicturesFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private String sharedPrefFile ="sharedPreferences";
     private FirebaseAuth mAuth;
     FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
     FirebaseFirestore db;
     String agentUID;
     Agent appAgent; // will be initialized only at signed in agent function
@@ -52,13 +53,47 @@ public class MainActivity extends AppCompatActivity {
         agentUID="";
 
         fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.main_activity, new AgentRegistration()).commit();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
 
 
     }
     public void switchToSuitPage1() {
-        fragmentTransaction.replace(R.id.main_activity, new suitUserCarPicturesFragment());
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitSide2CarLicenceFragment()).addToBackStack(null).commit();
+    }
+    public void switchToSuitPage2() { // Todo:change destination
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
+    }
+    public void switchToSuitPage3() {// Todo:change destination
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
+    }
+    public void switchToSuitPage4() {// Todo:change destination
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
+    }
+    public void switchToSuitPage5() {// Todo:change destination
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
+    }
+    public void switchToRegistration() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new AgentRegistration()).addToBackStack(null).commit();
+    }
+    public void switchToConnectPage() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new UserLoginPageFragment()).addToBackStack(null).commit();
+    }
+    public void switchToForgotPasswordPage() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new ForgotPassword()).addToBackStack(null).commit();
+    }
+
+
+    public void sendNewPassword(String email) {
+        //TODO: search for user in FB authentication if exist
     }
     public static String passwordGenerator(){
         String validChars="1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&@*?";
@@ -74,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
         return pWord;
     }
 
+    public void login(String email, String pw ) {
+
+    }
     public void createNewUserForAgent(User user) {
         String upw = passwordGenerator();
         mAuth.createUserWithEmailAndPassword(user.getEmail(),upw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -213,7 +251,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return capital && lowLetter && number && special ;
     }
-
 
 
 }

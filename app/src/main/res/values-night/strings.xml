@@ -12,4 +12,6 @@
     <string name="register_header">הרשמה</string>
     <string name="suit_instruction_before_header">הנחיות לפני פתיחת תביעה</string>
     <string name="collected_all_information_and_willing_to_proceed">אספתי את כל הפרטים ואני מוכן להמשיך</string>
+    <string name="instructions_for_new_password">הכנס שם משתמש ולחץ על אישור. בעוד כמה דקות תקבל למייל סיסמה חדשה למערכת, ועליך להיכנס עם הסיסמה החדשה.</string>
+    <string name="user_name">שם משתמש</string>
 </resources>

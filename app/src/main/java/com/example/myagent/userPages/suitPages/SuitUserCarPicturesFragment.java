@@ -12,10 +12,10 @@ import com.example.myagent.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link suitSide2InsuranceFragment#newInstance} factory method to
+ * Use the {@link SuitUserCarPicturesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class suitSide2InsuranceFragment extends Fragment {
+public class SuitUserCarPicturesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class suitSide2InsuranceFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public suitSide2InsuranceFragment() {
+    public SuitUserCarPicturesFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class suitSide2InsuranceFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment suitSide2InsuranceFragment.
+     * @return A new instance of fragment SuitUserCarPicturesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static suitSide2InsuranceFragment newInstance(String param1, String param2) {
-        suitSide2InsuranceFragment fragment = new suitSide2InsuranceFragment();
+    public static SuitUserCarPicturesFragment newInstance(String param1, String param2) {
+        SuitUserCarPicturesFragment fragment = new SuitUserCarPicturesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class suitSide2InsuranceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suit_side2_insurance, container, false);
+        return inflater.inflate(R.layout.fragment_suit_user_car_pictures, container, false);
     }
 }

@@ -7,7 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 
 /**
@@ -61,6 +65,34 @@ public class UserLoginPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_login_page, container, false);
+        View view=  inflater.inflate(R.layout.fragment_user_login_page, container, false);
+        TextView email= view.findViewById(R.id.usernameUserForgotPassword);
+        TextView pW= view.findViewById(R.id.PasswordUSERLOGIN);
+        Button confirmBtn= (Button) view.findViewById(R.id.loginBtnForgotPassword);
+        Button forgotPW= (Button) view.findViewById(R.id.forgotMyPassBtnEntrancePage);
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity=(MainActivity) getActivity();
+                boolean canBeCheckedInDB=true;
+                if(email.getText().toString().trim().equals("") || !MainActivity.isValidEmail(email.getText().toString().trim()) ||
+                    pW.getText().toString().trim().equals("") || !MainActivity.isValidPW(pW.getText().toString().trim())){
+                    canBeCheckedInDB=false;
+                    Toast.makeText(getActivity(), "שם משתמש ו/או סיסמה אינם תקינים", Toast.LENGTH_SHORT).show();
+                }
+                if(canBeCheckedInDB){
+                    mainActivity.login(email.getText().toString().trim(), pW.getText().toString().trim());
+                }
+            }
+        });
+        forgotPW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity=(MainActivity) getActivity();
+                mainActivity.switchToForgotPasswordPage();
+            }
+        });
+
+        return view;
     }
 }

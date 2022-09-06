@@ -12,10 +12,10 @@ import com.example.myagent.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link suitUserCarOfAccidentPickFragment#newInstance} factory method to
+ * Use the {@link SuitAccidentAreaPicturesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class suitUserCarOfAccidentPickFragment extends Fragment {
+public class SuitAccidentAreaPicturesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class suitUserCarOfAccidentPickFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public suitUserCarOfAccidentPickFragment() {
+    public SuitAccidentAreaPicturesFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class suitUserCarOfAccidentPickFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment suitUserCarOfAccidentPickFragment.
+     * @return A new instance of fragment SuitAccidentAreaPicturesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static suitUserCarOfAccidentPickFragment newInstance(String param1, String param2) {
-        suitUserCarOfAccidentPickFragment fragment = new suitUserCarOfAccidentPickFragment();
+    public static SuitAccidentAreaPicturesFragment newInstance(String param1, String param2) {
+        SuitAccidentAreaPicturesFragment fragment = new SuitAccidentAreaPicturesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class suitUserCarOfAccidentPickFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suit_user_car_of_accident_pick, container, false);
+        return inflater.inflate(R.layout.fragment_suit_accident_area_pictures, container, false);
     }
 }

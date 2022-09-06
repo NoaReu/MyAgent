@@ -12,10 +12,10 @@ import com.example.myagent.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link suitUserCarPicturesFragment#newInstance} factory method to
+ * Use the {@link SuitSide2IdCardFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class suitUserCarPicturesFragment extends Fragment {
+public class SuitSide2IdCardFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class suitUserCarPicturesFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public suitUserCarPicturesFragment() {
+    public SuitSide2IdCardFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class suitUserCarPicturesFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment suitUserCarPicturesFragment.
+     * @return A new instance of fragment SuitSide2IdCardFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static suitUserCarPicturesFragment newInstance(String param1, String param2) {
-        suitUserCarPicturesFragment fragment = new suitUserCarPicturesFragment();
+    public static SuitSide2IdCardFragment newInstance(String param1, String param2) {
+        SuitSide2IdCardFragment fragment = new SuitSide2IdCardFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class suitUserCarPicturesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suit_user_car_pictures, container, false);
+        return inflater.inflate(R.layout.fragment_suit_side2_id_card, container, false);
     }
 }
