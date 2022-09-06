@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/entrancePageFragment">
+
+    <fragment
+        android:id="@+id/entrancePageFragment"
+        android:name="com.example.myagent.EntrancePageFragment"
+        android:label="fragment_entrance_page"
+        tools:layout="@layout/fragment_entrance_page" >
+        <action
+            android:id="@+id/action_entrancePageFragment_to_userLoginPageFragment"
+            app:destination="@id/userLoginPageFragment" />
+        <action
+            android:id="@+id/action_entrancePageFragment_to_agentRegistration"
+            app:destination="@id/agentRegistration" />
+    </fragment>
+    <fragment
+        android:id="@+id/userHomePageFragment"
+        android:name="com.example.myagent.userPages.UserHomePageFragment"
+        android:label="fragment_user_home_page"
+        tools:layout="@layout/fragment_user_home_page" >
+        <action
+            android:id="@+id/action_userHomePageFragment_to_suitInfoInstructionPageForUser"
+            app:destination="@id/suitInfoInstructionPageForUser" />
+    </fragment>
+    <fragment
+        android:id="@+id/agentSuitsList"
+        android:name="com.example.myagent.agentPages.AgentSuitsList"
+        android:label="fragment_agent_suits_list"
+        tools:layout="@layout/fragment_agent_suits_list" />
+    <fragment
+        android:id="@+id/agentRegistration"
+        android:name="com.example.myagent.agentPages.AgentRegistration"
+        android:label="fragment_agent_registration"
+        tools:layout="@layout/fragment_agent_registration" >
+        <action
+            android:id="@+id/action_agentRegistration_to_userLoginPageFragment"
+            app:destination="@id/userLoginPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewUserFragment2"
+        android:name="com.example.myagent.agentPages.CreateNewUserFragment"
+        android:label="fragment_create_new_user"
+        tools:layout="@layout/fragment_create_new_user" >
+        <action
+            android:id="@+id/action_createNewUserFragment2_to_sendSuccessForCustomerInfoAtAgent"
+            app:destination="@id/sendSuccessForCustomerInfoAtAgent" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerInfoAtAgent2"
+        android:name="com.example.myagent.agentPages.CustomerInfoAtAgent"
+        android:label="fragment_customer_info_at_agent"
+        tools:layout="@layout/fragment_customer_info_at_agent" />
+    <fragment
+        android:id="@+id/homePageAgentFragment"
+        android:name="com.example.myagent.agentPages.HomePageAgentFragment"
+        android:label="fragment_home_page_agent"
+        tools:layout="@layout/fragment_home_page_agent" >
+        <action
+            android:id="@+id/action_homePageAgentFragment_to_searchCustomerAtAgent"
+            app:destination="@id/searchCustomerAtAgent" />
+        <action
+            android:id="@+id/action_homePageAgentFragment_to_agentSuitsList"
+            app:destination="@id/agentSuitsList" />
+        <action
+            android:id="@+id/action_homePageAgentFragment_to_createNewUserFragment2"
+            app:destination="@id/createNewUserFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchCustomerAtAgent"
+        android:name="com.example.myagent.agentPages.SearchCustomerAtAgent"
+        android:label="fragment_search_customer_at_agent"
+        tools:layout="@layout/fragment_search_customer_at_agent" >
+        <action
+            android:id="@+id/action_searchCustomerAtAgent_to_customerInfoAtAgent2"
+            app:destination="@id/customerInfoAtAgent2" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendSuccessForCustomerInfoAtAgent"
+        android:name="com.example.myagent.agentPages.SendSuccessForCustomerInfoAtAgent"
+        android:label="fragment_send_success_for_customer_info_at_agent"
+        tools:layout="@layout/fragment_send_success_for_customer_info_at_agent" />
+    <fragment
+        android:id="@+id/suitAccidentAreaPicturesFragment"
+        android:name="com.example.myagent.userPages.suitPages.suitAccidentAreaPicturesFragment"
+        android:label="fragment_suit_accident_area_pictures"
+        tools:layout="@layout/fragment_suit_accident_area_pictures" />
+    <fragment
+        android:id="@+id/suitSide2CarLicenceFragment"
+        android:name="com.example.myagent.userPages.suitPages.suitSide2CarLicenceFragment"
+        android:label="fragment_suit_side2_car_licence"
+        tools:layout="@layout/fragment_suit_side2_car_licence" />
+    <fragment
+        android:id="@+id/suitSide2IdCardFragment"
+        android:name="com.example.myagent.userPages.suitPages.suitSide2IdCardFragment"
+        android:label="fragment_suit_side2_id_card"
+        tools:layout="@layout/fragment_suit_side2_id_card" />
+    <fragment
+        android:id="@+id/suitSide2InsuranceFragment"
+        android:name="com.example.myagent.userPages.suitPages.suitSide2InsuranceFragment"
+        android:label="fragment_suit_side2_insurance"
+        tools:layout="@layout/fragment_suit_side2_insurance" />
+    <fragment
+        android:id="@+id/suitSide2PicturesFragment"
+        android:name="com.example.myagent.userPages.suitPages.suitSide2PicturesFragment"
+        android:label="fragment_suit_side2_pictures"
+        tools:layout="@layout/fragment_suit_side2_pictures" />
+    <fragment
+        android:id="@+id/suitUserCarOfAccidentPickFragment"
+        android:name="com.example.myagent.userPages.suitPages.suitUserCarOfAccidentPickFragment"
+        android:label="fragment_suit_user_car_of_accident_pick"
+        tools:layout="@layout/fragment_suit_user_car_of_accident_pick" />
+    <fragment
+        android:id="@+id/suitUserCarPicturesFragment"
+        android:name="com.example.myagent.userPages.suitPages.suitUserCarPicturesFragment"
+        android:label="fragment_suit_user_car_pictures"
+        tools:layout="@layout/fragment_suit_user_car_pictures" />
+    <fragment
+        android:id="@+id/userLoginPageFragment"
+        android:name="com.example.myagent.userPages.UserLoginPageFragment"
+        android:label="fragment_user_login_page"
+        tools:layout="@layout/fragment_user_login_page" >
+        <action
+            android:id="@+id/action_userLoginPageFragment_to_userHomePageFragment"
+            app:destination="@id/userHomePageFragment" />
+        <action
+            android:id="@+id/action_userLoginPageFragment_to_homePageAgentFragment"
+            app:destination="@id/homePageAgentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/suitInfoInstructionPageForUser"
+        android:name="com.example.myagent.userPages.suitPages.SuitInfoInstructionPageForUser"
+        android:label="fragment_suit_info_instruction_page_for_user"
+        tools:layout="@layout/fragment_suit_info_instruction_page_for_user" />
+</navigation>

@@ -4,28 +4,23 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.widget.Toast;
-
 import com.example.myagent.agentPages.AgentRegistration;
-import com.example.myagent.agentPages.AgentSuitsList;
-import com.example.myagent.agentPages.CreateNewUserFragment;
 import com.example.myagent.objects.Agent;
 import com.example.myagent.objects.User;
+import com.example.myagent.userPages.suitPages.suitUserCarPicturesFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
     private String sharedPrefFile ="sharedPreferences";
     private FirebaseAuth mAuth;
     FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
     FirebaseFirestore db;
     String agentUID;
     Agent appAgent; // will be initialized only at signed in agent function
-
+    User appUser; // will be initialized only at signed in user function
     public Agent getAppAgent(){
         return this.appAgent;
     }
@@ -44,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     static String validCapital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     static String validLetters="'אבגדהוזחטיכךלמםנןסעפףצץקרשתabcdefghijklmnopqrstuvw\"xyz";
     static String validSpecial="!#$%&@*?";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +52,57 @@ public class MainActivity extends AppCompatActivity {
         agentUID="";
 
         fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_activity, new AgentRegistration()).commit();
 
 
     }
+    public void switchToSuitPage1() {
+        fragmentTransaction.replace(R.id.main_activity, new suitUserCarPicturesFragment());
+    }
+    public static String passwordGenerator(){
+        String validChars="1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&@*?";
+        String pWord ="";
+        boolean isGoodPW = false;
+        Random r= new Random();
+        while (!isGoodPW){
+            for (int i = 0; i < 8; i++) {
+                pWord+=validChars.charAt(r.nextInt(70));
+            }
+            if(isValidPW(pWord)) isGoodPW=true;
+        }
+        return pWord;
+    }
+
     public void createNewUserForAgent(User user) {
+        String upw = passwordGenerator();
+        mAuth.createUserWithEmailAndPassword(user.getEmail(),upw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(MainActivity.this, "success user registration", Toast.LENGTH_SHORT).show();
+                    agentUID=task.getResult().getUser().getUid();
+                    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+                    firebaseFirestore.collection("users").document(task.getResult().getUser().getUid()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(MainActivity.this,"success upload data to db",Toast.LENGTH_LONG).show();
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(MainActivity.this,"failed upload data to db",Toast.LENGTH_LONG).show();
+
+                        }
+                    });
+                }else{
+                    Toast.makeText(MainActivity.this, "failed user register", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //TODO: send to user email with the password to the app
+
 
     }
     public void registerAgent(Agent agent , String email, String pw){
@@ -91,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        // TODO: send to agent email with the password to the app
     }
 
 

@@ -30,7 +30,13 @@
     <string name="hint_mail_address">israel.israeli@gmail.com</string>
     <string name="register_header">הרשמה</string>
     <string name="new_doc">חדש</string>
-
+    <string name="suit_instruction_before_header">הנחיות לפני פתיחת תביעה</string>
+    <string name="suit_instructions_text_1">לקוח יקר, לפני פתיחת תביעה עליך לוודא שיש בידייך את הפרטים הבאים:</string>
+    <string name="suit_instructions_text_2">1. צילום רשיון נהיגה ו/או תעודת זהות של הנהג השני</string>
+    <string name="suit_instructions_text_3">2. צילום תעודת ביטוח חובה של הרכב השני</string>
+    <string name="suit_instructions_text_4">3. תמונות של הפגיעה על כלי הרכב ( שלך ושל הנהג השני) ותמונות של אזור התאונה</string>
+    <string name="suit_instructions_text_5">4. מספר טלפון של הנהג השני</string>
+    <string name="collected_all_information_and_willing_to_proceed">אספתי את כל הפרטים ואני מוכן/ה להמשיך</string>
 
     <string-array name="status_of_suit">
         <item>חדש</item>
