@@ -64,17 +64,25 @@ public class ForgotPassword extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_forgot_password, container, false);
         TextView email = (TextView) view.findViewById(R.id.usernameUserForgotPassword);
-        Button confirmBtn = (Button) view.findViewById(R.id.loginBtnForgotPassword);
+        Button confirmBtn = (Button) view.findViewById(R.id.sendNewPasswordForgotPassword);
+        Button registerBtn = (Button) view.findViewById(R.id.loginBtnForgotPassword);
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainActivity mainActivity = (MainActivity) getActivity();
                 if(!email.getText().toString().trim().equals("") && MainActivity.isValidEmail(email.getText().toString().trim())){
                     mainActivity.sendNewPassword(email.getText().toString().trim());
+                    Toast.makeText(getActivity(), "סיסמה חדשה נשלחה למייל. עבור למסך התחברות", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getActivity(), "שם משתמש לא תקין", Toast.LENGTH_SHORT).show();
                 }
-
+            }
+        });
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity = (MainActivity) getActivity();
+                mainActivity.switchToLoginPage();
             }
         });
         return view;

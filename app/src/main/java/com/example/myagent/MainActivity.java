@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Random;
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
     FirebaseFirestore db;
     String agentUID;
+    FirebaseUser currentUser;
     Agent appAgent; // will be initialized only at signed in agent function
     User appUser; // will be initialized only at signed in user function
     public Agent getAppAgent(){
@@ -42,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
     static String validLetters="'אבגדהוזחטיכךלמםנןסעפףצץקרשתabcdefghijklmnopqrstuvw\"xyz";
     static String validSpecial="!#$%&@*?";
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            currentUser.reload();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new AgentRegistration()).addToBackStack(null).commit();
     }
-    public void switchToConnectPage() {
+    public void switchToLoginPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new UserLoginPageFragment()).addToBackStack(null).commit();
     }
@@ -94,6 +105,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendNewPassword(String email) {
         //TODO: search for user in FB authentication if exist
+
+        //if user exist create new password and update the authentication. after that send an email with the new password
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(MainActivity.this,"אימייל נשלח",Toast.LENGTH_LONG).show();
+                            Log.d("reset_password", "Email sent.");
+                        }
+                    }
+                });
+        //if user no exist toast משתמש זה אינו רשום במערכת
     }
     public static String passwordGenerator(){
         String validChars="1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&@*?";
@@ -135,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }else{
-                    Toast.makeText(MainActivity.this, "failed user register", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "failed to register", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -157,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(MainActivity.this,"success upload data to db",Toast.LENGTH_LONG).show();
-
+                            switchToLoginPage();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -167,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }else{
-                    Toast.makeText(MainActivity.this, "failed to register", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "משתמש זה קיים. נסה שחזור סיסמה", Toast.LENGTH_SHORT).show();
                 }
             }
         });

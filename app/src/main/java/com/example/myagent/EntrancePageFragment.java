@@ -75,7 +75,7 @@ public class EntrancePageFragment extends Fragment {
         connectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mainActivity.switchToConnectPage();
+                mainActivity.switchToLoginPage();
             }
         });
 

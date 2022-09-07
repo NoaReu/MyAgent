@@ -126,7 +126,7 @@ public class AgentRegistration extends Fragment {
                     pw.requestFocus();
                     canWeGoToDBRegistration=false;
                     Toast.makeText(getActivity(), "הסיסמה או אימות הסיסמה אינם תקינים", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), "סיסמה חייבת להיות בת 8 ספרות ולהכיל אותיות לועזיות קטנות וגדולות, מספרים ותוים מיוחדים (!#$%&@*?)", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "סיסמה חייבת להיות בת 8 ספרות ולהכיל אותיות לועזיות קטנות וגדולות, מספרים ותוים מיוחדים !#$%&@*?", Toast.LENGTH_SHORT).show();
                 }
                if(canWeGoToDBRegistration){
                    Agent agent=new Agent(
@@ -136,8 +136,7 @@ public class AgentRegistration extends Fragment {
                            phone.getText().toString());
 
                    MainActivity mainActivity=(MainActivity) getActivity();
-                   mainActivity.registerAgent(agent, email.getText().toString() ,pw.getText().toString() );
-                   Toast.makeText(getActivity(), "yeyyyyyyyyyyy", Toast.LENGTH_SHORT).show();
+                   mainActivity.registerAgent(agent, email.getText().toString() ,pw.getText().toString());
                }
             }
         });

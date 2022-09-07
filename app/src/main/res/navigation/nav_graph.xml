@@ -129,10 +129,22 @@
         <action
             android:id="@+id/action_userLoginPageFragment_to_homePageAgentFragment"
             app:destination="@id/homePageAgentFragment" />
+        <action
+            android:id="@+id/action_userLoginPageFragment_to_forgotPassword"
+            app:destination="@id/forgotPassword" />
     </fragment>
     <fragment
         android:id="@+id/suitInfoInstructionPageForUser"
         android:name="com.example.myagent.userPages.suitPages.SuitInfoInstructionPageForUser"
         android:label="fragment_suit_info_instruction_page_for_user"
         tools:layout="@layout/fragment_suit_info_instruction_page_for_user" />
+    <fragment
+        android:id="@+id/forgotPassword"
+        android:name="com.example.myagent.ForgotPassword"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPassword_to_userLoginPageFragment"
+            app:destination="@id/userLoginPageFragment" />
+    </fragment>
 </navigation>

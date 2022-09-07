@@ -37,8 +37,10 @@
     <string name="suit_instructions_text_4">3. תמונות של הפגיעה על כלי הרכב ( שלך ושל הנהג השני) ותמונות של אזור התאונה</string>
     <string name="suit_instructions_text_5">4. מספר טלפון של הנהג השני</string>
     <string name="collected_all_information_and_willing_to_proceed">אספתי את כל הפרטים ואני מוכן/ה להמשיך</string>
-    <string name="instructions_for_new_password">הכנס שם משתמש ולחץ על אישור. בעוד כמה דקות תקבל למייל סיסמה חדשה למערכת, ועליך להיכנס עם הסיסמה החדשה.</string>
+    <string name="instructions_for_new_password">הכנס שם משתמש (אימייל) ולחץ על אישור. בעוד כמה דקות תקבל לכתובת האימייל סיסמה חדשה למערכת. עליך להיכנס עם הסיסמה החדשה.</string>
     <string name="user_name">שם משתמש</string>
+    <string name="send_pw_to_email">שלח סיסמה</string>
+    <string name="connect">התחברות</string>
 
     <string-array name="status_of_suit">
         <item>חדש</item>

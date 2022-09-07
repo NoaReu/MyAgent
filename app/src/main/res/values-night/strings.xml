@@ -14,4 +14,6 @@
     <string name="collected_all_information_and_willing_to_proceed">אספתי את כל הפרטים ואני מוכן להמשיך</string>
     <string name="instructions_for_new_password">הכנס שם משתמש ולחץ על אישור. בעוד כמה דקות תקבל למייל סיסמה חדשה למערכת, ועליך להיכנס עם הסיסמה החדשה.</string>
     <string name="user_name">שם משתמש</string>
+    <string name="send_pw_to_email">שלח סיסמה למייל</string>
+    <string name="connect">התחברות</string>
 </resources>
