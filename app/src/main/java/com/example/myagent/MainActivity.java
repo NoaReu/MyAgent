@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-        //if user no exist toast משתמש זה אינו רשום במערכת
+
     }
     public static String passwordGenerator(){
         String validChars="1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!#$%&@*?";
