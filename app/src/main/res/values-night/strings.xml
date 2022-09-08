@@ -16,4 +16,7 @@
     <string name="user_name">שם משתמש</string>
     <string name="send_pw_to_email">שלח סיסמה למייל</string>
     <string name="connect">התחברות</string>
+    <string name="upload_picture">העלה תמונה</string>
+    <string name="upload_next_pictures_header">העלה את כל התמונות הבאות:</string>
+    <string name="new_suit_header">תביעה חדשה</string>
 </resources>

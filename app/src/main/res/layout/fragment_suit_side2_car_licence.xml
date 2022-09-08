@@ -31,7 +31,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="Ariel"
             android:gravity="center"
-            android:text="תביעה חדשה"
+            android:text="@string/new_suit_header"
             android:textColor="@color/teal_700"
             android:textSize="40sp" />
 
@@ -51,7 +51,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="22sp"
-            android:text="העלה את כל התמונות הבאות:"/>
+            android:text="@string/upload_next_pictures_header"/>
 
         <TextView
             android:id="@+id/textView7"
@@ -84,6 +84,36 @@
             android:textSize="20sp"
             android:text="@string/suit_instructions_text_4" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_design"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:paddingHorizontal="20dp"
+            android:text="@string/upload_picture" />
 
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/add_picture_to_suit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/continue_to_suit2_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/BTN_background_dark"
+            android:background="@drawable/button_design"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="הכל כאן. אפשר להמשיך" />
     </LinearLayout>
 </LinearLayout>

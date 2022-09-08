@@ -108,6 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginBottom="25dp"
             android:backgroundTint="@color/BTN_background_dark"
             android:background="@drawable/button_design"
             android:textStyle="bold"
