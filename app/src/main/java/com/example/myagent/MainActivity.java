@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
     public Agent getAppAgent(){
         return this.appAgent;
     }
-    static String validNumbers="1234567890";
-    static String validCapital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    static String validLetters="'אבגדהוזחטיכךלמםנןסעפףצץקרשתabcdefghijklmnopqrstuvw\"xyz";
-    static String validSpecial="!#$%&@*?";
+    private static String validNumbers="1234567890";
+    private static String validCapital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static String validLetters="'אבגדהוזחטיכךלמםנןסעפףצץקרשתabcdefghijklmnopqrstuvw\"xyz";
+    private static String validSpecial="!#$%&@*?";
 
     @Override
     public void onStart() {
@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
-
 
     }
     public void switchToSuitPage1() {

@@ -100,9 +100,9 @@
         tools:layout="@layout/fragment_suit_side2_id_card" />
     <fragment
         android:id="@+id/suitSide2InsuranceFragment"
-        android:name="com.example.myagent.userPages.suitPages.SuitSide2InsuranceFragment"
+        android:name="com.example.myagent.userPages.suitPages.SuitDescriptionFragment"
         android:label="fragment_suit_side2_insurance"
-        tools:layout="@layout/fragment_suit_side2_insurance" />
+        tools:layout="@layout/fragment_suit_description" />
     <fragment
         android:id="@+id/suitSide2PicturesFragment"
         android:name="com.example.myagent.userPages.suitPages.SuitSide2PicturesFragment"
