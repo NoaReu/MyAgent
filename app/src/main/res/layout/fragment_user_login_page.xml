@@ -64,9 +64,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1.8"
-                android:text="סיסמה"
+                android:text="@string/password"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/PasswordUSERLOGIN"

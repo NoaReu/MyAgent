@@ -44,6 +44,7 @@
     <string name="upload_picture">העלה תמונה</string>
     <string name="upload_next_pictures_header">העלה את כל התמונות הבאות:</string>
     <string name="new_suit_header">תביעה חדשה</string>
+    <string name="password">סיסמה</string>
 
     <string-array name="status_of_suit">
         <item>חדש</item>
