@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                             user = task1.toObject(User.class);
-                                            if (user.isAgent()) {
+                                            if (user.isAnAgent()) {
                                                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                                                 fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
                                             } else {
@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "success to register", Toast.LENGTH_SHORT).show();
                     agentUID=task.getResult().getUser().getUid();
                     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-                    firebaseFirestore.collection("agents").document(mAuth.getUid()).set(agent).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    firebaseFirestore.collection("users").document(mAuth.getUid()).set(agent).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(MainActivity.this,"success upload data to db",Toast.LENGTH_LONG).show();
