@@ -26,7 +26,6 @@
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_send_success_for_customer_info_at_agent.xml" value="0.3484375" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_sesrch_customer_at_agent.xml" value="0.3625" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_accident_area_pictures.xml" value="0.3625" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_description.xml" value="0.3625" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_info_instruction_page_for_user.xml" value="0.33" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_side2_car_licence.xml" value="0.3625" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_side2_id_card.xml" value="0.3625" />
@@ -45,6 +44,9 @@
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background1.xml" value="0.1935" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background1_round.xml" value="0.1935" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background_round.xml" value="0.1935" />
+        <entry key="app/src/main/res/layout/customer_item_at_agent_search.xml" value="0.3546875" />
+        <entry key="app/src/main/res/layout/fragment_agent_registration.xml" value="0.14260385005065856" />
+        <entry key="app/src/main/res/layout/fragment_user_login_page.xml" value="0.14260385005065856" />
       </map>
     </option>
   </component>
