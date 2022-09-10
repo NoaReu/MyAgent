@@ -81,7 +81,7 @@ public class CreateNewUserFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean canBeReg=true;
-                if(firstName.getText().toString().length()<2 || !MainActivity.isValidString(firstName.getText().toString())){
+                if(firstName.getText().toString().trim().length()<2 || !MainActivity.isValidString(firstName.getText().toString().trim())){
                     Toast.makeText(getActivity(), "הכנס שם משתמש תקין", Toast.LENGTH_SHORT).show();
                     firstName.requestFocus();
                     canBeReg=false;
