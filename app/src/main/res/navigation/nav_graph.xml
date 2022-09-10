@@ -98,16 +98,7 @@
         android:name="com.example.myagent.userPages.suitPages.SuitSide2IdCardFragment"
         android:label="fragment_suit_side2_id_card"
         tools:layout="@layout/fragment_suit_side2_id_card" />
-    <fragment
-        android:id="@+id/suitSide2InsuranceFragment"
-        android:name="com.example.myagent.userPages.suitPages.SuitDescriptionFragment"
-        android:label="fragment_suit_side2_insurance"
-        tools:layout="@layout/fragment_suit_description" />
-    <fragment
-        android:id="@+id/suitSide2PicturesFragment"
-        android:name="com.example.myagent.userPages.suitPages.SuitSide2PicturesFragment"
-        android:label="fragment_suit_side2_pictures"
-        tools:layout="@layout/fragment_suit_side2_pictures" />
+
     <fragment
         android:id="@+id/suitUserCarOfAccidentPickFragment"
         android:name="com.example.myagent.userPages.suitPages.SuitUserCarOfAccidentPickFragment"
@@ -137,7 +128,11 @@
         android:id="@+id/suitInfoInstructionPageForUser"
         android:name="com.example.myagent.userPages.suitPages.SuitInfoInstructionPageForUser"
         android:label="fragment_suit_info_instruction_page_for_user"
-        tools:layout="@layout/fragment_suit_info_instruction_page_for_user" />
+        tools:layout="@layout/fragment_suit_info_instruction_page_for_user" >
+        <action
+            android:id="@+id/action_suitInfoInstructionPageForUser_to_suitSide2CarLicenceFragment"
+            app:destination="@id/suitSide2CarLicenceFragment" />
+    </fragment>
     <fragment
         android:id="@+id/forgotPassword"
         android:name="com.example.myagent.ForgotPassword"

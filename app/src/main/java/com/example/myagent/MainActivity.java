@@ -10,8 +10,10 @@ import android.util.Log;
 import android.util.Patterns;
 import android.widget.Toast;
 import com.example.myagent.agentPages.AgentRegistration;
+import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.objects.Agent;
 import com.example.myagent.objects.User;
+import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
 import com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment;
 import com.example.myagent.userPages.suitPages.SuitUserCarPicturesFragment;
@@ -22,6 +24,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Random;
 
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore db;
     String agentUID;
     FirebaseUser currentUser;
+    User user;
     Agent appAgent; // will be initialized only at signed in agent function
     User appUser; // will be initialized only at signed in user function
     public Agent getAppAgent(){
@@ -48,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        currentUser = mAuth.getCurrentUser();
+         currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             currentUser.reload();
         }
@@ -133,6 +138,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void login(String email, String pw ) {
+        // if(!emailLog.isEmpty() && !passLog.isEmpty())
+        mAuth.signInWithEmailAndPassword(email, pw)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()) {
+//                            userEmail = emailLog;
+                            String uid = mAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = db.collection("users").document(mAuth.getUid());
+                            documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    DocumentSnapshot task1 = task.getResult();
+                                    task.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            user = task1.toObject(User.class);
+                                            if (user.isAgent()) {
+                                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                                fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
+                                            } else {
+                                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                                fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        } else {
+                            Toast.makeText(MainActivity.this, "you failed to login", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+
 
     }
     public void createNewUserForAgent(User user) {
