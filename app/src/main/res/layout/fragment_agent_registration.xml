@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="שם פרטי"
-                    android:textSize="24dp" />
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/reg_agent_private_name_textview"
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="שם משפחה"
-                    android:textSize="24dp" />
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/reg_agent_last_name_textview"
@@ -105,7 +105,7 @@
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:inputType="textPersonName"
-                    android:hint="ישראלי"/>
+                    android:hint="@string/last_name_hint"/>
 
             </LinearLayout>
 
@@ -119,8 +119,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="תעודת זהות"
-                    android:textSize="24dp" />
+                    android:text="@string/id_headline"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/reg_agent_id_textview"
@@ -128,7 +128,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
                     android:inputType="number"
-                    android:hint="111111111"/>
+                    android:hint="@string/id_headline_hint"/>
 
             </LinearLayout>
 
@@ -142,8 +142,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="נייד"
-                    android:textSize="24dp" />
+                    android:text="@string/phone_number"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/reg_agent_phone_number_textview"
@@ -151,7 +151,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
                     android:inputType="phone"
-                    android:hint="050-1234567"/>
+                    android:hint="@string/phone_number_hint"/>
 
             </LinearLayout>
 
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/mail_header"
-                    android:textSize="24dp" />
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/reg_agent_email_textview"
@@ -174,7 +174,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
                     android:inputType="textEmailAddress"
-                    android:hint="israel.israeli@gmail.com"/>
+                    android:hint="@string/email_headline_hint"/>
 
             </LinearLayout>
 
@@ -189,8 +189,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:text="סיסמה"
-                    android:textSize="24dp" />
+                    android:text="@string/password_headline"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/reg_agent_password_textview"
@@ -198,7 +198,7 @@
                     android:layout_height="48dp"
                     android:ems="12"
                     android:inputType="textPassword"
-                    android:hint="*********"/>
+                    android:hint="@string/password_hint"/>
 
             </LinearLayout>
 
@@ -212,8 +212,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="אימות סיסמה"
-                    android:textSize="24dp" />
+                    android:text="@string/password_confirmation_headline"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/reg_agent_confirmation_password_textview"
@@ -221,7 +221,7 @@
                     android:layout_height="48dp"
                     android:ems="12"
                     android:inputType="textPassword"
-                    android:hint="*********"/>
+                    android:hint="@string/password_confirmation_headline_hint"/>
 
             </LinearLayout>
             <LinearLayout
@@ -241,8 +241,8 @@
                 android:layout_gravity="center"
                 android:backgroundTint="@color/BTN_background_dark"
                 android:text="@string/register_header"
-                android:textColor="@color/white"
-                android:textSize="30dp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:background="@drawable/button_design"
                 android:padding="10dp"
                  />

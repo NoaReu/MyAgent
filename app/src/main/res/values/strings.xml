@@ -45,6 +45,20 @@
     <string name="upload_next_pictures_header">העלה את כל התמונות הבאות:</string>
     <string name="new_suit_header">תביעה חדשה</string>
     <string name="password">סיסמה</string>
+    <string name="first_name">שם פרטי</string>
+    <string name="first_name_hint">ישראל</string>
+    <string name="last_name">שם משפחה</string>
+    <string name="last_name_hint">ישראלי</string>
+    <string name="id_headline">תעודת זהות</string>
+    <string name="id_headline_hint">111111111</string>
+    <string name="phone_number">נייד</string>
+    <string name="phone_number_hint">050-1234567</string>
+    <string name="address_hint">הזן כתובת מגורים</string>
+    <string name="email_headline_hint">israel.israeli@gmail.com</string>
+    <string name="password_hint">*********</string>
+    <string name="password_headline">סיסמה</string>
+    <string name="password_confirmation_headline">אימות סיסמה</string>
+    <string name="password_confirmation_headline_hint">*********</string>
 
     <string-array name="status_of_suit">
         <item>חדש</item>

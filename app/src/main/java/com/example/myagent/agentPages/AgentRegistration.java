@@ -80,20 +80,6 @@ public class AgentRegistration extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean canWeGoToDBRegistration=true;
-//                if(!privateName.getText().toString().equals("") && !lastName.getText().toString().equals("") && !agentId.getText().toString().equals("")
-//                   && !phone.getText().toString().equals("") && !email.getText().toString().equals("") && !pw.getText().toString().equals("") && !confPw.getText().toString().equals("")) {
-//                   Toast.makeText(getActivity(), "כל השדות מלאים", Toast.LENGTH_SHORT).show();
-//                    canWeGoToDBRegistration=true;
-//                }else{
-//                    if(privateName.getText().toString().equals("")) privateName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-//                    if(lastName.getText().toString().equals("")) lastName.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-//                    if(agentId.getText().toString().equals("")) agentId.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-//                    if(phone.getText().toString().equals("")) phone.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-//                    if(email.getText().toString().equals("")) email.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-//                    if(pw.getText().toString().equals("")) pw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-//                    if(confPw.getText().toString().equals("")) confPw.setHintTextColor(getResources().getColor(R.color.warning_red,null));
-//                    Toast.makeText(getActivity(), "יש להשלים את כל השדות",Toast.LENGTH_SHORT).show();
-//                }
                 if(privateName.getText().toString().length()<2 || MainActivity.isValidString(privateName.getText().toString())) {
                     Toast.makeText(getActivity(), "שם פרטי לא תקין", Toast.LENGTH_SHORT).show();
                     privateName.requestFocus();

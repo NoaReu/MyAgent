@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,37 +69,42 @@ public class CreateNewUserFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_create_new_user, container, false);
-        TextView firstName= (TextView) view.findViewById(R.id.first_name_text_create_user);
-        TextView lastName= (TextView) view.findViewById(R.id.last_name_text_create_user);
-        TextView userId= (TextView) view.findViewById(R.id.id_number_text_create_user);
-        TextView phone= (TextView) view.findViewById(R.id.phone_number_text_create_user);
-        TextView email= (TextView) view.findViewById(R.id.mail_address_text_create_user);
-        TextView address= (TextView) view.findViewById(R.id.address_text_create_user);
+        EditText firstName= (EditText) view.findViewById(R.id.first_name_text_create_user);
+        EditText lastName= (EditText) view.findViewById(R.id.last_name_text_create_user);
+        EditText userId= (EditText) view.findViewById(R.id.id_number_text_create_user);
+        EditText phone= (EditText) view.findViewById(R.id.phone_number_text_create_user);
+        EditText email= (EditText) view.findViewById(R.id.mail_address_text_create_user);
+        EditText address= (EditText) view.findViewById(R.id.address_text_create_user);
         Button regUserBTN= (Button) view.findViewById(R.id.register_user_btn);
 
         regUserBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean canBeReg=true;
-                if(firstName.getText().toString().trim().length()<2 || !MainActivity.isValidString(firstName.getText().toString().trim())){
+                if(firstName.getText().toString().length()<2 || !MainActivity.isValidString(firstName.getText().toString())){
                     Toast.makeText(getActivity(), "הכנס שם משתמש תקין", Toast.LENGTH_SHORT).show();
                     firstName.requestFocus();
                     canBeReg=false;
                 }else if(lastName.getText().toString().trim().length()<2 || !MainActivity.isValidString(lastName.getText().toString().trim())){
                     Toast.makeText(getActivity(), "הכנס שם משפחה תקין", Toast.LENGTH_SHORT).show();
                     lastName.requestFocus();
+                    canBeReg=false;
                 }else if(userId.getText().toString().trim().length()!=9 ||!MainActivity.isValidID(userId.getText().toString().trim())){
                     Toast.makeText(getActivity(), "הכנס מספר תעודת זהות תקין בעל 9 ספרות", Toast.LENGTH_SHORT).show();
                     userId.requestFocus();
+                    canBeReg=false;
                 }else if(phone.getText().toString().trim().length()<10 || !phone.getText().toString().trim().startsWith("05") || !MainActivity.isValidPhone(phone.getText().toString().trim())){
                     Toast.makeText(getActivity(), "הכנס מספר נייד תקין", Toast.LENGTH_SHORT).show();
                     phone.requestFocus();
+                    canBeReg=false;
                 }else if(!MainActivity.isValidEmail(email.getText().toString().trim())){
                     Toast.makeText(getActivity(), "הכנס כתובת מייל תקינה", Toast.LENGTH_SHORT).show();
                     email.requestFocus();
+                    canBeReg=false;
                 }else if(address.getText().toString().trim().length()<4 || !MainActivity.isValidString(address.getText().toString().trim())){
                     Toast.makeText(getActivity(), "הכנס כתובת בית תקינה", Toast.LENGTH_SHORT).show();
                     address.requestFocus();
+                    canBeReg=false;
                 }
                 if(canBeReg){
                     MainActivity mainActivity=(MainActivity) getActivity();

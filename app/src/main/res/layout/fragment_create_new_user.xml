@@ -44,7 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_alignParentBottom="true"
             android:layout_weight="1"
             >
 
@@ -60,15 +59,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="שם פרטי"
-                    android:textSize="24dp" />
+                    android:text="@string/first_name"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/first_name_text_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_weight="0.6"
-                    android:hint="ישראל" />
+                    android:inputType="textPersonName"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:hint="@string/first_name_hint" />
 
 
             </LinearLayout>
@@ -83,15 +85,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="שם משפחה"
-                    android:textSize="24dp" />
+                    android:text="@string/last_name"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/last_name_text_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
-                    android:hint="ישראלי"/>
+                    android:inputType="textPersonName"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:hint="@string/last_name_hint"/>
 
             </LinearLayout>
 
@@ -105,8 +110,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="תעודת זהות"
-                    android:textSize="24dp" />
+                    android:text="@string/id_headline"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/id_number_text_create_user"
@@ -114,7 +119,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
                     android:inputType="number"
-                    android:hint="111111111"/>
+                    android:hint="@string/id_headline_hint"/>
 
             </LinearLayout>
 
@@ -128,8 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="נייד"
-                    android:textSize="24dp" />
+                    android:text="@string/phone_number"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/phone_number_text_create_user"
@@ -137,7 +142,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
                     android:inputType="phone"
-                    android:hint="050-1234567"/>
+                    android:hint="@string/phone_number_hint"/>
 
             </LinearLayout>
 
@@ -152,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/mail_header"
-                    android:textSize="24dp" />
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/mail_address_text_create_user"
@@ -174,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/address_customer_info_at_agent"
-                    android:textSize="24dp" />
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/address_text_create_user"
@@ -182,7 +187,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
                     android:inputType="text"
-                    android:hint="הזן כתובת מגורים"/>
+                    android:hint="@string/address_hint"/>
 
             </LinearLayout>
 
@@ -198,7 +203,7 @@
                 android:padding="10dp"
                 android:text="@string/confirm_btn"
                 android:textColor="@color/white"
-                android:textSize="30dp" />
+                android:textSize="30sp" />
         </LinearLayout>
 
 </LinearLayout>
