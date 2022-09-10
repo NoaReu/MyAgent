@@ -154,12 +154,11 @@ public class MainActivity extends AppCompatActivity {
                                     task.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                         @Override
                                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                            user = task1.toObject(User.class);
-                                            if (user.isAnAgent()) {
-                                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                            if(task1.getBoolean("anAgent"))//if (user.isAnAgent())
+                                            {
                                                 fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
                                             } else {
-                                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                                                 fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
                                             }
                                         }

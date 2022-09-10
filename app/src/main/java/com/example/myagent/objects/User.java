@@ -10,6 +10,16 @@ public class User {
     private String address;
     private boolean isAnAgent;
 
+    public User(String firstName, String lastName, String id, String agentId, String phone, String email, String address,  boolean isAgent){
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.userId=id;
+        this.agentId=agentId;
+        this.phone=phone;
+        this.email=email;
+        this.address=address;
+        this.isAnAgent=isAgent;
+    }
     public User(String firstName, String lastName, String id, String agentId, String phone, String email, String address){
         this.firstName=firstName;
         this.lastName=lastName;
