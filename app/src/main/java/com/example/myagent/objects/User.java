@@ -20,6 +20,8 @@ public class User {
         this.address=address;
         this.isAnAgent=isAgent;
     }
+
+    //user (no agent)
     public User(String firstName, String lastName, String id, String agentId, String phone, String email, String address){
         this.firstName=firstName;
         this.lastName=lastName;
@@ -30,6 +32,8 @@ public class User {
         this.address=address;
         this.isAnAgent=false;
     }
+
+    //agent
     public User(String firstName, String lastName, String agentId, String phone){
         this.firstName=firstName;
         this.lastName=lastName;

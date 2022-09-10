@@ -61,6 +61,10 @@ public class SearchCustomerAtAgent extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search_customer_at_agent, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_customer_at_agent, container, false);
+        //get all agents users from DB and show them as list by recycler view
+
+
+        return view;
     }
 }

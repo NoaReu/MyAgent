@@ -11,6 +11,7 @@ import android.util.Patterns;
 import android.widget.Toast;
 import com.example.myagent.agentPages.AgentRegistration;
 import com.example.myagent.agentPages.HomePageAgentFragment;
+import com.example.myagent.agentPages.SearchCustomerAtAgent;
 import com.example.myagent.objects.User;
 import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
@@ -38,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
     String agentUID;
     FirebaseUser currentUser;
     User user;
-    User appAgent; // will be initialized only at signed in agent function
+//    User appAgent; // will be initialized only at signed in agent function
     User appUser; // will be initialized only at signed in user function
     public User getAppAgent(){
-        return this.appAgent;
+        return this.user;
     }
     private static String validNumbers="1234567890";
     private static String validCapital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -71,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
 
+    }
+    public void switchToCreateUserPage() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SearchCustomerAtAgent()).commit();
     }
     public void switchToSuitPage1() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -157,8 +162,10 @@ public class MainActivity extends AppCompatActivity {
                                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                                             if(task1.getBoolean("anAgent"))//if (user.isAnAgent())
                                             {
+                                                user=new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("agentId"),task1.getString("phone"));
                                                 fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
                                             } else {
+                                                user=new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("userId"),task1.getString("agentId"),task1.getString("phone"),task1.getString("email"),task1.getString("address"));
                                                 fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
                                             }
                                         }
@@ -187,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void unused) {
                             Toast.makeText(MainActivity.this,"success upload data to db",Toast.LENGTH_LONG).show();
-
+                            
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -313,6 +320,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return capital && lowLetter && number && special ;
     }
+
 
 
 }
