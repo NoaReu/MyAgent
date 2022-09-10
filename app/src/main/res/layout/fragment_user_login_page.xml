@@ -74,7 +74,7 @@
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="numberPassword"
+                android:inputType="textPassword"
                 tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
 
