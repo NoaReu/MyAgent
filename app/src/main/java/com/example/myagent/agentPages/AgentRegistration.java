@@ -13,8 +13,7 @@ import android.widget.Toast;
 
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
-import com.example.myagent.objects.Agent;
-import com.example.myagent.services.DBService;
+import com.example.myagent.objects.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -129,7 +128,7 @@ public class AgentRegistration extends Fragment {
                     Toast.makeText(getActivity(), "סיסמה חייבת להיות בת 8 ספרות ולהכיל אותיות לועזיות קטנות וגדולות, מספרים ותוים מיוחדים !#$%&@*?", Toast.LENGTH_SHORT).show();
                 }
                if(canWeGoToDBRegistration){
-                   Agent agent=new Agent(
+                   User agent=new User(
                            privateName.getText().toString(),
                            lastName.getText().toString(),
                            agentId.getText().toString(),

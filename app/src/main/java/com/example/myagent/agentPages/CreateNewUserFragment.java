@@ -105,7 +105,7 @@ public class CreateNewUserFragment extends Fragment {
                     User user= new User(firstName.getText().toString(),
                             lastName.getText().toString(),
                             userId.getText().toString(),
-                            mainActivity.getAppAgent().getId(),
+                            mainActivity.getAppAgent().getAgentId(),
                             phone.getText().toString(),
                             email.getText().toString(),
                             address.getText().toString());

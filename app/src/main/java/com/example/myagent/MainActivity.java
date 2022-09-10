@@ -11,7 +11,6 @@ import android.util.Patterns;
 import android.widget.Toast;
 import com.example.myagent.agentPages.AgentRegistration;
 import com.example.myagent.agentPages.HomePageAgentFragment;
-import com.example.myagent.objects.Agent;
 import com.example.myagent.objects.User;
 import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
@@ -39,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
     String agentUID;
     FirebaseUser currentUser;
     User user;
-    Agent appAgent; // will be initialized only at signed in agent function
+    User appAgent; // will be initialized only at signed in agent function
     User appUser; // will be initialized only at signed in user function
-    public Agent getAppAgent(){
+    public User getAppAgent(){
         return this.appAgent;
     }
     private static String validNumbers="1234567890";
@@ -207,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void registerAgent(Agent agent , String email, String pw){
+    public void registerAgent(User agent , String email, String pw){
 
        //todo: check if agent is already exist
         mAuth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
