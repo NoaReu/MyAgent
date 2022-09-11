@@ -12,7 +12,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.util.Patterns;
 import android.widget.Toast;
@@ -80,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
+
+//        SmsManager smsManager = SmsManager.getDefault();
+//        smsManager.sendTextMessage("0544767719", "הסוכן שלי", "הודעה מתוך אפליקצית הסוכן שלי", null, null);
+
+
 
     }
     public void switchToCreateUserPage() {
@@ -208,7 +215,13 @@ public class MainActivity extends AppCompatActivity {
                                 public void onSuccess(Void unused) {
                                     Toast.makeText(MainActivity.this, "משתמש חדש נוצר ונשלחה לו הודעת אימות", Toast.LENGTH_SHORT).show();
                                     String message="שלום "+user.getFirstName()+". קיבלת משתמש חדש לאפליקציית הסוכן שלי. על מנת להתחבר למערכת יש להיכנס עם המייל שלך והסיסמה שלך היא "+upw+" . תודה שבחרת בסוכן הביטוח שלך. נסיעה בטוחה";
-                                    sendSMSMessage(user.getPhone(),message);
+                                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                                        if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+                                            sendSMSMessage(user.getPhone(),message);
+                                        }else{
+                                            requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
+                                        }
+                                    }
                                 }
                             });
                         }
@@ -230,18 +243,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendSMSMessage(String phone, String message){
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.SEND_SMS)
-                != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.SEND_SMS)) {
-            } else {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.SEND_SMS},
-                        MY_PERMISSIONS_REQUEST_SEND_SMS);
-            }
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phone, null, message, null, null);
+            Toast.makeText(this,"Message has sent", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(this,"Failed to send message", Toast.LENGTH_SHORT).show();
         }
     }
+
 //    private void sendEmail(String to, String cc, String subject, String message, String messageAfterComplete) {
 //        Log.i("Send email", "");
 //        String[] TO = {""};
@@ -304,7 +315,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static boolean isValidString(String string){
         for(int i=0; i<string.length(); i++){
-            if(!validCapital.contains(string.charAt(i)+"") && !validLetters.contains(string.charAt(i)+"") && string.charAt(i)!='-')
+            if(!validCapital.contains(string.charAt(i)+"") && !validLetters.contains(string.charAt(i)+"") && string.charAt(i)!='-' && string.charAt(i)!=' ')
                Log.e("validation", string.charAt(i)+"");
                 return false;
         }
