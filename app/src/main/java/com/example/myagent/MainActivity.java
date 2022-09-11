@@ -95,19 +95,25 @@ public class MainActivity extends AppCompatActivity {
     }
     public List<User> getAllCustomersForAgent() {
         List<User> customers = new ArrayList<User>();
-        db.collection("users").whereEqualTo("agentId",user.getAgentId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        customers.add(document.toObject(User.class));
-                        Log.d("list of customers", document.getId() + " => " + document.getData());
+        //.whereEqualTo("agentId",user.getAgentId())
+        db=FirebaseFirestore.getInstance();
+        db.collection("users")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for (DocumentSnapshot document : task.getResult()) {
+                                customers.add(document.toObject(User.class));
+                                Log.d("list of customers", document.getId() + " => " + document.getData());
+                            }
+                        }else{
+                            Log.w("list of customers", "Error getting documents.", task.getException());
+
+                        }
                     }
-                } else {
-                    Log.w("list of customers", "Error getting documents.", task.getException());
-                }
-            }
-        });
+                })
+//
+                ;
         return customers;
     }
     public void switchToSearchUserPage() {
