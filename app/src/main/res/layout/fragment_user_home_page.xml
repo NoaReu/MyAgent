@@ -57,19 +57,19 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp">
 
-                <Button
-                    android:id="@+id/userPrevReqUSERHOMEPAGE"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:backgroundTint="@color/BTN_background_dark"
-                    android:text="צפייה\n בבקשות"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:strokeColor="#B3B3B3"
-                    app:strokeWidth="1dp" />
+<!--                <Button-->
+<!--                    android:id="@+id/userPrevReqUSERHOMEPAGE"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:backgroundTint="@color/BTN_background_dark"-->
+<!--                    android:text="צפייה\n בבקשות"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="20dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    app:strokeColor="#B3B3B3"-->
+<!--                    app:strokeWidth="1dp" />-->
 
                 <Button
                     android:id="@+id/docPrevReqUSERHOMEPAGE"
