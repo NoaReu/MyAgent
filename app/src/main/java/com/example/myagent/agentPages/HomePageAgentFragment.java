@@ -67,7 +67,7 @@ public class HomePageAgentFragment extends Fragment {
 
         Button createUser= (Button) view.findViewById(R.id.createUser_HOME_PAGE_AGENT);
         Button searchUser= (Button) view.findViewById(R.id.searchUser_HOME_PAGE_AGENT);
-        Button insurances= (Button) view.findViewById(R.id.insurances_HOME_PAGE_AGENT);
+//        Button insurances= (Button) view.findViewById(R.id.insurances_HOME_PAGE_AGENT);
         Button suits= (Button) view.findViewById(R.id.Suits_HOME_PAGE_AGENT);
 
         createUser.setOnClickListener(new View.OnClickListener() {
@@ -85,13 +85,13 @@ public class HomePageAgentFragment extends Fragment {
                 mainActivity.switchToSearchUserPage();
             }
         });
-        insurances.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity mainActivity= (MainActivity) getActivity();
-                mainActivity.switchToInsurancesPage();
-            }
-        });
+//        insurances.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                MainActivity mainActivity= (MainActivity) getActivity();
+//                mainActivity.switchToInsurancesPage();
+//            }
+//        });
         suits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
