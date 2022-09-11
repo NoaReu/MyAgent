@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void switchToCreateUserPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new CreateNewUserFragment()).commit();
+        fragmentTransaction.replace(R.id.main_activity, new CreateNewUserFragment()).addToBackStack(null).commit();
     }
     public void switchToSuitPage1() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -266,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void registerAgent(User agent , String email, String pw){
 
-       //todo: check if agent is already exist
         mAuth.createUserWithEmailAndPassword(email,pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -292,7 +291,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        // TODO: send to agent email with the password to the app
     }
 
 

@@ -81,19 +81,19 @@ public class CreateNewUserFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean canBeReg=true;
-                if(firstName.getText().toString().trim().length()<2 || !MainActivity.isValidString(firstName.getText().toString().trim())){
+                if(firstName.getText().toString().trim().length()<2 ){//|| !MainActivity.isValidString(firstName.getText().toString().trim())
                     Toast.makeText(getActivity(), "הכנס שם משתמש תקין", Toast.LENGTH_SHORT).show();
                     firstName.requestFocus();
                     canBeReg=false;
-                }else if(lastName.getText().toString().trim().length()<2 || !MainActivity.isValidString(lastName.getText().toString().trim())){
+                }else if(lastName.getText().toString().trim().length()<2 ){ //|| !MainActivity.isValidString(lastName.getText().toString().trim())
                     Toast.makeText(getActivity(), "הכנס שם משפחה תקין", Toast.LENGTH_SHORT).show();
                     lastName.requestFocus();
                     canBeReg=false;
-                }else if(userId.getText().toString().trim().length()!=9 ||!MainActivity.isValidID(userId.getText().toString().trim())){
+                }else if(userId.getText().toString().trim().length()!=9 ){ //||!MainActivity.isValidID(userId.getText().toString().trim())
                     Toast.makeText(getActivity(), "הכנס מספר תעודת זהות תקין בעל 9 ספרות", Toast.LENGTH_SHORT).show();
                     userId.requestFocus();
                     canBeReg=false;
-                }else if(phone.getText().toString().trim().length()<10 || !phone.getText().toString().trim().startsWith("05") || !MainActivity.isValidPhone(phone.getText().toString().trim())){
+                }else if(phone.getText().toString().trim().length()<10 || !phone.getText().toString().trim().startsWith("05") ){ //|| !MainActivity.isValidPhone(phone.getText().toString().trim())
                     Toast.makeText(getActivity(), "הכנס מספר נייד תקין", Toast.LENGTH_SHORT).show();
                     phone.requestFocus();
                     canBeReg=false;
@@ -101,7 +101,7 @@ public class CreateNewUserFragment extends Fragment {
                     Toast.makeText(getActivity(), "הכנס כתובת מייל תקינה", Toast.LENGTH_SHORT).show();
                     email.requestFocus();
                     canBeReg=false;
-                }else if(address.getText().toString().trim().length()<4 || !MainActivity.isValidString(address.getText().toString().trim())){
+                }else if(address.getText().toString().trim().length()<4 ){ //|| !MainActivity.isValidString(address.getText().toString().trim())
                     Toast.makeText(getActivity(), "הכנס כתובת בית תקינה", Toast.LENGTH_SHORT).show();
                     address.requestFocus();
                     canBeReg=false;
@@ -131,4 +131,8 @@ public class CreateNewUserFragment extends Fragment {
 
         return view;
     }
+
+
+
+
 }
