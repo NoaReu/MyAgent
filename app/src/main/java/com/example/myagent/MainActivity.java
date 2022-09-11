@@ -19,8 +19,10 @@ import android.util.Log;
 import android.util.Patterns;
 import android.widget.Toast;
 import com.example.myagent.agentPages.AgentRegistration;
+import com.example.myagent.agentPages.AgentSuitsList;
 import com.example.myagent.agentPages.CreateNewUserFragment;
 import com.example.myagent.agentPages.HomePageAgentFragment;
+import com.example.myagent.agentPages.InsurancesListAtAgent;
 import com.example.myagent.agentPages.SearchCustomerAtAgent;
 import com.example.myagent.objects.User;
 import com.example.myagent.userPages.UserHomePageFragment;
@@ -37,6 +39,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -83,11 +90,39 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
 
-//        SmsManager smsManager = SmsManager.getDefault();
-//        smsManager.sendTextMessage("0544767719", "הסוכן שלי", "הודעה מתוך אפליקצית הסוכן שלי", null, null);
 
 
+    }
+    public List<User> getAllCustomersForAgent() {
+        List<User> customers = new ArrayList<User>();
+        db.collection("users").whereEqualTo("agentId",user.getAgentId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        customers.add(document.toObject(User.class));
+                        Log.d("list of customers", document.getId() + " => " + document.getData());
+                    }
+                } else {
+                    Log.w("list of customers", "Error getting documents.", task.getException());
+                }
+            }
+        });
+        return customers;
+    }
+    public void switchToSearchUserPage() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SearchCustomerAtAgent()).addToBackStack(null).commit();
+    }
 
+    public void switchToInsurancesPage() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
+    }
+
+    public void switchToSuitsListPage() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new AgentSuitsList()).addToBackStack(null).commit();
     }
     public void switchToCreateUserPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -97,22 +132,22 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new SuitSide2CarLicenceFragment()).addToBackStack(null).commit();
     }
-    public void switchToSuitPage2() { // Todo:change destination
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
-    }
-    public void switchToSuitPage3() {// Todo:change destination
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
-    }
-    public void switchToSuitPage4() {// Todo:change destination
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
-    }
-    public void switchToSuitPage5() {// Todo:change destination
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
-    }
+//    public void switchToSuitPage2() { // Todo:change destination
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
+//    }
+//    public void switchToSuitPage3() {// Todo:change destination
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
+//    }
+//    public void switchToSuitPage4() {// Todo:change destination
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
+//    }
+//    public void switchToSuitPage5() {// Todo:change destination
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
+//    }
     public void switchToRegistration() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new AgentRegistration()).addToBackStack(null).commit();
@@ -125,8 +160,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new ForgotPassword()).addToBackStack(null).commit();
     }
-
-
     public void sendNewPassword(String email) {
         //TODO: search for user in FB authentication if exist
 
@@ -213,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
                             task.getResult().getUser().sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    Toast.makeText(MainActivity.this, "משתמש חדש נוצר ונשלחה לו הודעת אימות", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "משתמש חדש נוצר. על מנת להתחבר יש להנחות את המשתמש ליצור סיסמה חדשה על ידי כניסה לאיפוס סיסמה באפליקציה", Toast.LENGTH_SHORT).show();
                                     String message="שלום "+user.getFirstName()+". קיבלת משתמש חדש לאפליקציית הסוכן שלי. על מנת להתחבר למערכת יש להיכנס עם המייל שלך והסיסמה שלך היא "+upw+" . תודה שבחרת בסוכן הביטוח שלך. נסיעה בטוחה";
                                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                                         if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
@@ -237,9 +270,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        //TODO: send to user email with the password to the app
-
-
     }
 
     private void sendSMSMessage(String phone, String message){
@@ -303,8 +333,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     public static boolean isValidEmail(String email){
         if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){

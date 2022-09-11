@@ -117,14 +117,14 @@
         </TableLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/logout_HOME_PAGE_AGENT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#29ADB6"
-        android:text="יציאה"
-        android:textColor="@color/white"
-        app:strokeColor="#B3B3B3" />
+<!--    <Button-->
+<!--        android:id="@+id/logout_HOME_PAGE_AGENT"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:backgroundTint="#29ADB6"-->
+<!--        android:text="יציאה"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:strokeColor="#B3B3B3" />-->
 </FrameLayout>

@@ -66,6 +66,10 @@ public class HomePageAgentFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_home_page_agent, container, false);
 
         Button createUser= (Button) view.findViewById(R.id.createUser_HOME_PAGE_AGENT);
+        Button searchUser= (Button) view.findViewById(R.id.searchUser_HOME_PAGE_AGENT);
+        Button insurances= (Button) view.findViewById(R.id.insurances_HOME_PAGE_AGENT);
+        Button suits= (Button) view.findViewById(R.id.Suits_HOME_PAGE_AGENT);
+
         createUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,6 +78,27 @@ public class HomePageAgentFragment extends Fragment {
             }
         });
 
+        searchUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity= (MainActivity) getActivity();
+                mainActivity.switchToSearchUserPage();
+            }
+        });
+        insurances.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity= (MainActivity) getActivity();
+                mainActivity.switchToInsurancesPage();
+            }
+        });
+        suits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity mainActivity= (MainActivity) getActivity();
+                mainActivity.switchToSuitsListPage();
+            }
+        });
         return view;
     }
 }

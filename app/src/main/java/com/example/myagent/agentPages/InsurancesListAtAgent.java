@@ -3,25 +3,19 @@ package com.example.myagent.agentPages;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.myagent.MainActivity;
 import com.example.myagent.R;
-import com.example.myagent.objects.User;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SearchCustomerAtAgent#newInstance} factory method to
+ * Use the {@link InsurancesListAtAgent#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchCustomerAtAgent extends Fragment {
+public class InsurancesListAtAgent extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +26,7 @@ public class SearchCustomerAtAgent extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SearchCustomerAtAgent() {
+    public InsurancesListAtAgent() {
         // Required empty public constructor
     }
 
@@ -42,11 +36,11 @@ public class SearchCustomerAtAgent extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment SearchCustomerAtAgent.
+     * @return A new instance of fragment InsurancesListAtAgent.
      */
     // TODO: Rename and change types and number of parameters
-    public static SearchCustomerAtAgent newInstance(String param1, String param2) {
-        SearchCustomerAtAgent fragment = new SearchCustomerAtAgent();
+    public static InsurancesListAtAgent newInstance(String param1, String param2) {
+        InsurancesListAtAgent fragment = new InsurancesListAtAgent();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,18 +61,6 @@ public class SearchCustomerAtAgent extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_search_customer_at_agent, container, false);
-        //get all agents users from DB and show them as list by recycler view
-
-        RecyclerView recyclerView= (RecyclerView) view.findViewById(R.id.search_customer_recycler_view);
-
-        MainActivity mainActivity = (MainActivity) getActivity();
-        List<User> items =  mainActivity.getAllCustomersForAgent();
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        recyclerView.setAdapter(new CustomerAdapter(getContext(),items));
-
-
-        return view;
+        return inflater.inflate(R.layout.fragment_insurances_list_at_agent, container, false);
     }
 }
