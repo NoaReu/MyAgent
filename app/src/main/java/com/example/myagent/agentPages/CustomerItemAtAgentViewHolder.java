@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myagent.R;
 
-public class CustomerItemAtAgentViewHolder extends RecyclerView.ViewHolder {
+public  class CustomerItemAtAgentViewHolder extends RecyclerView.ViewHolder {
    TextView customerName;
 
     public CustomerItemAtAgentViewHolder(@NonNull View itemView) {

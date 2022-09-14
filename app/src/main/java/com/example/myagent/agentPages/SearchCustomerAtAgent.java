@@ -14,6 +14,7 @@ import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 import com.example.myagent.objects.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ import java.util.List;
  * Use the {@link SearchCustomerAtAgent#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchCustomerAtAgent extends Fragment {
+public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInterface{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,12 +74,29 @@ public class SearchCustomerAtAgent extends Fragment {
         RecyclerView recyclerView= (RecyclerView) view.findViewById(R.id.search_customer_recycler_view);
 
         MainActivity mainActivity = (MainActivity) getActivity();
-        List<User> items =  mainActivity.getAllCustomersForAgent();
+//        List<User> items =  mainActivity.getAllCustomersForAgent();
+        ArrayList<User> items =new ArrayList<User>();
+        items.add(new User("אבי","כהן", "111111111","066465238","0501112222","avi@gmail.com","hasahlav 226 Barkan"));
+        items.add(new User("מוטי","לוי", "222222222","066465238","0501112223","moti@gmail.com","hasahlav 226 Barkan"));
+        items.add(new User("איליה","בוגוסלבסקי", "333333333","066465238","0501112224","ilya@gmail.com","hasahlav 226 Barkan"));
+        items.add(new User("שלי","אורן", "444444444","066465238","0501112225","shely@gmail.com","hasahlav 226 Barkan"));
 
+
+        CustomerAdapter adapter = new CustomerAdapter(this.getContext(), items);
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        recyclerView.setAdapter(new CustomerAdapter(getContext(),items));
+
+
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+//        recyclerView.setAdapter(new CustomerAdapter(getContext(),items));
 
 
         return view;
+    }
+
+
+    @Override
+    public void onItemClick(int position) {
+
     }
 }

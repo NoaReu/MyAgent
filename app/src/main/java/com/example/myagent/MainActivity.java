@@ -29,6 +29,7 @@ import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
 import com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment;
 import com.example.myagent.userPages.suitPages.SuitUserCarPicturesFragment;
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -95,25 +96,44 @@ public class MainActivity extends AppCompatActivity {
     }
     public List<User> getAllCustomersForAgent() {
         List<User> customers = new ArrayList<User>();
-        //.whereEqualTo("agentId",user.getAgentId())
-        db=FirebaseFirestore.getInstance();
+//        db=FirebaseFirestore.getInstance();
         db.collection("users")
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                .whereEqualTo("anAgent", false)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
-                            for (DocumentSnapshot document : task.getResult()) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
                                 customers.add(document.toObject(User.class));
-                                Log.d("list of customers", document.getId() + " => " + document.getData());
+                                Log.d("get users from db", document.getId() + " => " + document.getData()+". Data arrived from DB!!");
                             }
-                        }else{
-                            Log.w("list of customers", "Error getting documents.", task.getException());
-
+                        } else {
+                            Log.e("get users from db", "NO Data from DB!!!!!!! Error getting documents: ", task.getException());
                         }
                     }
-                })
+                }).addOnCanceledListener(new OnCanceledListener() {
+                    @Override
+                    public void onCanceled() {
+                        Log.e("get users from db", "NO Data from DB!!!!!!! Error getting documents: ");
+
+                    }
+                });
+//        db.collection("users")
+//                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if(task.isSuccessful()){
+//                            for (DocumentSnapshot document : task.getResult()) {
+//                                customers.add(document.toObject(User.class));
+//                                Log.d("list of customers", document.getId() + " => " + document.getData());
+//                            }
+//                        }else{
+//                            Log.w("list of customers", "Error getting documents.", task.getException());
 //
-                ;
+//                        }
+//                    }
+//                });
         return customers;
     }
     public void switchToSearchUserPage() {
