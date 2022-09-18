@@ -29,6 +29,7 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    ArrayList<User> items;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -75,14 +76,14 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
 
         MainActivity mainActivity = (MainActivity) getActivity();
 //        List<User> items =  mainActivity.getAllCustomersForAgent();
-        ArrayList<User> items =new ArrayList<User>();
+        items =new ArrayList<User>();
         items.add(new User("אבי","כהן", "111111111","066465238","0501112222","avi@gmail.com","hasahlav 226 Barkan"));
         items.add(new User("מוטי","לוי", "222222222","066465238","0501112223","moti@gmail.com","hasahlav 226 Barkan"));
         items.add(new User("איליה","בוגוסלבסקי", "333333333","066465238","0501112224","ilya@gmail.com","hasahlav 226 Barkan"));
         items.add(new User("שלי","אורן", "444444444","066465238","0501112225","shely@gmail.com","hasahlav 226 Barkan"));
 
 
-        CustomerAdapter adapter = new CustomerAdapter(this.getContext(), items);
+        CustomerAdapter adapter = new CustomerAdapter(this.getContext(), items, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
@@ -97,6 +98,9 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
 
     @Override
     public void onItemClick(int position) {
+
+        MainActivity mainActivity=(MainActivity) getActivity();
+        mainActivity.switchToUserInfoPage(items.get(position));
 
     }
 }

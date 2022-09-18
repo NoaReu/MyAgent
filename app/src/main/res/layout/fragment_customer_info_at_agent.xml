@@ -47,6 +47,8 @@
             android:orientation="vertical"
             android:layout_alignParentBottom="true"
             android:layout_weight="1"
+            android:maxLines="1"
+            android:ellipsize="end"
             >
 
 
@@ -66,12 +68,13 @@
                     android:textSize="24sp"/>
 
                 <EditText
-                    android:id="@+id/private_name__customer_info_at_agent"
+                    android:id="@+id/private_name_customer_info_at_agent"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:background="@drawable/edit_text_box_design"
+                    android:ems="10"
                     android:inputType="textPersonName|text"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -99,6 +102,8 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_box_design"
                     android:inputType="text"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
@@ -123,6 +128,8 @@
                     android:layout_weight="0.6"
                     android:background="@drawable/edit_text_box_design"
                     tools:ignore="SpeakableTextPresentCheck"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:autofillHints="" />
 
             </LinearLayout>
@@ -170,6 +177,8 @@
                     android:layout_weight="0.6"
                     android:background="@drawable/edit_text_box_design"
                     tools:ignore="SpeakableTextPresentCheck"
+                    android:clickable="false"
+                    android:focusable="false"
                     android:autofillHints="" />
             </LinearLayout>
 
@@ -203,6 +212,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/update_customer_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#FFFFFF"
@@ -226,27 +236,28 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <Button
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
-                    android:backgroundTint="#29ADB6"
-                    android:textStyle="bold"
-                    android:text="תביעות"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp"
-                    app:strokeColor="#B3B3B3"
-                    app:strokeWidth="1dp"
-                    tools:ignore="TextContrastCheck"
-                    app:cornerRadius="@android:dimen/thumbnail_width"
-                    />
+<!--                <Button-->
+<!--                    style="?android:attr/buttonBarButtonStyle"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="15dp"-->
+<!--                    android:backgroundTint="#29ADB6"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:text="תביעות"-->
+<!--                    android:textColor="#FFFFFF"-->
+<!--                    android:textSize="24sp"-->
+<!--                    app:strokeColor="#B3B3B3"-->
+<!--                    app:strokeWidth="1dp"-->
+<!--                    tools:ignore="TextContrastCheck"-->
+<!--                    app:cornerRadius="@android:dimen/thumbnail_width"-->
+<!--                    />-->
 
                 <Button
+                    android:id="@+id/go_to_customer_documents_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#29ADB6"
-                    android:text="ביטוחים קיימים"
+                    android:text="מסמכים קיימים ללקוח"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"

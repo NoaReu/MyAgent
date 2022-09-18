@@ -1,5 +1,6 @@
 package com.example.myagent.agentPages;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
+import com.example.myagent.objects.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +67,64 @@ public class CustomerInfoAtAgent extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_customer_info_at_agent, container, false);
+        View view= inflater.inflate(R.layout.fragment_customer_info_at_agent, container, false);
+        MainActivity mainActivity=(MainActivity)getActivity();
+        assert mainActivity != null;
+        User infoUser=mainActivity.getInfoUser();
+        EditText firstName = view.findViewById(R.id.private_name_customer_info_at_agent);
+        firstName.setText(infoUser.getFirstName());
+        EditText lastName = view.findViewById(R.id.last_name_customer_info_at_agent);
+        lastName.setText(infoUser.getLastName());
+        EditText userId = view.findViewById(R.id.id_number_customer_info_at_agent);
+        userId.setText(infoUser.getUserId());
+        EditText phone = view.findViewById(R.id.phone_number_customer_info_at_agent);
+        phone.setText(infoUser.getPhone());
+        EditText email = view.findViewById(R.id.mail_address_customer_info_at_agent);
+        email.setText(infoUser.getEmail());
+        EditText address = view.findViewById(R.id.address_customer_info_at_agent);
+        address.setText(infoUser.getAddress());
+        Button update= view.findViewById(R.id.update_customer_info);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean canUpdate=true;
+                if(firstName.getText().toString().trim().length()<2 || !MainActivity.isValidString(firstName.getText().toString().trim())){
+                    Toast.makeText(getActivity(),"שם פרטי לא תקין",Toast.LENGTH_SHORT).show();
+                    canUpdate=false;
+                    firstName.requestFocus();
+                }else if(lastName.getText().toString().trim().length()<2 ||!MainActivity.isValidString(lastName.getText().toString().trim())){
+                    Toast.makeText(getActivity(),"שם משפחה לא תקין",Toast.LENGTH_SHORT).show();
+                    canUpdate=false;
+                    lastName.requestFocus();
+                }else if(!MainActivity.isValidPhone(phone.getText().toString().trim())){
+                    Toast.makeText(getActivity(),"מספר טלפון לא תקין",Toast.LENGTH_SHORT).show();
+                    canUpdate=false;
+                    phone.requestFocus();
+                }else if(!MainActivity.isValidPhone(address.getText().toString().trim())){
+                    Toast.makeText(getActivity(),"כתובת לא תקינה",Toast.LENGTH_SHORT).show();
+                    canUpdate=false;
+                    address.requestFocus();
+                }
+                if(canUpdate) {
+                    infoUser.setFirstName(firstName.getText().toString().trim());
+                    infoUser.setLastName(lastName.getText().toString().trim());
+                    infoUser.setPhone(phone.getText().toString().trim());
+                    infoUser.setAddress(address.getText().toString().trim());
+                    mainActivity.setInfoUser(infoUser);
+                    mainActivity.updateUserInfoAtDB();
+                    Toast.makeText(getActivity(),"המידע עודכן במערכת", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        Button goToDocuments = view.findViewById(R.id.go_to_customer_documents_btn);
+        goToDocuments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainActivity.switchToCustomersDocumentsPage();
+            }
+        });
+
+        return view;
     }
 }

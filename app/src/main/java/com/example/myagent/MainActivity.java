@@ -2,16 +2,12 @@ package com.example.myagent;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -21,6 +17,7 @@ import android.widget.Toast;
 import com.example.myagent.agentPages.AgentRegistration;
 import com.example.myagent.agentPages.AgentSuitsList;
 import com.example.myagent.agentPages.CreateNewUserFragment;
+import com.example.myagent.agentPages.CustomerInfoAtAgent;
 import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.agentPages.InsurancesListAtAgent;
 import com.example.myagent.agentPages.SearchCustomerAtAgent;
@@ -28,7 +25,6 @@ import com.example.myagent.objects.User;
 import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
 import com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment;
-import com.example.myagent.userPages.suitPages.SuitUserCarPicturesFragment;
 import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -57,12 +53,17 @@ public class MainActivity extends AppCompatActivity {
     FirebaseFirestore db;
     String agentUID;
     FirebaseUser currentUser;
-    User user;
+    User agent;
+    User infoUser; // only at agent- to specify the user handling by the agent
 //    User appAgent; // will be initialized only at signed in agent function
-    User appUser; // will be initialized only at signed in user function
+    User appUser; // will be initialized only at signed in user function for user app
     public User getAppAgent(){
-        return this.user;
+        return this.agent;
     }
+    public User getInfoUser(){
+        return this.infoUser;
+    }
+    public void setInfoUser(User user) { this.infoUser=user;}
     private static String validNumbers="1234567890";
     private static String validCapital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static String validLetters="'אבגדהוזחטיכךלמםנןסעפףצץקרשתabcdefghijklmnopqrstuvw\"xyz";
@@ -94,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    //TODO: not working!!! check why
     public List<User> getAllCustomersForAgent() {
         List<User> customers = new ArrayList<User>();
 //        db=FirebaseFirestore.getInstance();
@@ -135,6 +138,19 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
         return customers;
+    }
+
+    public void updateUserInfoAtDB() {
+        //Todo: replace user info at DB
+    }
+    public void switchToCustomersDocumentsPage() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
+    }
+    public void switchToUserInfoPage(User user) {
+        this.infoUser=user;
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new CustomerInfoAtAgent()).addToBackStack(null).commit();
     }
     public void switchToSearchUserPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -237,10 +253,10 @@ public class MainActivity extends AppCompatActivity {
                                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                                             if(task1.getBoolean("anAgent"))//if (user.isAnAgent())
                                             {
-                                                user=new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("agentId"),task1.getString("phone"));
+                                                agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("agentId"),task1.getString("phone"));
                                                 fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
                                             } else {
-                                                user=new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("userId"),task1.getString("agentId"),task1.getString("phone"),task1.getString("email"),task1.getString("address"));
+                                                agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("userId"),task1.getString("agentId"),task1.getString("phone"),task1.getString("email"),task1.getString("address"));
                                                 fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
                                             }
                                         }
@@ -298,6 +314,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //TODO: not working!! check why...
     private void sendSMSMessage(String phone, String message){
         try {
             SmsManager smsManager = SmsManager.getDefault();
