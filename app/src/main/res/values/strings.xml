@@ -18,7 +18,7 @@
     <string name="header_request_ins">בקשות</string>
     <string name="draft">טיוטה</string>
     <string name="header_suit_list">רשימת תביעות</string>
-    <string name="mail_header">דואר אלקטרוני</string>
+    <string name="mail_header">דואל</string>
     <string name="private_name_at_customer_info_at_agent">שם פרטי</string>
     <string name="last_name_customer_info_at_agent">שם משפחה</string>
     <string name="id_customer_info_at_agent">תעודת זהות</string>
@@ -59,7 +59,7 @@
     <string name="password_headline">סיסמה</string>
     <string name="password_confirmation_headline">אימות סיסמה</string>
     <string name="password_confirmation_headline_hint">*********</string>
-
+<string name="add_documents_for_customer">הוספת מסמך ללקוח</string>
     <string-array name="status_of_suit">
         <item>חדש</item>
         <item>בתהליך</item>

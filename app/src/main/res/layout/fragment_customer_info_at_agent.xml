@@ -45,7 +45,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_alignParentBottom="true"
             android:layout_weight="1"
             android:maxLines="1"
             android:ellipsize="end"
@@ -73,7 +72,6 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:autofillHints=""
-                    android:background="@drawable/edit_text_box_design"
                     android:ems="10"
                     android:inputType="textPersonName|text"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -100,11 +98,11 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:autofillHints=""
-                    android:background="@drawable/edit_text_box_design"
-                    android:inputType="text"
+                    android:inputType="textPersonName|text"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                />
 
             </LinearLayout>
 
@@ -126,10 +124,10 @@
                     android:layout_width="369dp"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
-                    android:background="@drawable/edit_text_box_design"
                     tools:ignore="SpeakableTextPresentCheck"
                     android:clickable="false"
                     android:focusable="false"
+                    android:inputType="number"
                     android:autofillHints="" />
 
             </LinearLayout>
@@ -152,7 +150,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
-                    android:background="@drawable/edit_text_box_design"
                     tools:ignore="SpeakableTextPresentCheck"
                     android:autofillHints="" />
             </LinearLayout>
@@ -175,7 +172,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
-                    android:background="@drawable/edit_text_box_design"
                     tools:ignore="SpeakableTextPresentCheck"
                     android:clickable="false"
                     android:focusable="false"
@@ -201,7 +197,6 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:autofillHints=""
-                    android:background="@drawable/edit_text_box_design"
                     android:gravity="center"
                     android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -222,36 +217,39 @@
                     app:strokeColor="#B3B3B3"
                     app:strokeWidth="1dp"
                     android:textStyle="bold"
-
                     tools:ignore="TextContrastCheck"
-                    app:cornerRadius="@android:dimen/thumbnail_width"
                     />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_gravity="center"
+                android:paddingBottom="20dp"
+                android:orientation="vertical">
 
-<!--                <Button-->
-<!--                    style="?android:attr/buttonBarButtonStyle"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginEnd="15dp"-->
-<!--                    android:backgroundTint="#29ADB6"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:text="תביעות"-->
-<!--                    android:textColor="#FFFFFF"-->
-<!--                    android:textSize="24sp"-->
-<!--                    app:strokeColor="#B3B3B3"-->
-<!--                    app:strokeWidth="1dp"-->
-<!--                    tools:ignore="TextContrastCheck"-->
-<!--                    app:cornerRadius="@android:dimen/thumbnail_width"-->
-<!--                    />-->
 
+
+                <Button
+                    android:id="@+id/go_to_add_documents_to_customer_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#29ADB6"
+                    android:text="@string/add_documents_for_customer"
+                    tools:ignore="HardcodedText"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    app:strokeColor="#B3B3B3"
+                    app:strokeWidth="1dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/button_design"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                     />
                 <Button
                     android:id="@+id/go_to_customer_documents_btn"
                     android:layout_width="wrap_content"
@@ -265,7 +263,8 @@
                     app:strokeWidth="1dp"
                     tools:ignore="TextContrastCheck"
                     android:background="@drawable/button_design"
-                    android:padding="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
                     />
 
             </LinearLayout>
@@ -273,3 +272,18 @@
     </LinearLayout>
 
 </FrameLayout>
+    <!--                <Button-->
+    <!--                    style="?android:attr/buttonBarButtonStyle"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginEnd="15dp"-->
+    <!--                    android:backgroundTint="#29ADB6"-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:text="תביעות"-->
+    <!--                    android:textColor="#FFFFFF"-->
+    <!--                    android:textSize="24sp"-->
+    <!--                    app:strokeColor="#B3B3B3"-->
+    <!--                    app:strokeWidth="1dp"-->
+    <!--                    tools:ignore="TextContrastCheck"-->
+    <!--                    app:cornerRadius="@android:dimen/thumbnail_width"-->
+    <!--                    />-->

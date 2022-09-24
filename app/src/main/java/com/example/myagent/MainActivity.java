@@ -96,12 +96,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     //TODO: not working!!! check why
     public List<User> getAllCustomersForAgent() {
         List<User> customers = new ArrayList<User>();
 //        db=FirebaseFirestore.getInstance();
+
         db.collection("users")
-                .whereEqualTo("anAgent", false)
+//                .whereEqualTo("anAgent", false)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -142,6 +144,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateUserInfoAtDB() {
         //Todo: replace user info at DB
+    }
+
+    public void switchToAddDocumentsToCustomerPage() {
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
     }
     public void switchToCustomersDocumentsPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
