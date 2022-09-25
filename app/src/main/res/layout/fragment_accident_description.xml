@@ -86,22 +86,11 @@
             android:textSize="22sp"
             android:text="מי לדעתך אשם בתאונה"/>
 
-        <RadioButton
-            android:id="@+id/yoursFaultBtn"
+        <Spinner
+            android:id="@+id/whos_fault_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="אתה" />
+            />
 
-        <RadioButton
-            android:id="@+id/someoneElseFaultBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="צד ג" />
-
-        <RadioButton
-            android:id="@+id/dontKnowWhoIsFaultBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="לא ידוע" />
     </LinearLayout>
 </LinearLayout>
