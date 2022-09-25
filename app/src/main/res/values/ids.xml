@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="suit_accident_description_who_is_fault_textView" type="id" />
+    <item name="whos_fault_spinner" type="id" />
+</resources>
