@@ -59,7 +59,7 @@
     <string name="password_headline">סיסמה</string>
     <string name="password_confirmation_headline">אימות סיסמה</string>
     <string name="password_confirmation_headline_hint">*********</string>
-<string name="add_documents_for_customer">הוספת מסמך ללקוח</string>
+    <string name="add_documents_for_customer">הוספת מסמך ללקוח</string>
     <string-array name="status_of_suit">
         <item>חדש</item>
         <item>בתהליך</item>

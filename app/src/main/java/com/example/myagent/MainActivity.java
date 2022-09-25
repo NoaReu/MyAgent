@@ -23,8 +23,11 @@ import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.agentPages.InsurancesListAtAgent;
 import com.example.myagent.agentPages.SearchCustomerAtAgent;
 import com.example.myagent.objects.User;
+import com.example.myagent.userPages.UserDocuments;
 import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
+import com.example.myagent.userPages.suitPages.SuitAccidentAreaPicturesFragment;
+import com.example.myagent.userPages.suitPages.SuitInfoInstructionPageForUser;
 import com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment;
 import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -253,11 +256,15 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.main_activity, new SearchCustomerAtAgent()).addToBackStack(null).commit();
     }
 
-    public void switchToInsurancesPage() {
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
-    }
+//    public void switchToInsurancesPage() {
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
+//    }
 
+    public void switchToUserDocumentsList() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new UserDocuments()).addToBackStack(null).commit();
+    }
     public void switchToSuitsListPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new AgentSuitsList()).addToBackStack(null).commit();
@@ -268,16 +275,16 @@ public class MainActivity extends AppCompatActivity {
     }
     public void switchToSuitPage1() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitInfoInstructionPageForUser()).addToBackStack(null).commit();
+    }
+    public void switchToSuitPage2() { // Todo:change destination
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new SuitSide2CarLicenceFragment()).addToBackStack(null).commit();
     }
-//    public void switchToSuitPage2() { // Todo:change destination
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
-//    }
-//    public void switchToSuitPage3() {// Todo:change destination
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
-//    }
+    public void switchToSuitPage3() {// Todo:change destination
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitAccidentAreaPicturesFragment()).addToBackStack(null).commit();
+    }
 //    public void switchToSuitPage4() {// Todo:change destination
 //        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 //        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();

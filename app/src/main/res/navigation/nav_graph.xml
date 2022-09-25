@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_userHomePageFragment_to_suitInfoInstructionPageForUser"
             app:destination="@id/suitInfoInstructionPageForUser" />
+        <action
+            android:id="@+id/action_userHomePageFragment_to_userDocuments"
+            app:destination="@id/userDocuments" />
     </fragment>
     <fragment
         android:id="@+id/agentSuitsList"
@@ -84,11 +87,6 @@
         android:label="fragment_send_success_for_customer_info_at_agent"
         tools:layout="@layout/fragment_send_success_for_customer_info_at_agent" />
     <fragment
-        android:id="@+id/suitAccidentAreaPicturesFragment"
-        android:name="com.example.myagent.userPages.suitPages.SuitAccidentAreaPicturesFragment"
-        android:label="fragment_suit_accident_area_pictures"
-        tools:layout="@layout/fragment_suit_accident_area_pictures" />
-    <fragment
         android:id="@+id/suitSide2CarLicenceFragment"
         android:name="com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment"
         android:label="fragment_suit_side2_car_licence"
@@ -142,4 +140,9 @@
             android:id="@+id/action_forgotPassword_to_userLoginPageFragment"
             app:destination="@id/userLoginPageFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/userDocuments"
+        android:name="com.example.myagent.userPages.UserDocuments"
+        android:label="fragment_user_documents"
+        tools:layout="@layout/fragment_user_documents" />
 </navigation>

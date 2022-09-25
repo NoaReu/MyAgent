@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 
 /**
@@ -61,6 +63,18 @@ public class SuitSide2CarLicenceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_suit_side2_car_licence, container, false);
+        View view = inflater.inflate(R.layout.fragment_suit_side2_car_licence, container, false);
+
+        Button nextPage = (Button) view.findViewById(R.id.continue_to_suit2_btn);
+        MainActivity mainActivity = (MainActivity) getActivity();
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainActivity.switchToSuitPage3();
+            }
+        });
+
+
+        return view;
     }
 }

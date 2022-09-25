@@ -16,7 +16,7 @@
 
         <ImageView
 
-            android:id="@+id/imageView3"
+            android:id="@+id/logoImage"
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_weight="0.2"

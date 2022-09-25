@@ -1,6 +1,5 @@
 package com.example.myagent.userPages;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,17 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UserHomePageFragment#newInstance} factory method to
+ * Use the {@link UserDocuments#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserHomePageFragment extends Fragment {
+public class UserDocuments extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +26,7 @@ public class UserHomePageFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public UserHomePageFragment() {
+    public UserDocuments() {
         // Required empty public constructor
     }
 
@@ -39,11 +36,11 @@ public class UserHomePageFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment UserHomePageFragment.
+     * @return A new instance of fragment UserDocuments.
      */
     // TODO: Rename and change types and number of parameters
-    public static UserHomePageFragment newInstance(String param1, String param2) {
-        UserHomePageFragment fragment = new UserHomePageFragment();
+    public static UserDocuments newInstance(String param1, String param2) {
+        UserDocuments fragment = new UserDocuments();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,27 +61,6 @@ public class UserHomePageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_user_home_page, container, false);
-
-        Button toDocuments = view.findViewById(R.id.user_home_page_to_documents_btn);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button toSuit = (Button) view.findViewById(R.id.user_home_page_to_new_suit_btn);
-
-        MainActivity mainActivity = (MainActivity) getActivity();
-        toDocuments.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mainActivity.switchToUserDocumentsList();
-            }
-        });
-        toSuit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mainActivity.switchToSuitPage1();
-            }
-        });
-
-
-
-        return view;
+        return inflater.inflate(R.layout.fragment_user_documents, container, false);
     }
 }
