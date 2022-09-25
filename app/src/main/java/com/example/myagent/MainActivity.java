@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -33,11 +34,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     String agentUID;
     FirebaseUser currentUser;
     User agent;
+    public List<User> userForRecyclerView;
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+
     User infoUser; // only at agent- to specify the user handling by the agent
 //    User appAgent; // will be initialized only at signed in agent function
     User appUser; // will be initialized only at signed in user function for user app
@@ -87,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         agentUID="";
-
+        userForRecyclerView=new ArrayList<>();
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
@@ -96,34 +102,117 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     //TODO: not working!!! check why
     public List<User> getAllCustomersForAgent() {
-        List<User> customers = new ArrayList<User>();
+
 //        db=FirebaseFirestore.getInstance();
 
-        db.collection("users")
-//                .whereEqualTo("anAgent", false)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                customers.add(document.toObject(User.class));
-                                Log.d("get users from db", document.getId() + " => " + document.getData()+". Data arrived from DB!!");
-                            }
-                        } else {
-                            Log.e("get users from db", "NO Data from DB!!!!!!! Error getting documents: ", task.getException());
-                        }
-                    }
-                }).addOnCanceledListener(new OnCanceledListener() {
-                    @Override
-                    public void onCanceled() {
-                        Log.e("get users from db", "NO Data from DB!!!!!!! Error getting documents: ");
+//        Task<DocumentSnapshot> documentSnapshotTask = db.collection("users").document().get();
+//        documentSnapshotTask.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                if(task.isSuccessful()){
+//                    DocumentSnapshot document = task.getResult();
+//                    if (document.exists()) {
+//                        Log.d("get users from db", "DocumentSnapshot data: " + document.getData());
+//                    } else {
+//                        Log.d("get users from db", "No such document");
+//                    }
+//                } else {
+//                    Log.d("get users from db", "get failed with ", task.getException());
+//                }
+//            }
+//        });
+//        Task<QuerySnapshot> querySnapshotTask = db.collection("users").whereEqualTo("anAgent", false).get();
+        //TODO: add- .whereEqualTo("agentId", agent.getAgentID())
 
+        db=FirebaseFirestore.getInstance();
+//        db.collection("users").whereEqualTo("anAgent", false).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//            @Override
+//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                if(!queryDocumentSnapshots.isEmpty()) {
+//                    userForRecyclerView = new ArrayList<>();
+//                    List<DocumentSnapshot> snapshotList=queryDocumentSnapshots.getDocuments();
+//                    for (DocumentSnapshot d :snapshotList){
+//                        User user= d.toObject(User.class);
+//                        userForRecyclerView.add(user);
+//                    }
+//
+//                }
+//            }
+//        });
+
+        db.collection("users").whereEqualTo("anAgent", false).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//        querySnapshotTask.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    userForRecyclerView = new ArrayList<>();
+                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                        Toast.makeText(MainActivity.this,"הצלחנו לקרוא מסמך",Toast.LENGTH_SHORT).show();
+                        userForRecyclerView.add(new User(
+                                documentSnapshot.getData().get("firstName")!=null?documentSnapshot.getData().get("firstName").toString():"",
+                                documentSnapshot.getData().get("lastName")!=null?documentSnapshot.getData().get("lastName").toString():"",
+                                documentSnapshot.getData().get("userId")!=null?documentSnapshot.getData().get("userId").toString():"",
+                                documentSnapshot.getData().get("agentId")!=null?documentSnapshot.getData().get("agentId").toString():"",
+                                documentSnapshot.getData().get("phone")!=null?documentSnapshot.getData().get("phone").toString():"",
+                                documentSnapshot.getData().get("email")!=null?documentSnapshot.getData().get("email").toString():"",
+                                documentSnapshot.getData().get("address")!=null?documentSnapshot.getData().get("address").toString():"",
+                                false));
                     }
-                });
+                    Toast.makeText(MainActivity.this,"הלקוחות נוספו לרשימה",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Log.d("get users from db", "get failed with ", task.getException());
+
+                }
+            }
+
+        });
+        return userForRecyclerView;
+
+//        List<DocumentSnapshot> documentSnapshots=documentSnapshot.getResult().getDocuments();
+//        for(DocumentSnapshot doc : documentSnapshots){
+//            customers.add(documentSnapshot.toObject(User.class));
+//        }
+//        .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                if (task.isSuccessful()) {
+//                    DocumentSnapshot document = task.getResult();
+//                    if (document.exists()) {
+//                        Log.d("get users from db", "DocumentSnapshot data: " + document.getData());
+//                    } else {
+//                        Log.d("get users from db", "No such document");
+//                    }
+//                } else {
+//                    Log.d("get users from db", "get failed with ", task.getException());
+//                }
+//            }
+//        });
+
+//        db.collection("users")
+////                .whereEqualTo("anAgent", false)
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            for (QueryDocumentSnapshot document : task.getResult()) {
+//                                customers.add(document.toObject(User.class));
+//                                Log.d("get users from db", document.getId() + " => " + document.getData()+". Data arrived from DB!!");
+//                            }
+//                        } else {
+//                            Log.e("get users from db", "NO Data from DB!!!!!!! Error getting documents: ", task.getException());
+//                        }
+//                    }
+//                }).addOnCanceledListener(new OnCanceledListener() {
+//                    @Override
+//                    public void onCanceled() {
+//                        Log.e("get users from db", "NO Data from DB!!!!!!! Error getting documents: ");
+//
+//                    }
+//                });
 //        db.collection("users")
 //                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 //                    @Override
@@ -139,7 +228,7 @@ public class MainActivity extends AppCompatActivity {
 //                        }
 //                    }
 //                });
-        return customers;
+//        return customers;
     }
 
     public void updateUserInfoAtDB() {
@@ -378,6 +467,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }else{
+//                    task.getException();
                     Toast.makeText(MainActivity.this, "משתמש זה קיים. נסה שחזור סיסמה", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -391,6 +481,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    @SuppressLint("SuspiciousIndentation")
     public static boolean isValidString(String string){
         for(int i=0; i<string.length(); i++){
             if(!validCapital.contains(string.charAt(i)+"") && !validLetters.contains(string.charAt(i)+"") && string.charAt(i)!='-' && string.charAt(i)!=' ')
