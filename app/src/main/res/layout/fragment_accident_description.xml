@@ -84,7 +84,7 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="22sp"
-            android:text="מי לדעתך אשם בתאונה"/>
+            android:text="@string/whos_fault_to_your_opinion"/>
 
         <Spinner
             android:id="@+id/whos_fault_spinner"

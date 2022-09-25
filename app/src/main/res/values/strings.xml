@@ -13,7 +13,7 @@
     <string name="status">סטטוס</string>
     <string name="header_insurance_list">רשימת ביטוחים</string>
     <string name="header_new_insurance_requests">בקשות לביטוח חדש</string>
-    <string name="enter_customer_name">הקלד שם לקוח...</string>
+    <string name="enter_customer_name">הקלד שם לקוח…</string>
     <string name="header_customer_new_ins_request">בקשות לביטוחים</string>
     <string name="header_request_ins">בקשות</string>
     <string name="draft">טיוטה</string>
@@ -52,7 +52,7 @@
     <string name="id_headline">תעודת זהות</string>
     <string name="id_headline_hint">111111111</string>
     <string name="phone_number">נייד</string>
-    <string name="phone_number_hint">050-1234567</string>
+    <string name="phone_number_hint">050–1234567</string>
     <string name="address_hint">הזן כתובת מגורים</string>
     <string name="email_headline_hint">israel.israeli@gmail.com</string>
     <string name="password_hint">*********</string>
@@ -61,6 +61,7 @@
     <string name="password_confirmation_headline_hint">*********</string>
     <string name="add_documents_for_customer">הוספת מסמך ללקוח</string>
     <string name="accident_description">תיאור התאונה</string>
+    <string name="whos_fault_to_your_opinion">מי לדעתך אשם בתאונה</string>
     <string-array name="status_of_suit">
         <item>חדש</item>
         <item>בתהליך</item>
