@@ -34,4 +34,5 @@
     <string name="password_headline">סיסמה</string>
     <string name="password_confirmation_headline">אימות סיסמה</string>
     <string name="password_confirmation_headline_hint">*********</string>
+    <string name="accident_description">תיאור התאונה</string>
 </resources>

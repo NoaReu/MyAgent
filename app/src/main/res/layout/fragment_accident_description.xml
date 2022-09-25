@@ -28,7 +28,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="Ariel"
             android:gravity="center"
-            android:text="תיאור התאונה"
+            android:text="@string/accident_description"
             android:textColor="@color/teal_700"
             android:textSize="40sp" />
     </LinearLayout>
