@@ -186,7 +186,7 @@
                 android:id="@+id/radio_who_drove2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="נהג אחר."
+                android:text="נהג אחר"
                 android:textSize="20sp"
                 android:layout_weight="1"/>
 
