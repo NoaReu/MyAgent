@@ -153,5 +153,14 @@
         android:id="@+id/accidentDescription"
         android:name="com.example.myagent.userPages.suitPages.AccidentDescription"
         android:label="fragment_accident_description"
-        tools:layout="@layout/fragment_accident_description" />
+        tools:layout="@layout/fragment_accident_description" >
+        <action
+            android:id="@+id/action_accidentDescription_to_suitDriverInfo"
+            app:destination="@id/suitDriverInfo" />
+    </fragment>
+    <fragment
+        android:id="@+id/suitDriverInfo"
+        android:name="com.example.myagent.userPages.suitPages.SuitDriverInfo"
+        android:label="fragment_suit_driver_info"
+        tools:layout="@layout/fragment_suit_driver_info" />
 </navigation>
