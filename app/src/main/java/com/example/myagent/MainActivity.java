@@ -26,8 +26,10 @@ import com.example.myagent.userPages.UserDocuments;
 import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
 import com.example.myagent.userPages.suitPages.AccidentDescription;
+import com.example.myagent.userPages.suitPages.SuitDriverInfo;
 import com.example.myagent.userPages.suitPages.SuitInfoInstructionPageForUser;
 import com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment;
+import com.example.myagent.userPages.suitPages.SuitSubmitSuccessfully;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -241,7 +243,8 @@ public class MainActivity extends AppCompatActivity {
     }
     public void switchToCustomersDocumentsPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
+        //TODO: add page of user documents an option to add documents to the user like insurances or any other relevant document
+//        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
     }
     public void switchToUserInfoPage(User user) {
         this.infoUser=user;
@@ -253,10 +256,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.main_activity, new SearchCustomerAtAgent()).addToBackStack(null).commit();
     }
 
-//    public void switchToInsurancesPage() {
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
-//    }
+    public void switchToSuitDriverPage() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitDriverInfo()).addToBackStack(null).commit();
+    }
 
     public void switchToUserDocumentsList() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -282,14 +285,14 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new AccidentDescription()).addToBackStack(null).commit();
     }
-//    public void switchToSuitPage4() {// Todo:change destination
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
-//    }
-//    public void switchToSuitPage5() {// Todo:change destination
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.main_activity, new SuitUserCarPicturesFragment()).addToBackStack(null).commit();
-//    }
+    public void switchToSuitPage4() {// Todo:change destination
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new SuitSubmitSuccessfully()).addToBackStack(null).commit();
+    }
+    public void switchToUserHomePage() {// Todo:change destination
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
+    }
     public void switchToRegistration() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new AgentRegistration()).addToBackStack(null).commit();

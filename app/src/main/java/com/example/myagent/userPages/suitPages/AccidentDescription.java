@@ -81,10 +81,10 @@ public class AccidentDescription extends Fragment {
                 if(checkId==-1){
                     Toast.makeText(getActivity(), "יש לציין האם נהג אחר נהג בשעת התאונה", Toast.LENGTH_SHORT).show();
                 }else if(checkId==R.id.radio_who_drove1){
-//                    mainActivity.switchToSuitPage4();
+                    mainActivity.switchToSuitPage4();
                 }else if(checkId==R.id.radio_who_drove2) {
 
-//                    mainActivity.switchToSuitDriverPage();
+                    mainActivity.switchToSuitDriverPage();
                 }
             }
         });
