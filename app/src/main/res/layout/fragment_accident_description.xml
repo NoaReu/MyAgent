@@ -58,7 +58,7 @@
         <EditText
             android:id="@+id/suit_accident_description_editText"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="110dp"
             android:layout_margin="20dp"
             android:ems="700"
             android:inputType="textLongMessage"
@@ -157,7 +157,54 @@
                 android:textSize="20sp"
                 android:layout_weight="1"/>
         </RadioGroup>
+        <TextView
+            android:id="@+id/suit_accident_description_who_drove_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:text="מי נהג ברכב בעת התאונה-"/>
 
+        <RadioGroup
+            android:id="@+id/choose_who_drove_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="15dp"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_who_drove1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="אני"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/radio_who_drove2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="נהג אחר"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
+
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/BTN_background_dark"
+            android:background="@drawable/button_design"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="המשך"/>
 
 
     </LinearLayout>
@@ -166,9 +213,6 @@
 
 
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>
