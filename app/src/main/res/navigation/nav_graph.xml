@@ -162,5 +162,18 @@
         android:id="@+id/suitDriverInfo"
         android:name="com.example.myagent.userPages.suitPages.SuitDriverInfo"
         android:label="fragment_suit_driver_info"
-        tools:layout="@layout/fragment_suit_driver_info" />
+        tools:layout="@layout/fragment_suit_driver_info" >
+        <action
+            android:id="@+id/action_suitDriverInfo_to_suitSubmitSuccessfully"
+            app:destination="@id/suitSubmitSuccessfully" />
+    </fragment>
+    <fragment
+        android:id="@+id/suitSubmitSuccessfully"
+        android:name="com.example.myagent.userPages.suitPages.SuitSubmitSuccessfully"
+        android:label="fragment_suit_submmit_successfully"
+        tools:layout="@layout/fragment_suit_submmit_successfully" >
+        <action
+            android:id="@+id/action_suitSubmitSuccessfully_to_userHomePageFragment"
+            app:destination="@id/userHomePageFragment" />
+    </fragment>
 </navigation>
