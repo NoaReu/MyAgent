@@ -91,21 +91,19 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
         recyclerView= (RecyclerView) view.findViewById(R.id.search_customer_recycler_view);
 
         nameToSearch=(EditText) view.findViewById(R.id.customer_name_for_search);
-        MainActivity mainActivity = (MainActivity) getActivity();
-        assert mainActivity != null;
-        mainActivity.getAllCustomersForAgent();
+//        MainActivity mainActivity = (MainActivity) getActivity();
+//        assert mainActivity != null;
+//        mainActivity.getAllCustomersForAgent();
 
         //items = new ArrayList<>(mainActivity.userForRecyclerView);
         Toast.makeText(this.getActivity(),"המידע הוחזר מהמחלקה הראשית!", Toast.LENGTH_SHORT ).show();
-        allItems=new ArrayList<>(items);
+
 //        allItems= new ArrayList<>(mainActivity.userForRecyclerView);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
 //        nameToSearch.setOnQueryTextListener(new )
 
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-//        recyclerView.setAdapter(new CustomerAdapter(getContext(),items));
+
 
         return view;
     }
@@ -115,18 +113,21 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
         super.onViewCreated(view, savedInstanceState);
 //        setHasOptionsMenu(true);
 //        MainActivity mainActivity = (MainActivity) getActivity();
-//        items =  mainActivity.userForRecyclerView;;
-//        items =new ArrayList<User>();
-//        items.add(new User("אבי","כהן", "111111111","066465238","0501112222","avi@gmail.com","hasahlav 226 Barkan"));
-//        items.add(new User("מוטי","לוי", "222222222","066465238","0501112223","moti@gmail.com","haganim 4 Petah Tikva"));
-//        items.add(new User("איליה","בוגוסלבסקי", "333333333","066465238","0501112224","ilya@gmail.com","hahoresh 19 Yakir"));
-//        items.add(new User("שלי","אורן", "444444444","066465238","0501112225","shely@gmail.com","harimon 8 Nofim"));
-//        items.add(new User("גבי","אילוז", "555555555","066465238","0501112226","gabi@gmail.com","hagalil 8 kfar saba"));
-//        items.add(new User("אורית","כהן", "666666666","066465238","0501112227","orit@gmail.com","havradim 8 hertzeliya"));
-//        items.add(new User("מתן","לוי", "777777777","066465238","0501112228","matan@gmail.com","haharoov 8 Nofim"));
-//        items.add(new User("אבי","גבאי", "888888888","066465238","0501112229","avi@gmail.com","gefen 8 hertzeliya"));
+//        items =  mainActivity.userForRecyclerView;
+        items =new ArrayList<User>();
+        items.add(new User("אבי","כהן", "111111111","066465238","0501112222","avi@gmail.com","hasahlav 226 Barkan"));
+        items.add(new User("מוטי","לוי", "222222222","066465238","0501112223","moti@gmail.com","haganim 4 Petah Tikva"));
+        items.add(new User("איליה","בוגוסלבסקי", "333333333","066465238","0501112224","ilya@gmail.com","hahoresh 19 Yakir"));
+        items.add(new User("שלי","אורן", "444444444","066465238","0501112225","shely@gmail.com","harimon 8 Nofim"));
+        items.add(new User("גבי","אילוז", "555555555","066465238","0501112226","gabi@gmail.com","hagalil 8 kfar saba"));
+        items.add(new User("אורית","כהן", "666666666","066465238","0501112227","orit@gmail.com","havradim 8 hertzeliya"));
+        items.add(new User("מתן","לוי", "777777777","066465238","0501112228","matan@gmail.com","haharoov 8 Nofim"));
+        items.add(new User("אבי","גבאי", "888888888","066465238","0501112229","avi@gmail.com","gefen 8 hertzeliya"));
+        allItems=new ArrayList<>(items);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-
+        recyclerView.setAdapter(new CustomerAdapter(getContext(),items,this));
         nameToSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
