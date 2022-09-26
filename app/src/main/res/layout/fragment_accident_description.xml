@@ -192,13 +192,17 @@
 
 
         </RadioGroup>
-
+        <LinearLayout
+            android:id="@+id/add_picture_to_suit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
         <Button
             android:id="@+id/continue_to_suit3_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginBottom="25dp"
             android:backgroundTint="@color/BTN_background_dark"
             android:background="@drawable/button_design"
             android:textStyle="bold"
@@ -207,7 +211,7 @@
             android:gravity="center"
             android:text="המשך"/>
 
-
+        </LinearLayout>
     </LinearLayout>
 
 
