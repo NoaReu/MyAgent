@@ -194,7 +194,7 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/continue_to_suit3_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -204,6 +204,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20sp"
+            android:gravity="center"
             android:text="המשך"/>
 
 
