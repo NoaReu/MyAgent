@@ -47,7 +47,7 @@
         <LinearLayout
             android:id="@+id/suit_driver_info_fourth_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"
@@ -57,9 +57,9 @@
             <LinearLayout
                 android:id="@+id/full_name_suit_driver_info_layout"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/full_name_suit_driver_info_text"
@@ -72,7 +72,7 @@
                 <EditText
                     android:id="@+id/full_name_suit_driver_info_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:ems="10"
@@ -84,8 +84,8 @@
             <LinearLayout
                 android:id="@+id/year_of_birth_suit_driver_info_layout"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/year_of_birth_suit_driver_info_text"
@@ -98,7 +98,7 @@
                 <EditText
                     android:id="@+id/year_of_birth_suit_driver_info_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:ellipsize="end"
@@ -111,12 +111,12 @@
             <LinearLayout
                 android:id="@+id/id_number_suit_driver_info_layout"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/id_number_suit_driver_info_text"
-                    android:layout_width="342dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/id_customer_info_at_agent"
@@ -124,8 +124,8 @@
 
                 <EditText
                     android:id="@+id/id_number_suit_driver_info_edit_text"
-                    android:layout_width="369dp"
-                    android:layout_height="58dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:clickable="false"
@@ -138,8 +138,8 @@
             <LinearLayout
                 android:id="@+id/address_suit_driver_info_layout"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/address_suit_driver_info_text"
@@ -152,7 +152,7 @@
                 <EditText
                     android:id="@+id/address_suit_driver_info_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:gravity="center"
@@ -163,8 +163,8 @@
             <LinearLayout
                 android:id="@+id/family_closeness_suit_driver_info_layout"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/family_closeness_suit_driver_info_text"
@@ -178,7 +178,7 @@
                 <EditText
                     android:id="@+id/family_closeness_suit_driver_info_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:inputType="text"
@@ -188,13 +188,13 @@
             <LinearLayout
                 android:id="@+id/drivers_license_number_suit_driver_info_layout"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/drivers_license_number_suit_driver_info_text"
                     android:layout_width="match_parent"
-                    android:layout_height="51dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="מספר רשיון נהיגה"
                     android:textSize="24sp" />
@@ -202,7 +202,7 @@
                 <EditText
                     android:id="@+id/drivers_license_number_suit_driver_info_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:inputType="text"
@@ -214,21 +214,21 @@
             <LinearLayout
                 android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_layout"
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_text"
                     android:layout_width="match_parent"
-                    android:layout_height="51dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="שנת הוצאת רישיון נהיגה"
-                    android:textSize="18sp" />
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:clickable="false"
