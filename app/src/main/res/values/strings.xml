@@ -34,7 +34,7 @@
     <string name="suit_instructions_text_1">לקוח יקר, לפני פתיחת תביעה עליך לוודא שיש בידייך את הפרטים הבאים:</string>
     <string name="suit_instructions_text_2">1. צילום רשיון נהיגה ו/או תעודת זהות של הנהג השני</string>
     <string name="suit_instructions_text_3">2. צילום תעודת ביטוח חובה של הרכב השני</string>
-    <string name="suit_instructions_text_4">3. תמונות של הפגיעה על כלי הרכב ( שלך ושל הנהג השני) ותמונות של אזור התאונה</string>
+    <string name="suit_instructions_text_4">3. תמונות של הפגיעה על גבי כלי הרכב ( שלך ושל הנהג השני) ותמונות של אזור התאונה</string>
     <string name="suit_instructions_text_5">4. מספר טלפון של הנהג השני</string>
     <string name="collected_all_information_and_willing_to_proceed">אספתי את כל הפרטים ואני מוכן/ה להמשיך</string>
     <string name="instructions_for_new_password">הכנס שם משתמש (אימייל) ולחץ על אישור. בעוד כמה דקות תקבל לכתובת האימייל סיסמה חדשה למערכת. עליך להיכנס עם הסיסמה החדשה.</string>
