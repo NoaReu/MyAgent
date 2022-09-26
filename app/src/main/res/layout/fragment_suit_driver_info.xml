@@ -1,14 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@id/suit_driver_info_first_layout"
     tools:context=".userPages.suitPages.SuitDriverInfo">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
+        android:id="@+id/suit_driver_info_second_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="5"
+        >
+        <ImageView
+
+            android:id="@+id/imageView3j"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:contentDescription="@string/app_logo_picture"
+            android:src="@drawable/my_agent_logo_no_background_img"
+            tools:ignore="NestedWeights" />
+        <TextView
+            android:id="@+id/header_home_page_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:backgroundTint="@color/white"
+            android:fontFamily="Ariel"
+            android:gravity="center"
+            android:text="פרטי הנהג"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/suit_driver_info_third_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:id="@+id/suit_driver_info_fourth_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/full_name_suit_driver_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/full_name_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="שם מלא"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/full_name_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_weight="0.6"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:inputType="textPersonName|text"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/year_of_birth_suit_driver_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/year_of_birth_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="שנת לידה"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/year_of_birth_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_weight="0.6"
+                    android:autofillHints=""
+                    android:ellipsize="end"
+                    android:inputType="textPersonName|text"
+                    android:maxLines="1"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_number_suit_driver_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_number_suit_driver_info_text"
+                    android:layout_width="342dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/id_customer_info_at_agent"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/id_number_suit_driver_info_edit_text"
+                    android:layout_width="369dp"
+                    android:layout_height="58dp"
+                    android:layout_weight="0.6"
+                    android:autofillHints=""
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:inputType="number"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/address_suit_driver_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/address_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/address_customer_info_at_agent"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/address_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_weight="0.6"
+                    android:autofillHints=""
+                    android:gravity="center"
+                    android:inputType="text"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/family_closeness_suit_driver_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/family_closeness_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="מה הקרבה למבוטח"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/family_closeness_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_weight="0.6"
+                    android:autofillHints=""
+                    android:inputType="text"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/drivers_license_number_suit_driver_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/drivers_license_number_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:layout_weight="1"
+                    android:text="מספר רשיון נהיגה"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/drivers_license_number_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_weight="0.6"
+                    android:autofillHints=""
+                    android:inputType="text"
+                    android:clickable="false"
+                    android:focusable="false"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    android:layout_weight="1"
+                    android:text="שנת הוצאת רישיון נהיגה"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_weight="0.6"
+                    android:autofillHints=""
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:inputType="number"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/suit_driver_info_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/button_design"
+                android:backgroundTint="@color/BTN_background_dark"
+                android:gravity="center"
+                android:text="הגש תביעה"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
