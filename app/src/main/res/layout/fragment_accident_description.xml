@@ -6,40 +6,45 @@
     android:orientation="vertical"
     tools:context=".userPages.suitPages.AccidentDescription">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="3"
-        >
-        <ImageView
 
-            android:id="@+id/imageView3j"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:src="@drawable/my_agent_logo_no_background_img"
-            tools:ignore="NestedWeights" />
-        <TextView
-            android:id="@+id/header_home_page_user"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
-            android:backgroundTint="@color/white"
-            android:fontFamily="Ariel"
-            android:gravity="center"
-            android:text="@string/accident_description"
-            android:textColor="@color/teal_700"
-            android:textSize="40sp" />
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_weight="5"
+        >
+    <ImageView
+
+        android:id="@+id/imageView3j"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:src="@drawable/my_agent_logo_no_background_img"
+        tools:ignore="NestedWeights" />
+    <TextView
+        android:id="@+id/header_home_page_user"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:backgroundTint="@color/white"
+        android:fontFamily="Ariel"
+        android:gravity="center"
+        android:text="@string/accident_description"
+        android:textColor="@color/teal_700"
+        android:textSize="40sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_weight="1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        >
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/suit_accident_description_textview"
@@ -49,33 +54,18 @@
             android:textStyle="bold"
             android:textSize="22sp"
             android:text="אנא פרט את התרחשות התאונה:"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        >
+
         <EditText
             android:id="@+id/suit_accident_description_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="20dp"
+            android:ems="700"
+            android:inputType="textLongMessage"
             tools:ignore="SpeakableTextPresentCheck"
-            android:autofillHints="" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        >
+            android:hint="הכנס תיאור"
+            />
+
 
         <TextView
             android:id="@+id/suit_accident_description_who_is_fault_textView"
@@ -86,22 +76,38 @@
             android:textSize="22sp"
             android:text="@string/whos_fault_to_your_opinion"/>
 
-        <Spinner
-            android:id="@+id/whos_fault_spinner"
+        <RadioGroup
+            android:id="@+id/choose_fault_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:orientation="horizontal"
+            android:layout_margin="15dp"
+            >
 
-    </LinearLayout>
-    <LinearLayout
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="אני"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        >
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="צד ג"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="לא ידוע"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
+        </RadioGroup>
 
         <TextView
             android:id="@+id/suit_accident_description_when_the_accident_happen_textView"
@@ -111,10 +117,170 @@
             android:textStyle="bold"
             android:textSize="22sp"
             android:text="מתי קרתה התאונה"/>
-        <Spinner
-            android:id="@+id/when_the_accident_happen_spinner"
+
+        <RadioGroup
+            android:id="@+id/choose_where_happend_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:orientation="vertical"
+            android:layout_margin="15dp"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_happend1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="בדרך לעבודה"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/radio_happend2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="בהמלך העבודה"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
+
+            <RadioButton
+                android:id="@+id/radio_happend3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="בדרך הבייתה מהעבודה"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
+            <RadioButton
+                android:id="@+id/radio_happend4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ללא קשר לנסיעה אל או מהעבודה"
+                android:textSize="20sp"
+                android:layout_weight="1"/>
+        </RadioGroup>
+
+
+
     </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
 </LinearLayout>
+
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:orientation="horizontal"-->
+<!--android:layout_weight="3"-->
+<!--    >-->
+<!--<ImageView-->
+
+<!--    android:id="@+id/imageView3j"-->
+<!--    android:layout_width="150dp"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_weight="0.2"-->
+<!--    android:src="@drawable/my_agent_logo_no_background_img"-->
+<!--    tools:ignore="NestedWeights" />-->
+<!--<TextView-->
+<!--    android:id="@+id/header_home_page_user"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_weight="0.8"-->
+<!--    android:backgroundTint="@color/white"-->
+<!--    android:fontFamily="Ariel"-->
+<!--    android:gravity="center"-->
+<!--    android:text="@string/accident_description"-->
+<!--    android:textColor="@color/teal_700"-->
+<!--    android:textSize="40sp" />-->
+<!--</LinearLayout>-->
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:orientation="vertical"-->
+<!--android:layout_weight="1"-->
+<!--android:layout_marginLeft="20dp"-->
+<!--android:layout_marginRight="20dp"-->
+<!--    >-->
+
+<!--<TextView-->
+<!--    android:id="@+id/suit_accident_description_textview"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:textStyle="bold"-->
+<!--    android:textSize="22sp"-->
+<!--    android:text="אנא פרט את התרחשות התאונה:"/>-->
+<!--</LinearLayout>-->
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:orientation="vertical"-->
+<!--android:layout_weight="1"-->
+<!--android:layout_marginLeft="20dp"-->
+<!--android:layout_marginRight="20dp"-->
+<!--    >-->
+<!--<EditText-->
+<!--    android:id="@+id/suit_accident_description_editText"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="48dp"-->
+<!--    android:layout_weight="1"-->
+<!--    android:ems="10"-->
+<!--    android:inputType="textPersonName"-->
+<!--    tools:ignore="SpeakableTextPresentCheck"-->
+<!--    android:autofillHints="" />-->
+<!--</LinearLayout>-->
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:orientation="vertical"-->
+<!--android:layout_weight="1"-->
+<!--android:layout_marginLeft="20dp"-->
+<!--android:layout_marginRight="20dp"-->
+<!--    >-->
+
+<!--<TextView-->
+<!--    android:id="@+id/suit_accident_description_who_is_fault_textView"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:textStyle="bold"-->
+<!--    android:textSize="22sp"-->
+<!--    android:text="@string/whos_fault_to_your_opinion"/>-->
+
+<!--<Spinner-->
+<!--    android:id="@+id/whos_fault_spinner"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    />-->
+
+<!--</LinearLayout>-->
+<!--<LinearLayout-->
+
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:orientation="vertical"-->
+<!--android:layout_weight="1"-->
+<!--android:layout_marginLeft="20dp"-->
+<!--android:layout_marginRight="20dp"-->
+<!--    >-->
+
+<!--<TextView-->
+<!--    android:id="@+id/suit_accident_description_when_the_accident_happen_textView"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:textStyle="bold"-->
+<!--    android:textSize="22sp"-->
+<!--    android:text="מתי קרתה התאונה"/>-->
+<!--<Spinner-->
+<!--    android:id="@+id/when_the_accident_happen_spinner"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    />-->
+<!--</LinearLayout>-->
