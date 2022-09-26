@@ -106,7 +106,7 @@
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:ellipsize="end"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:maxLines="1"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -131,11 +131,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:autofillHints=""
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:inputType="text"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:inputType="number" />
 
             </LinearLayout>
 
@@ -158,10 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:autofillHints=""
-                    android:gravity="center"
-                    android:inputType="text"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -184,7 +177,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:autofillHints=""
                     android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
@@ -208,10 +200,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:autofillHints=""
-                    android:inputType="text"
-                    android:clickable="false"
-                    android:focusable="false"
+                    android:inputType="number"
                     tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
@@ -234,9 +223,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.6"
-                    android:autofillHints=""
-                    android:clickable="false"
-                    android:focusable="false"
                     android:inputType="number"
                     tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>

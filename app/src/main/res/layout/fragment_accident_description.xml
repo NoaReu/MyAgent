@@ -61,7 +61,7 @@
             android:layout_height="110dp"
             android:layout_margin="20dp"
             android:ems="700"
-            android:inputType="textLongMessage"
+            android:inputType="textMultiLine"
             tools:ignore="SpeakableTextPresentCheck"
             android:hint="הכנס תיאור"
             />
