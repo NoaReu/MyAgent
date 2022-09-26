@@ -76,7 +76,7 @@
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:ems="10"
-                    android:inputType="textPersonName|text"
+                    android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
@@ -92,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="שנת לידה"
+                    android:text="שנ.ת לידה"
                     android:textSize="24sp" />
 
                 <EditText
@@ -102,7 +102,7 @@
                     android:layout_weight="0.6"
                     android:autofillHints=""
                     android:ellipsize="end"
-                    android:inputType="textPersonName|text"
+                    android:inputType="text"
                     android:maxLines="1"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -130,7 +130,7 @@
                     android:autofillHints=""
                     android:clickable="false"
                     android:focusable="false"
-                    android:inputType="number"
+                    android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
