@@ -63,6 +63,20 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/back_to_the_main_page_suit_submit_successfully"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_design"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:text="חזרה למסך הראשי"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            />
+
 
     </LinearLayout>
 </FrameLayout>

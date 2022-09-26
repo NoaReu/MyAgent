@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Users/User/StudioProjects/MyAgent/app/src/main/res/layout/fragment_accident_description.xml" value="0.2" />
         <entry key="..\:/Users/User/StudioProjects/MyAgent/app/src/main/res/layout/fragment_customer_info_at_agent.xml" value="0.24003623188405798" />
+        <entry key="..\:/Users/User/StudioProjects/MyAgent/app/src/main/res/layout/fragment_entrance_page.xml" value="0.2546875" />
+        <entry key="..\:/Users/User/StudioProjects/MyAgent/app/src/main/res/layout/fragment_forgot_password.xml" value="0.192481884057971" />
         <entry key="..\:/Users/User/StudioProjects/MyAgent/app/src/main/res/layout/fragment_send_success_for_customer_info_at_agent.xml" value="0.2546875" />
         <entry key="..\:/Users/User/StudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_accident_fault.xml" value="0.2546875" />
         <entry key="..\:/Users/User/StudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_driver_info.xml" value="0.24003623188405798" />
