@@ -21,6 +21,7 @@
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_weight="0.2"
+            android:contentDescription="@string/app_logo_picture"
             android:src="@drawable/my_agent_logo_no_background_img"
             tools:ignore="NestedWeights" />
         <TextView
@@ -170,6 +171,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+
                     android:text="מה הקרבה למבוטח"
                     android:textSize="24sp" />
 
@@ -179,6 +181,7 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:autofillHints=""
+                    android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
@@ -202,6 +205,7 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:autofillHints=""
+                    android:inputType="text"
                     android:clickable="false"
                     android:focusable="false"
                     tools:ignore="SpeakableTextPresentCheck" />
@@ -229,6 +233,7 @@
                     android:autofillHints=""
                     android:clickable="false"
                     android:focusable="false"
+                    android:inputType="number"
                     tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
