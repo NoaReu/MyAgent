@@ -43,7 +43,11 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
+            >
         <LinearLayout
             android:id="@+id/suit_driver_info_fourth_layout"
             android:layout_width="match_parent"
@@ -241,7 +245,7 @@
                 android:id="@+id/suit_driver_info_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/button_design"
                 android:backgroundTint="@color/BTN_background_dark"
@@ -253,6 +257,6 @@
 
 
         </LinearLayout>
-
+        </ScrollView>
     </LinearLayout>
     </LinearLayout>
