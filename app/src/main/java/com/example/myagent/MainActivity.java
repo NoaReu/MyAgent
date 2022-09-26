@@ -26,6 +26,7 @@ import com.example.myagent.objects.User;
 import com.example.myagent.userPages.UserDocuments;
 import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
+import com.example.myagent.userPages.suitPages.AccidentDescription;
 import com.example.myagent.userPages.suitPages.SuitAccidentAreaPicturesFragment;
 import com.example.myagent.userPages.suitPages.SuitInfoInstructionPageForUser;
 import com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment;
@@ -283,7 +284,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void switchToSuitPage3() {// Todo:change destination
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new SuitAccidentAreaPicturesFragment()).addToBackStack(null).commit();
+        fragmentTransaction.replace(R.id.main_activity, new AccidentDescription()).addToBackStack(null).commit();
     }
 //    public void switchToSuitPage4() {// Todo:change destination
 //        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

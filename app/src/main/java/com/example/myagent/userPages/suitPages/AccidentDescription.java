@@ -7,7 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 
 /**
@@ -61,6 +65,30 @@ public class AccidentDescription extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_accident_description, container, false);
+        View view = inflater.inflate(R.layout.fragment_accident_description, container, false);
+        MainActivity mainActivity = (MainActivity)getActivity();
+        Button goToNextPage= view.findViewById(R.id.continue_to_suit3_btn);
+        RadioGroup radioGroup=view.findViewById(R.id.choose_who_drove_group);
+
+
+
+        goToNextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //check if another driver is involved. if false- submit the information
+                //else- go to page of driver info for more information
+                int checkId = radioGroup.getCheckedRadioButtonId();
+                if(checkId==-1){
+                    Toast.makeText(getActivity(), "יש לציין האם נהג אחר נהג בשעת התאונה", Toast.LENGTH_SHORT).show();
+                }else if(checkId==R.id.radio_who_drove1){
+//                    mainActivity.switchToSuitPage4();
+                }else if(checkId==R.id.radio_who_drove2) {
+
+//                    mainActivity.switchToSuitDriverPage();
+                }
+            }
+        });
+
+        return view ;
     }
 }
