@@ -142,6 +142,9 @@
         <action
             android:id="@+id/action_accidentDescription_to_suitDriverInfo"
             app:destination="@id/suitDriverInfo" />
+        <action
+            android:id="@+id/action_accidentDescription_to_suitSubmitSuccessfully"
+            app:destination="@id/suitSubmitSuccessfully" />
     </fragment>
     <fragment
         android:id="@+id/suitDriverInfo"
