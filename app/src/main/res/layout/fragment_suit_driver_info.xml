@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@id/suit_driver_info_first_layout"
     tools:context=".userPages.suitPages.SuitDriverInfo">
 
 
     <LinearLayout
+        android:id="@+id/suit_driver_info_second_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -35,27 +37,28 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/suit_driver_info_third_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/suit_driver_info_fourth_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="1"
-            android:maxLines="1"
             android:ellipsize="end"
-            >
+            android:maxLines="1"
+            android:orientation="vertical">
 
 
             <LinearLayout
                 android:id="@+id/full_name_suit_driver_info_layout"
                 android:layout_width="match_parent"
                 android:layout_height="63dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/full_name_suit_driver_info_text"
@@ -63,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="שם מלא"
-                    android:textSize="24sp"/>
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/full_name_suit_driver_info_edit_text"
@@ -97,11 +100,10 @@
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
                     android:autofillHints=""
+                    android:ellipsize="end"
                     android:inputType="textPersonName|text"
                     android:maxLines="1"
-                    android:ellipsize="end"
-                    tools:ignore="SpeakableTextPresentCheck"
-                    />
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
 
@@ -116,21 +118,22 @@
                     android:layout_width="342dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="24sp"
-                    android:text="@string/id_customer_info_at_agent" />
+                    android:text="@string/id_customer_info_at_agent"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/id_number_suit_driver_info_edit_text"
                     android:layout_width="369dp"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
-                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints=""
                     android:clickable="false"
                     android:focusable="false"
                     android:inputType="number"
-                    android:autofillHints="" />
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/address_suit_driver_info_layout"
                 android:layout_width="match_parent"
@@ -141,9 +144,9 @@
                     android:id="@+id/address_suit_driver_info_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
                     android:layout_weight="1"
-                    android:text="@string/address_customer_info_at_agent" />
+                    android:text="@string/address_customer_info_at_agent"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/address_suit_driver_info_edit_text"
@@ -155,6 +158,7 @@
                     android:inputType="text"
                     tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/family_closeness_suit_driver_info_layout"
                 android:layout_width="match_parent"
@@ -165,17 +169,17 @@
                     android:id="@+id/family_closeness_suit_driver_info_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
                     android:layout_weight="1"
-                    android:text="מה הקרבה למבוטח" />
+                    android:text="מה הקרבה למבוטח"
+                    android:textSize="24sp" />
 
                 <EditText
                     android:id="@+id/family_closeness_suit_driver_info_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
-                    tools:ignore="SpeakableTextPresentCheck"
-                    android:autofillHints="" />
+                    android:autofillHints=""
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <LinearLayout
@@ -197,10 +201,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
-                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints=""
                     android:clickable="false"
                     android:focusable="false"
-                    android:autofillHints="" />
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <LinearLayout
@@ -222,10 +226,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
                     android:layout_weight="0.6"
-                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints=""
                     android:clickable="false"
                     android:focusable="false"
-                    android:autofillHints="" />
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <Button
