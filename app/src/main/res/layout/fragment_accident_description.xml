@@ -11,8 +11,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_weight="5"
-        >
+    android:layout_weight="5">
+
     <ImageView
 
         android:id="@+id/imageView3j"
@@ -39,7 +39,9 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
-
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -58,7 +60,7 @@
         <EditText
             android:id="@+id/suit_accident_description_editText"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:ems="700"
             android:inputType="textMultiLine"
@@ -215,7 +217,7 @@
     </LinearLayout>
 
 
-
+        </ScrollView>
 
     </LinearLayout>
 
