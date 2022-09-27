@@ -63,6 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:ems="700"
+            android:textSize="22sp"
             android:inputType="textMultiLine"
             tools:ignore="SpeakableTextPresentCheck"
             android:hint="הכנס תיאור"

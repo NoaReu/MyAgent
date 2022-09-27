@@ -72,7 +72,7 @@ public class ForgotPassword extends Fragment {
                 MainActivity mainActivity = (MainActivity) getActivity();
                 if(!email.getText().toString().trim().equals("") && MainActivity.isValidEmail(email.getText().toString().trim())){
                     mainActivity.sendNewPassword(email.getText().toString().trim());
-                    Toast.makeText(getActivity(), "ברגעים אלו נשלח אליך מייל לאיפוס סיסמה. עליך לאפס את סיסמתך ולאחר מכן להתחבר מחדש", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "שלחנו אליך מייל לאיפוס סיסמה. עליך לאפס את סיסמתך ולהתחבר מחדש", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(getActivity(), "שם משתמש לא תקין", Toast.LENGTH_SHORT).show();
                 }
