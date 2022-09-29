@@ -100,7 +100,6 @@ public class AgentRegistration extends Fragment {
                     phone.requestFocus();
                     canWeGoToDBRegistration=false;
                 }
-                //todo: email Validation!!!! - search for function
                 else if(!MainActivity.isValidEmail(email.getText().toString().trim())){
                     Toast.makeText(getActivity(), "כתובת המייל אינה תקינה", Toast.LENGTH_SHORT).show();
                     email.requestFocus();

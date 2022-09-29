@@ -22,7 +22,7 @@ import com.example.myagent.agentPages.CustomerInfoAtAgent;
 import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.agentPages.SearchCustomerAtAgent;
 import com.example.myagent.objects.User;
-import com.example.myagent.userPages.UserDocuments;
+import com.example.myagent.userPages.UserDocumentsAtUser;
 import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
 import com.example.myagent.userPages.suitPages.AccidentDescription;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private String sharedPrefFile ="sharedPreferences";
     private FirebaseAuth mAuth;
     FragmentManager fragmentManager;
-    FirebaseFirestore db;
+    public FirebaseFirestore db;
     String agentUID;
     FirebaseUser currentUser;
     User agent;
@@ -246,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
         //TODO: add page of user documents an option to add documents to the user like insurances or any other relevant document
 //        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
     }
-    public void switchToUserInfoPage(User user) {
+    public void switchToUserInfoPage(DocumentSnapshot snapshot ,User user) {
         this.infoUser=user;
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new CustomerInfoAtAgent()).addToBackStack(null).commit();
@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void switchToUserDocumentsList() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_activity, new UserDocuments()).addToBackStack(null).commit();
+        fragmentTransaction.replace(R.id.main_activity, new UserDocumentsAtUser()).addToBackStack(null).commit();
     }
     public void switchToSuitsListPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -524,6 +524,15 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+    public static boolean isValidAddress(String string) {
+        string=string.trim();
+        // TODO: change this function to validate an Address and not Phone!!
+
+        return true;
+    }
+
+
+
     public static boolean isValidPW(String string) {
         string=string.trim();
         if(string.length()<8) return false;

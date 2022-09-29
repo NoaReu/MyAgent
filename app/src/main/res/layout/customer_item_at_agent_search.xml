@@ -15,7 +15,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/customer_img_at_item"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_weight="8"
             android:text="@string/person_default_name"
-            android:textSize="30dp"/>
+            android:textSize="24sp"/>
 
     </LinearLayout>
 </LinearLayout>

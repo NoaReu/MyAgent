@@ -11,10 +11,11 @@
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/drawable/whatapplogo_background.xml" value="0.3635" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/activity_main.xml" value="0.3567708333333333" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/activity_suit_accident_fault.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/card_view_for_document_item.xml" value="0.3569206842923795" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/customer_item_at_agent_search.xml" value="0.3625" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_accident_description.xml" value="0.33" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_agent_registration.xml" value="0.33" />
-        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_agent_suits_list.xml" value="0.3625" />
+        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_agent_suits_list.xml" value="0.1" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_blank.xml" value="0.3567708333333333" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_create_new_user.xml" value="0.33" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_customer_info_at_agent.xml" value="0.22" />
@@ -40,6 +41,7 @@
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_user_car_of_accident_pick.xml" value="0.3625" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_suit_user_car_pictures.xml" value="0.3038949275362319" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_user_documents.xml" value="0.1" />
+        <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_user_documents_at_user.xml" value="0.25" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_user_home_page.xml" value="0.3567708333333333" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/fragment_user_login_page.xml" value="0.3567708333333333" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/layout/insurance_request_item_at_agent.xml" value="0.25" />

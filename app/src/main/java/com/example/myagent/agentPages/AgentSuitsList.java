@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myagent.R;
+import com.example.myagent.objects.Document;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +65,16 @@ public class AgentSuitsList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_agent_suits_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_agent_suits_list, container, false);
+
+        List<Document> documents = new ArrayList<>();
+        documents.add(new Document("066465238","suit_035856038_28_09_22.pdf","חדש", "אפי טלאור","035856038"));
+        documents.add(new Document("066465238","suit_053974705_28_09_22.pdf","חדש", "אבי כהן","053974705"));
+
+
+
+
+
+        return view;
     }
 }

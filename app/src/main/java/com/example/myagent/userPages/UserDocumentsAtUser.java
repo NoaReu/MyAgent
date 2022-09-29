@@ -12,10 +12,10 @@ import com.example.myagent.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link UserDocuments#newInstance} factory method to
+ * Use the {@link UserDocumentsAtUser#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UserDocuments extends Fragment {
+public class UserDocumentsAtUser extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class UserDocuments extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public UserDocuments() {
+    public UserDocumentsAtUser() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class UserDocuments extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment UserDocuments.
+     * @return A new instance of fragment UserDocumentsAtUser.
      */
     // TODO: Rename and change types and number of parameters
-    public static UserDocuments newInstance(String param1, String param2) {
-        UserDocuments fragment = new UserDocuments();
+    public static UserDocumentsAtUser newInstance(String param1, String param2) {
+        UserDocumentsAtUser fragment = new UserDocumentsAtUser();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,8 @@ public class UserDocuments extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_documents, container, false);
+        View view = inflater.inflate(R.layout.fragment_user_documents_at_user, container, false);
+
+        return view;
     }
 }

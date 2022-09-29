@@ -1,5 +1,8 @@
 package com.example.myagent.objects;
 
+import com.google.firebase.firestore.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class User {
     private String firstName;
     private String lastName;
@@ -9,6 +12,8 @@ public class User {
     private String email;
     private String address;
     private boolean isAnAgent;
+
+    public User(){}
 
     public User(String firstName, String lastName, String id, String agentId, String phone, String email, String address,  boolean isAgent){
         this.firstName=firstName;

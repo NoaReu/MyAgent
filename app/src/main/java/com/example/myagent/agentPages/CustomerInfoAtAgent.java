@@ -88,19 +88,19 @@ public class CustomerInfoAtAgent extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean canUpdate=true;
-                if(firstName.getText().toString().trim().length()<2 || !MainActivity.isValidString(firstName.getText().toString().trim())){
-                    Toast.makeText(getActivity(),"שם פרטי לא תקין",Toast.LENGTH_SHORT).show();
+                if(firstName.getText().toString().length()<2 || MainActivity.isValidString(firstName.getText().toString())) {
+                    Toast.makeText(getActivity(), "שם פרטי לא תקין", Toast.LENGTH_SHORT).show();
                     canUpdate=false;
                     firstName.requestFocus();
-                }else if(lastName.getText().toString().trim().length()<2 ||!MainActivity.isValidString(lastName.getText().toString().trim())){
+                }else if(lastName.getText().toString().length()<2 || MainActivity.isValidString(lastName.getText().toString())){
                     Toast.makeText(getActivity(),"שם משפחה לא תקין",Toast.LENGTH_SHORT).show();
                     canUpdate=false;
                     lastName.requestFocus();
-                }else if(!MainActivity.isValidPhone(phone.getText().toString().trim())){
+                }else if(!MainActivity.isValidPhone(phone.getText().toString())){
                     Toast.makeText(getActivity(),"מספר טלפון לא תקין",Toast.LENGTH_SHORT).show();
                     canUpdate=false;
                     phone.requestFocus();
-                }else if(!MainActivity.isValidPhone(address.getText().toString().trim())){
+                }else if(!MainActivity.isValidPhone(address.getText().toString().trim()) || address.getText().toString().trim().split(" ").length<3){
                     Toast.makeText(getActivity(),"כתובת לא תקינה",Toast.LENGTH_SHORT).show();
                     canUpdate=false;
                     address.requestFocus();

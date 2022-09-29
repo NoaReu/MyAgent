@@ -131,9 +131,9 @@
     </fragment>
     <fragment
         android:id="@+id/userDocuments"
-        android:name="com.example.myagent.userPages.UserDocuments"
+        android:name="com.example.myagent.userPages.UserDocumentsAtUser"
         android:label="fragment_user_documents"
-        tools:layout="@layout/fragment_user_documents" />
+        tools:layout="@layout/fragment_user_documents_at_user" />
     <fragment
         android:id="@+id/accidentDescription"
         android:name="com.example.myagent.userPages.suitPages.AccidentDescription"
