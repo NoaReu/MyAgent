@@ -56,7 +56,7 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
     List<User> items;
     List<User> allItems;
     RecyclerView recyclerView;
-//    CustomerAdapter adapter;
+
     FirestoreRecyclerAdapter adapter;
     EditText nameToSearch;
     FirebaseFirestore db;
@@ -94,7 +94,6 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search_customer_at_agent, container, false);
-
 
         recyclerView = view.findViewById(R.id.search_customer_recycler_view);
         db = FirebaseFirestore.getInstance();
@@ -144,132 +143,10 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
 
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
-
             customerName= itemView.findViewById(R.id.customer_name_at_recyclerview_item);
             image= itemView.findViewById(R.id.customer_image_on_search_customer);
-
-
-
         }
-
-
     }
-
-
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-////        setHasOptionsMenu(true);
-////        MainActivity mainActivity = (MainActivity) getActivity();
-////        items =  mainActivity.userForRecyclerView;
-////        items =new ArrayList<User>();
-////        items.add(new User("אבי","כהן", "111111111","066465238","0501112222","avi@gmail.com","hasahlav 226 Barkan"));
-////        items.add(new User("מוטי","לוי", "222222222","066465238","0501112223","moti@gmail.com","haganim 4 Petah Tikva"));
-////        items.add(new User("איליה","בוגוסלבסקי", "333333333","066465238","0501112224","ilya@gmail.com","hahoresh 19 Yakir"));
-////        items.add(new User("שלי","אורן", "444444444","066465238","0501112225","shely@gmail.com","harimon 8 Nofim"));
-////        items.add(new User("גבי","אילוז", "555555555","066465238","0501112226","gabi@gmail.com","hagalil 8 kfar saba"));
-////        items.add(new User("אורית","כהן", "666666666","066465238","0501112227","orit@gmail.com","havradim 8 hertzeliya"));
-////        items.add(new User("מתן","לוי", "777777777","066465238","0501112228","matan@gmail.com","haharoov 8 Nofim"));
-////        items.add(new User("אבי","גבאי", "888888888","066465238","0501112229","avi@gmail.com","gefen 8 hertzeliya"));
-//
-//
-////        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-//
-//
-//        nameToSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View view, boolean b) {
-//                if(!b){
-//                    view.setOnKeyListener(new View.OnKeyListener() {
-//                        @Override
-//                        public boolean onKey(View view, int i, KeyEvent keyEvent) {
-//                            items=new ArrayList<>(allItems);
-//                            if(nameToSearch.getText().toString()=="" || nameToSearch.getText().toString().length()==0){
-//                                return false;
-//                            }
-//                            items=filter(nameToSearch.getText().toString());
-//                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//                            adapter = new CustomerAdapter(getContext(),items, (RecyclerViewInterface) getContext());
-//                            recyclerView.setAdapter(adapter);
-//                            return true;
-//                        }
-//                    });
-////                    Toast.makeText(getContext(),"focus is on ", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//        });
-//
-//
-////        nameToSearch.setOnKeyListener(new View.OnKeyListener() {
-////            @Override
-////            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-////                items=new ArrayList<>(allItems);
-////                if(nameToSearch.getText().toString()=="" || nameToSearch.getText().toString().length()==0){
-////                    return false;
-////                }
-////                for(User user : allItems){
-////                    String fullName = user.getFirstName().trim()+" "+user.getLastName().trim();
-////                    if(!fullName.contains(nameToSearch.getText().toString().trim())){
-////                        items.remove(user);
-////                    }
-////                }
-////
-////                return true;
-////            }
-////
-////        });
-////        adapter.getFilter().filter(nameToSearch.getText().toString().trim());
-////        adapter = new CustomerAdapter(this.getContext(), items, this);
-////        recyclerView.setAdapter(adapter);
-//    }
-
-
-
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        final MenuItem item = menu.findItem(R.id.search_person_item);
-//        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
-//        searchView.setOnQueryTextListener((SearchView.OnQueryTextListener) this);
-//
-//        item.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
-//            @Override
-//            public boolean onMenuItemActionCollapse(MenuItem item) {
-//                // Do something when collapsed
-//                adapter.getFilter().filter(nameToSearch.getText().toString().trim());
-//                return true; // Return true to collapse action view
-//            }
-//
-//            @Override
-//            public boolean onMenuItemActionExpand(MenuItem item) {
-//                // Do something when expanded
-//                return true; // Return true to expand action view
-//            }
-//        });
-//
-//    }
-
-//    @Override
-//    public boolean onQueryTextChange(String newText) {
-//         List<User> filteredUsers = filter( nameToSearch.getText().toString().trim());
-////        adapter.setFilter(filteredUsers);
-////        adapter.getFilter().filter(nameToSearch.getText().toString().trim());
-//        adapter=new CustomerAdapter(this.getContext(), filteredUsers, this);
-//
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onQueryTextSubmit(String query) {
-//        adapter.getFilter().filter(nameToSearch.getText().toString().trim());
-//        return false;
-//    }
-
-
-
-
-
-
 
     @Override
     public void onItemClick(DocumentSnapshot snapshot , int position) {

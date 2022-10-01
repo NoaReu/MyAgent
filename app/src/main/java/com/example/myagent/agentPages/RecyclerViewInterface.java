@@ -6,5 +6,4 @@ public interface RecyclerViewInterface {
 
     void onItemClick(DocumentSnapshot snapshot,int position);
 
-
 }

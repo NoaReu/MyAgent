@@ -173,64 +173,6 @@ public class MainActivity extends AppCompatActivity {
         });
         return userForRecyclerView;
 
-//        List<DocumentSnapshot> documentSnapshots=documentSnapshot.getResult().getDocuments();
-//        for(DocumentSnapshot doc : documentSnapshots){
-//            customers.add(documentSnapshot.toObject(User.class));
-//        }
-//        .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        Log.d("get users from db", "DocumentSnapshot data: " + document.getData());
-//                    } else {
-//                        Log.d("get users from db", "No such document");
-//                    }
-//                } else {
-//                    Log.d("get users from db", "get failed with ", task.getException());
-//                }
-//            }
-//        });
-
-//        db.collection("users")
-////                .whereEqualTo("anAgent", false)
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            for (QueryDocumentSnapshot document : task.getResult()) {
-//                                customers.add(document.toObject(User.class));
-//                                Log.d("get users from db", document.getId() + " => " + document.getData()+". Data arrived from DB!!");
-//                            }
-//                        } else {
-//                            Log.e("get users from db", "NO Data from DB!!!!!!! Error getting documents: ", task.getException());
-//                        }
-//                    }
-//                }).addOnCanceledListener(new OnCanceledListener() {
-//                    @Override
-//                    public void onCanceled() {
-//                        Log.e("get users from db", "NO Data from DB!!!!!!! Error getting documents: ");
-//
-//                    }
-//                });
-//        db.collection("users")
-//                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                        if(task.isSuccessful()){
-//                            for (DocumentSnapshot document : task.getResult()) {
-//                                customers.add(document.toObject(User.class));
-//                                Log.d("list of customers", document.getId() + " => " + document.getData());
-//                            }
-//                        }else{
-//                            Log.w("list of customers", "Error getting documents.", task.getException());
-//
-//                        }
-//                    }
-//                });
-//        return customers;
     }
 
     public void updateUserInfoAtDB() {

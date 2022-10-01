@@ -72,9 +72,6 @@ public class AgentSuitsList extends Fragment {
         documents.add(new Document("066465238","suit_053974705_28_09_22.pdf","חדש", "אבי כהן","053974705"));
 
 
-
-
-
         return view;
     }
 }
