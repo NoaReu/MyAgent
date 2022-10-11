@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -46,18 +47,19 @@ import java.util.List;
  * Use the {@link SearchCustomerAtAgent#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInterface{
+public class SearchCustomerAtAgent extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    List<User> items;
+    List<User> items=new ArrayList<>();
     List<User> allItems;
     RecyclerView recyclerView;
+    RecyclerView.LayoutManager recyclerviewLayoutManager;
 
-    FirestoreRecyclerAdapter adapter;
+    CustomerAdapter adapter;
     EditText nameToSearch;
     FirebaseFirestore db;
     MainActivity mainActivity;
@@ -96,66 +98,81 @@ public class SearchCustomerAtAgent extends Fragment implements RecyclerViewInter
         View view = inflater.inflate(R.layout.fragment_search_customer_at_agent, container, false);
 
         recyclerView = view.findViewById(R.id.search_customer_recycler_view);
+        recyclerviewLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(recyclerviewLayoutManager);
+
         db = FirebaseFirestore.getInstance();
 
-        Query query = db.collection("users").whereEqualTo("anAgent", false);
-        FirestoreRecyclerOptions<User> options = new FirestoreRecyclerOptions.Builder<User>().setQuery(query,User.class).build();
-
-        adapter = new FirestoreRecyclerAdapter<User, CustomerViewHolder>(options){
-
-            @NonNull
-            @Override
-            public CustomerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_customer_item_at_agent_search,parent, false);
-                return new CustomerViewHolder(view);
-            }
-            @Override
-            protected void onBindViewHolder(@NonNull CustomerViewHolder holder, int position, @NonNull User model) {
-
-                holder.customerName.setText(model.getFirstName()+" "+model.getLastName());
-                holder.image.setImageAlpha(R.drawable.img);
-            }
-
-
-        };
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        loadUsersFromDb();
+        
         return view;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        adapter.startListening();
+    private void loadUsersFromDb() {
+        items.clear();
+        db.collection("users").whereEqualTo("anAgent",false).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    List<DocumentSnapshot> documents= task.getResult().getDocuments();
+                    if(!documents.isEmpty()){
+                        for (DocumentSnapshot doc: documents) {
+                            items.add(doc.toObject(User.class));
+                        }
+                        adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
+                            @Override
+                            public void onItemClick(User user) {
+                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+                                mainActivity=(MainActivity) getActivity();
+                                mainActivity.switchToUserInfoPage(user);
+                            }
+                        });
+                        recyclerView.setHasFixedSize(true);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
+                        recyclerView.setAdapter(adapter);
+                    }else{
+                        Toast.makeText(getContext(), "No objects from DB!!!", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        adapter.startListening();
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        if (adapter != null) {
+//            adapter.stopListening();
+//        }
+//    }
 
-    private static class CustomerViewHolder extends RecyclerView.ViewHolder{
+//    private static class CustomerViewHolder extends RecyclerView.ViewHolder{
+//
+//        TextView customerName;
+//        ImageView image;
+//
+//        public CustomerViewHolder(@NonNull View itemView) {
+//            super(itemView);
+//            customerName= itemView.findViewById(R.id.customer_name_at_recyclerview_item);
+//            image= itemView.findViewById(R.id.customer_image_on_search_customer);
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Log.d("recyclerView","we have on click!!!!");
+//                }
+//            });
+//        }
+//    }
 
-        TextView customerName;
-        ImageView image;
-
-        public CustomerViewHolder(@NonNull View itemView) {
-            super(itemView);
-            customerName= itemView.findViewById(R.id.customer_name_at_recyclerview_item);
-            image= itemView.findViewById(R.id.customer_image_on_search_customer);
-        }
-    }
-
-    @Override
-    public void onItemClick(DocumentSnapshot snapshot , int position) {
-
-        mainActivity=(MainActivity) getActivity();
-        mainActivity.switchToUserInfoPage(snapshot,items.get(position));
-
-
-    }
 
 
 }

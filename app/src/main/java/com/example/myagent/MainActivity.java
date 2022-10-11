@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
         //TODO: add page of user documents an option to add documents to the user like insurances or any other relevant document
 //        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
     }
-    public void switchToUserInfoPage(DocumentSnapshot snapshot ,User user) {
+    public void switchToUserInfoPage(User user) {
         this.infoUser=user;
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new CustomerInfoAtAgent()).addToBackStack(null).commit();
