@@ -15,6 +15,7 @@ public class User {
 
     public User(){}
 
+    //full user form DB
     public User(String firstName, String lastName, String id, String agentId, String phone, String email, String address,  boolean isAgent){
         this.firstName=firstName;
         this.lastName=lastName;
@@ -24,6 +25,7 @@ public class User {
         this.email=email;
         this.address=address;
         this.isAnAgent=isAgent;
+
     }
 
     //user (no agent)
@@ -45,6 +47,9 @@ public class User {
         this.agentId=agentId;
         this.phone=phone;
         this.isAnAgent=true;
+        email="";
+        address="";
+        userId="";
     }
     public String getFirstName() {return firstName;}
     public void setFirstName(String firstName) {this.firstName = firstName;}

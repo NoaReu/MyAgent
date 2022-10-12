@@ -80,12 +80,12 @@ public class AgentRegistration extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean canWeGoToDBRegistration=true;
-                if(privateName.getText().toString().length()<2 || MainActivity.isValidString(privateName.getText().toString())) {
+                if(privateName.getText().toString().length()<2 || MainActivity.isValidName(privateName.getText().toString())) {
                     Toast.makeText(getActivity(), "שם פרטי לא תקין", Toast.LENGTH_SHORT).show();
                     privateName.requestFocus();
                     canWeGoToDBRegistration=false;
                 }
-                else if(lastName.getText().toString().length()<2 || MainActivity.isValidString(lastName.getText().toString())) {
+                else if(lastName.getText().toString().length()<2 || MainActivity.isValidName(lastName.getText().toString())) {
                     Toast.makeText(getActivity(), "שם משפחה לא תקין", Toast.LENGTH_SHORT).show();
                     lastName.requestFocus();
                     canWeGoToDBRegistration=false;

@@ -1,6 +1,5 @@
 package com.example.myagent.agentPages;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -88,11 +87,11 @@ public class CustomerInfoAtAgent extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean canUpdate=true;
-                if(firstName.getText().toString().length()<2 || MainActivity.isValidString(firstName.getText().toString())) {
+                if(firstName.getText().toString().length()<2 || MainActivity.isValidName(firstName.getText().toString())) {
                     Toast.makeText(getActivity(), "שם פרטי לא תקין", Toast.LENGTH_SHORT).show();
                     canUpdate=false;
                     firstName.requestFocus();
-                }else if(lastName.getText().toString().length()<2 || MainActivity.isValidString(lastName.getText().toString())){
+                }else if(lastName.getText().toString().length()<2 || MainActivity.isValidName(lastName.getText().toString())){
                     Toast.makeText(getActivity(),"שם משפחה לא תקין",Toast.LENGTH_SHORT).show();
                     canUpdate=false;
                     lastName.requestFocus();
@@ -100,7 +99,7 @@ public class CustomerInfoAtAgent extends Fragment {
                     Toast.makeText(getActivity(),"מספר טלפון לא תקין",Toast.LENGTH_SHORT).show();
                     canUpdate=false;
                     phone.requestFocus();
-                }else if(!MainActivity.isValidPhone(address.getText().toString().trim()) || address.getText().toString().trim().split(" ").length<3){
+                }else if(!MainActivity.isValidAddress(address.getText().toString()) || address.getText().toString().trim().split(" ").length<3){
                     Toast.makeText(getActivity(),"כתובת לא תקינה",Toast.LENGTH_SHORT).show();
                     canUpdate=false;
                     address.requestFocus();

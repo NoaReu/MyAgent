@@ -103,12 +103,19 @@ public class SearchCustomerAtAgent extends Fragment {
 
         db = FirebaseFirestore.getInstance();
 
-        loadUsersFromDb();
-        
+        loadUsersFromDb(view);
+//        nameToSearch.setOnKeyListener(new View.OnKeyListener() {
+//            @Override
+//            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                loadUsersFromDb(view);
+//                return false;
+//            }
+//        });
+
         return view;
     }
 
-    private void loadUsersFromDb() {
+    private void loadUsersFromDb(View view) {
         items.clear();
         db.collection("users").whereEqualTo("anAgent",false).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -122,7 +129,7 @@ public class SearchCustomerAtAgent extends Fragment {
                         adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
                             @Override
                             public void onItemClick(User user) {
-                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
                                 mainActivity=(MainActivity) getActivity();
                                 mainActivity.switchToUserInfoPage(user);
                             }
@@ -130,6 +137,7 @@ public class SearchCustomerAtAgent extends Fragment {
                         recyclerView.setHasFixedSize(true);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
                         recyclerView.setAdapter(adapter);
+
                     }else{
                         Toast.makeText(getContext(), "No objects from DB!!!", Toast.LENGTH_SHORT).show();
                     }
@@ -141,38 +149,73 @@ public class SearchCustomerAtAgent extends Fragment {
 
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        adapter.startListening();
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        if (adapter != null) {
-//            adapter.stopListening();
-//        }
-//    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        allItems=new ArrayList<>(items);
+        nameToSearch=view.findViewById(R.id.customer_name_for_search);
+        nameToSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    if(!nameToSearch.equals(null) && !nameToSearch.equals("")){
+                        for(User user : allItems){
+                            String name=user.getFirstName()+" "+user.getLastName();
+                            if(!name.contains(nameToSearch.getText().toString())){
+                                items.remove(user);
+                            }
+                        }
+                        adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
+                            @Override
+                            public void onItemClick(User user) {
+                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+                                mainActivity=(MainActivity) getActivity();
+                                mainActivity.switchToUserInfoPage(user);
+                            }
+                        });
+                    }else {
+                        items=new ArrayList<>(allItems);
+                        adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
+                            @Override
+                            public void onItemClick(User user) {
+                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+                                mainActivity=(MainActivity) getActivity();
+                                mainActivity.switchToUserInfoPage(user);
+                            }
+                        });
 
-//    private static class CustomerViewHolder extends RecyclerView.ViewHolder{
-//
-//        TextView customerName;
-//        ImageView image;
-//
-//        public CustomerViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//            customerName= itemView.findViewById(R.id.customer_name_at_recyclerview_item);
-//            image= itemView.findViewById(R.id.customer_image_on_search_customer);
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Log.d("recyclerView","we have on click!!!!");
-//                }
-//            });
-//        }
-//    }
+                    }
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
+                    recyclerView.setAdapter(adapter);
+                    nameToSearch.setText("");
+                }
+            }
+        });
+        nameToSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
 
 
+                return false;
+            }
+        });
+
+
+
+
+    }
+    /* //experiment
+    nameToSearch=view.findViewById(R.id.search_customer_recycler_view);
+    if(!nameToSearch.equals(null) && !nameToSearch.equals("")){
+        for(User user : allItems){
+            String name=user.getFirstName()+" "+user.getLastName();
+            if(!name.contains(nameToSearch.getText().toString())){
+                items.remove(user);
+            }
+        }
+    }
+
+    */
 }

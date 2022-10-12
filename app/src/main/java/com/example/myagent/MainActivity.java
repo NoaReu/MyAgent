@@ -317,7 +317,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void createNewUserForAgent(User user) {
+    public void createNewUserForAgent(@NonNull User user) {
         String upw = passwordGenerator();
         mAuth.createUserWithEmailAndPassword(user.getEmail(),upw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -430,17 +430,16 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    @SuppressLint("SuspiciousIndentation")
-    public static boolean isValidString(String string){
+    public static boolean isValidName(@NonNull String string){
         for(int i=0; i<string.length(); i++){
             if(!validCapital.contains(string.charAt(i)+"") && !validLetters.contains(string.charAt(i)+"") && string.charAt(i)!='-' && string.charAt(i)!=' ')
-               Log.e("validation", string.charAt(i)+"");
+                Log.e("validation", string.charAt(i)+"");
                 return false;
         }
         return true;
     }
 
-    public static boolean isValidID(String id){
+    public static boolean isValidID(@NonNull String id){
         int sum=0;
         boolean isEven=true;
         for (int i = 0; i < id.length(); i++) {
@@ -457,7 +456,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public static boolean isValidPhone(String string) {
+    public static boolean isValidPhone(@NonNull String string) {
         if(string.length()>13)return false;
         if(string.contains("-")) string=string.replaceAll("-","");
         for(int i=0; i<string.length(); i++){
@@ -468,8 +467,11 @@ public class MainActivity extends AppCompatActivity {
     }
     public static boolean isValidAddress(String string) {
         string=string.trim();
-        // TODO: change this function to validate an Address and not Phone!!
-
+        for(char c : string.toCharArray()){
+            if(!validLetters.contains(c+"") && !validCapital.contains(c+"") && !validNumbers.contains(c+"") && c!=' '){
+                return false;
+            }
+        }
         return true;
     }
 
