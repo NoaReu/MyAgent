@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/createNewUserFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".agentPages.DownloadDocumentFromAgentFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:id="@+id/imageView3j"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:src="@drawable/my_agent_logo_no_background_img"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/header_home_page_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:backgroundTint="@color/white"
+            android:fontFamily="Ariel"
+            android:gravity="center"
+            android:text="הגשת תביעה"
+            android:textColor="@color/teal_700"
+            android:textSize="40sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/SelectDocumentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#29ADB6"
+            android:paddingLeft="110dp"
+            android:paddingRight="110dp"
+            android:text="בחר מסמך"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:strokeColor="#88F4F4F4"
+            app:strokeWidth="1dp"
+            android:background="@drawable/button_design"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:hint="לא נבחר מסמך"
+            android:paddingLeft="110dp"
+            android:paddingRight="110dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold">
+
+        </TextView>
+        <Button
+            android:id="@+id/UplodeDocumentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#29ADB6"
+            android:paddingLeft="110dp"
+            android:paddingRight="110dp"
+            android:text="העלאת מסמך"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:strokeColor="#88F4F4F4"
+            app:strokeWidth="1dp"
+            android:background="@drawable/button_design"
+            />
+
+    </LinearLayout>
+
+    </LinearLayout>
