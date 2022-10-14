@@ -233,29 +233,29 @@
 
 
 
-                <Button
-                    android:id="@+id/go_to_add_documents_to_customer_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#29ADB6"
-                    android:text="@string/add_documents_for_customer"
-                    tools:ignore="HardcodedText"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    app:strokeColor="#B3B3B3"
-                    app:strokeWidth="1dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/button_design"
-                    android:paddingRight="10dp"
-                    android:paddingLeft="10dp"
-                     />
+<!--                <Button-->
+<!--                    android:id="@+id/go_to_add_documents_to_customer_btn"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:backgroundTint="#29ADB6"-->
+<!--                    android:text="@string/add_documents_for_customer"-->
+<!--                    tools:ignore="HardcodedText"-->
+<!--                    android:textSize="24sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    app:strokeColor="#B3B3B3"-->
+<!--                    app:strokeWidth="1dp"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:background="@drawable/button_design"-->
+<!--                    android:paddingRight="10dp"-->
+<!--                    android:paddingLeft="10dp"-->
+<!--                     />-->
                 <Button
                     android:id="@+id/go_to_customer_documents_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#29ADB6"
-                    android:text="מסמכים קיימים ללקוח"
+                    android:text="מסמכים"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/white"

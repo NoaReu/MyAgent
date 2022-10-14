@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".agentPages.DocumentsListAtAgent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:src="@drawable/my_agent_logo_no_background_img" />
+            <TextView
+                android:id="@+id/customer_doc_at_agent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:backgroundTint="@color/white"
+                android:fontFamily="ariel"
+                android:text="מסמכים"
+                android:textColor="@color/teal_700"
+                android:textSize="40sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/search_customer_recycler_view_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/customer_name_for_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="שם המסמך" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/ic_baseline_insert_drive_file_24" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/sort_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:fontFamily="arial"
+                    android:gravity="center"
+                    android:text="מיין לפי" />
+                <Button
+                    android:id="@+id/sort_doc_by_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/button_design"
+                    android:text="תאריך"/>
+                <Button
+                    android:id="@+id/sort_doc_by_a_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginHorizontal="15dp"
+                    android:background="@drawable/button_design"
+                    android:text="א-ב"/>
+
+            </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/search_document_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+
+            </ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:text="העלאת מסמך ללקוח"
+                    android:background="@drawable/button_design"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

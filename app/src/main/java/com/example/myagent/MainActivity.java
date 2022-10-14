@@ -19,6 +19,7 @@ import com.example.myagent.agentPages.AgentRegistration;
 import com.example.myagent.agentPages.AgentSuitsList;
 import com.example.myagent.agentPages.CreateNewUserFragment;
 import com.example.myagent.agentPages.CustomerInfoAtAgent;
+import com.example.myagent.agentPages.DocumentsListAtAgent;
 import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.agentPages.SearchCustomerAtAgent;
 import com.example.myagent.objects.User;
@@ -186,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
     public void switchToCustomersDocumentsPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         //TODO: add page of user documents an option to add documents to the user like insurances or any other relevant document
-//        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
+        fragmentTransaction.replace(R.id.main_activity, new DocumentsListAtAgent()).addToBackStack(null).commit();
     }
     public void switchToUserInfoPage(User user) {
         this.infoUser=user;

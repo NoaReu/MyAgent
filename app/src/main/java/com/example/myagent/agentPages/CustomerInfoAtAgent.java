@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 import com.example.myagent.objects.User;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +33,8 @@ public class CustomerInfoAtAgent extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    FirebaseStorage firebaseStorage;
+    FirebaseDatabase firebaseDatabase;
 
     public CustomerInfoAtAgent() {
         // Required empty public constructor
@@ -67,6 +72,11 @@ public class CustomerInfoAtAgent extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_customer_info_at_agent, container, false);
+        firebaseDatabase= FirebaseDatabase.getInstance();
+        firebaseStorage=FirebaseStorage.getInstance();
+        
+
+
         MainActivity mainActivity=(MainActivity)getActivity();
         assert mainActivity != null;
         User infoUser=mainActivity.getInfoUser();
@@ -124,13 +134,15 @@ public class CustomerInfoAtAgent extends Fragment {
             }
         });
 
-        Button goToAddDocuments = view.findViewById(R.id.go_to_add_documents_to_customer_btn);
-        goToAddDocuments.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mainActivity.switchToAddDocumentsToCustomerPage();
-            }
-        });
+
+
+//        Button goToAddDocuments = view.findViewById(R.id.go_to_add_documents_to_customer_btn);
+//        goToAddDocuments.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mainActivity.switchToAddDocumentsToCustomerPage();
+//            }
+//        });
 
         return view;
     }
