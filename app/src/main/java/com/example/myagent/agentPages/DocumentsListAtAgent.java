@@ -2,12 +2,15 @@ package com.example.myagent.agentPages;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 
 /**
@@ -25,6 +28,8 @@ public class DocumentsListAtAgent extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    MainActivity mainActivity;
 
     public DocumentsListAtAgent() {
         // Required empty public constructor
@@ -62,7 +67,15 @@ public class DocumentsListAtAgent extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_documents_list_at_agent, container, false);
+        mainActivity=(MainActivity) getActivity();
 
+        Button toUploadDocPageBtn= view.findViewById(R.id.upload_doc_page_agent_to_customer);
+        toUploadDocPageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainActivity.switchToAgentDocToCustomer();
+            }
+        });
 
 
 

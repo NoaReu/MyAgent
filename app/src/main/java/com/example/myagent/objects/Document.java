@@ -6,13 +6,15 @@ public class Document {
     private String status;
     private String userFullName;
     private String userId;
+    private String url;
 
-    public Document(String agentId, String documentName, String status, String userFullName, String userId) {
+    public Document(String agentId, String documentName, String status, String userFullName, String userId,String url) {
         this.agentId = agentId;
         this.documentName = documentName;
         this.status = status;
         this.userFullName = userFullName;
         this.userId = userId;
+        this.url=url;
     }
 
     public String getAgentId() {
@@ -53,5 +55,13 @@ public class Document {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

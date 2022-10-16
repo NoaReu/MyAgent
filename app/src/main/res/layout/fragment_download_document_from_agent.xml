@@ -41,46 +41,51 @@
         android:layout_weight="1"
         android:orientation="vertical">
         <Button
-            android:id="@+id/SelectDocumentBtn"
-            android:layout_width="wrap_content"
+            android:id="@+id/choose_doc_to_upload_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="20dp"
             android:backgroundTint="#29ADB6"
-            android:paddingLeft="110dp"
-            android:paddingRight="110dp"
+            android:gravity="center"
             android:text="בחר מסמך"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:strokeColor="#88F4F4F4"
             app:strokeWidth="1dp"
             android:background="@drawable/button_design"
             />
 
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+            <TextView
+                android:id="@+id/document_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:hint="לא נבחר מסמך"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+        </LinearLayout>
+        <Button
+            android:id="@+id/upload_document_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:hint="לא נבחר מסמך"
-            android:paddingLeft="110dp"
-            android:paddingRight="110dp"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold">
-
-        </TextView>
-        <Button
-            android:id="@+id/UplodeDocumentBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
             android:backgroundTint="#29ADB6"
-            android:paddingLeft="110dp"
-            android:paddingRight="110dp"
+            android:layout_marginHorizontal="20dp"
+            android:gravity="center"
             android:text="העלאת מסמך"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:strokeColor="#88F4F4F4"
             app:strokeWidth="1dp"

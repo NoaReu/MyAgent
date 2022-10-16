@@ -20,6 +20,7 @@ import com.example.myagent.agentPages.AgentSuitsList;
 import com.example.myagent.agentPages.CreateNewUserFragment;
 import com.example.myagent.agentPages.CustomerInfoAtAgent;
 import com.example.myagent.agentPages.DocumentsListAtAgent;
+import com.example.myagent.agentPages.DownloadDocumentFromAgentFragment;
 import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.agentPages.SearchCustomerAtAgent;
 import com.example.myagent.objects.User;
@@ -180,9 +181,9 @@ public class MainActivity extends AppCompatActivity {
         //Todo: replace user info at DB
     }
 
-    public void switchToAddDocumentsToCustomerPage() {
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.main_activity, new InsurancesListAtAgent()).addToBackStack(null).commit();
+    public void switchToAgentDocToCustomer() {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new DownloadDocumentFromAgentFragment()).addToBackStack(null).commit();
     }
     public void switchToCustomersDocumentsPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

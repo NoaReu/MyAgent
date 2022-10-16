@@ -68,8 +68,8 @@ public class AgentSuitsList extends Fragment {
         View view = inflater.inflate(R.layout.fragment_agent_suits_list, container, false);
 
         List<Document> documents = new ArrayList<>();
-        documents.add(new Document("066465238","suit_035856038_28_09_22.pdf","חדש", "אפי טלאור","035856038"));
-        documents.add(new Document("066465238","suit_053974705_28_09_22.pdf","חדש", "אבי כהן","053974705"));
+        documents.add(new Document("066465238","suit_035856038_28_09_22.pdf","חדש", "אפי טלאור","035856038", "066465238/035856038"));
+        documents.add(new Document("066465238","suit_053974705_28_09_22.pdf","חדש", "אבי כהן","053974705","066465238/053974705"));
 
 
         return view;
