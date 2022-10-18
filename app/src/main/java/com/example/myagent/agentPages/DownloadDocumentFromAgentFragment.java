@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
+import com.example.myagent.objects.Document;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -92,6 +93,7 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_download_document_from_agent, container, false);
         mainActivity=(MainActivity)getActivity();
         storage = FirebaseStorage.getInstance();
+        database=FirebaseFirestore.getInstance();
         chooseDocBtn = view.findViewById(R.id.choose_doc_to_upload_btn);
         uploadDocToStorageBtn = view.findViewById(R.id.upload_document_btn);
         notification = view.findViewById(R.id.document_notification);
@@ -158,6 +160,7 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         String url=taskSnapshot.getUploadSessionUri().toString();
+                        Document doc = new Document(mainActivity.getAppAgent().getAgentId(),fileName,"חדש",mainActivity.getInfoUser().getFirstName()+" "+mainActivity.getInfoUser().getLastName(),mainActivity.getInfoUser().getUserId(),url);
 //                        database.collection("documents").document().
                     }
                 }).addOnFailureListener(new OnFailureListener() {
