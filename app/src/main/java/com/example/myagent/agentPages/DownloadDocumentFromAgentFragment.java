@@ -142,6 +142,8 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
     }
 
     private void selectPdf(){
+
+
         Intent intent = new Intent();
         intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);

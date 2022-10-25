@@ -44,6 +44,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
@@ -108,6 +109,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void setInfoUser(User user) {
         this.infoUser=user;
+        WriteBatch batch= db.batch();
+//        db.collection("users")
+//                .whereEqualTo("userID",user.getUserId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                if(task.isSuccessful()){
+//                   DocumentSnapshot documentSnapshot=task.getResult().getDocuments().get(0);
+//                    batch.update(db.collection("users").document(documentSnapshot.getId())
+//                            ,"address",user.getAddress(),"firstName",user.getFirstName(), "lastName",user.getLastName(), "phone",user.getPhone());
+//                    batch.commit().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            Toast.makeText(MainActivity.this, "מידע הוזן לבסיס הנתונים", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//                }
+//            }
+//        });
+
 
     }
 
@@ -304,12 +324,14 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                                            if(task1.getBoolean("anAgent"))//if (user.isAnAgent())
+                                            if(task1.getBoolean("anAgent"))//check if (user.isAnAgent())
                                             {
-                                                agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("agentId"),task1.getString("phone"));
+                                                agent=task.getResult().toObject(User.class);
+//                                                agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("agentId"),task1.getString("phone"));
                                                 fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
                                             } else {
-                                                agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("userId"),task1.getString("agentId"),task1.getString("phone"),task1.getString("email"),task1.getString("address"));
+                                                appUser =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("userId"),task1.getString("agentId"),task1.getString("phone"),task1.getString("email"),task1.getString("address"));
+                                                agent=db.collection("users").whereEqualTo("agentId",task1.getString("agentId")).get().getResult().getDocuments().get(0).toObject(User.class);
                                                 fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
                                             }
                                         }
