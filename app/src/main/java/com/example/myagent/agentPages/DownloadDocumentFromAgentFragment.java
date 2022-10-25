@@ -22,8 +22,10 @@ import android.widget.Toast;
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 import com.example.myagent.objects.Document;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -97,6 +99,15 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
         chooseDocBtn = view.findViewById(R.id.choose_doc_to_upload_btn);
         uploadDocToStorageBtn = view.findViewById(R.id.upload_document_btn);
         notification = view.findViewById(R.id.document_notification);
+
+
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         chooseDocBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +119,6 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
                 }
             }
         });
-
         uploadDocToStorageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,7 +129,6 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
             }
         });
 
-        return view;
     }
 
     @Override
@@ -160,8 +169,26 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         String url=taskSnapshot.getUploadSessionUri().toString();
-                        Document doc = new Document(mainActivity.getAppAgent().getAgentId(),fileName,"חדש",mainActivity.getInfoUser().getFirstName()+" "+mainActivity.getInfoUser().getLastName(),mainActivity.getInfoUser().getUserId(),url);
-//                        database.collection("documents").document().
+                        Document doc = new Document(mainActivity.getAppAgent().getAgentId(),
+                                fileName,
+                                "חדש",
+                                mainActivity.getInfoUser().getFirstName()+" "+mainActivity.getInfoUser().getLastName(),
+                                mainActivity.getInfoUser().getUserId(),
+                                url);
+                        database.collection("documents")
+                                .document(mainActivity.getInfoUser().getUserId()+"_"+fileName)
+                                .set(doc)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                //todo: delete when publishing the app - only for testing
+                                if(task.isSuccessful())
+                                    Toast.makeText(getContext(), "המידע על הקובץ הועלה למערכת", Toast.LENGTH_SHORT).show();
+                                else
+                                    Toast.makeText(getContext(), "המידע על הקובץ לא הועלה למערכת עקב תקלה. נסה שוב", Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override

@@ -8,6 +8,8 @@ public class Document {
     private String userId;
     private String url;
 
+    public Document(){}
+
     public Document(String agentId, String documentName, String status, String userFullName, String userId,String url) {
         this.agentId = agentId;
         this.documentName = documentName;

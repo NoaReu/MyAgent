@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public User getInfoUser(){
         return this.infoUser;
     }
-    public void setInfoUser(User user) { this.infoUser=user;}
+
     private static String validNumbers="1234567890";
     private static String validCapital="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static String validLetters="'אבגדהוזחטיכךלמםנןסעפףצץקרשתabcdefghijklmnopqrstuvw\"xyz";
@@ -106,7 +106,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //TODO: not working!!! check why
+    public void setInfoUser(User user) {
+        this.infoUser=user;
+
+    }
+
+
+
     public List<User> getAllCustomersForAgent() {
 
 //        db=FirebaseFirestore.getInstance();

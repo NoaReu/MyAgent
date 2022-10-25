@@ -134,16 +134,6 @@ public class CustomerInfoAtAgent extends Fragment {
             }
         });
 
-
-
-//        Button goToAddDocuments = view.findViewById(R.id.go_to_add_documents_to_customer_btn);
-//        goToAddDocuments.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mainActivity.switchToAddDocumentsToCustomerPage();
-//            }
-//        });
-
         return view;
     }
 }
