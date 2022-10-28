@@ -137,7 +137,7 @@
                 android:layout_marginRight="10dp">
 
                 <EditText
-                    android:id="@+id/phone_number_text_create_user"
+                    android:id="@+id/id_number_text_create_user"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_weight="0.6"
