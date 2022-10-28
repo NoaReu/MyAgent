@@ -25,78 +25,91 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/WelcomeAgentName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text=" סוכן"
-                android:textColor="#036A64"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:id="@+id/Welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" שלום"
+                android:layout_gravity="right"
+                android:text="שלום"
                 android:textColor="#036A64"
-                android:textSize="20dp"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/WelcomeAgentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" סוכן"
+                android:textColor="#036A64"
+                android:textSize="25dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
         <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="359dp"
+            android:layout_height="287dp"
             android:layout_gravity="center"
             android:layout_marginTop="100dp">
 
             <TableRow
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp">
+                android:layout_marginRight="10dp">
 
                 <Button
                     android:id="@+id/searchUser_HOME_PAGE_AGENT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="328dp"
+                    android:layout_height="49dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="#29ADB6"
-                    android:text="חיפוש \n לקוח"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    app:strokeColor="#B3B3B3"
-                    />
+                    android:background="@drawable/button_design"
 
-                <Button
-                    android:id="@+id/createUser_HOME_PAGE_AGENT"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:backgroundTint="#29ADB6"
-                    android:text="יצירת \nלקוח"
-                    android:textColor="@color/white"
+                    android:backgroundTint="@color/BTN_background_dark"
+                    android:gravity="center"
+                    android:text="חיפוש לקוח"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:strokeColor="#B3B3B3" />
             </TableRow>
+
             <TableRow
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp">
+                android:layout_marginRight="10dp">
+
+                <Button
+                    android:id="@+id/createUser_HOME_PAGE_AGENT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="49dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_design"
+                    android:backgroundTint="@color/BTN_background_dark"
+                    android:gravity="center"
+                    android:text="יצירת לקוח"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:strokeColor="#B3B3B3" />
+            </TableRow>
+
+            <TableRow
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp">
 
                 <Button
                     android:id="@+id/Suits_HOME_PAGE_AGENT"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="49dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:backgroundTint="#29ADB6"
+                    android:background="@drawable/button_design"
+                    android:backgroundTint="@color/BTN_background_dark"
+                    android:gravity="center"
                     android:text="תביעות"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     app:strokeColor="#B3B3B3" />

@@ -57,6 +57,25 @@
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background1.xml" value="0.1935" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background1_round.xml" value="0.1935" />
         <entry key="..\:/Users/shuli/AndroidStudioProjects/MyAgent/app/src/main/res/mipmap-anydpi-v26/my_agent_logo_no_background_round.xml" value="0.1935" />
+        <entry key="app/src/main/res/layout/card_view_for_document_item.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/customer_item_at_agent_search.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_accident_description.xml" value="0.33697916666666666" />
+        <entry key="app/src/main/res/layout/fragment_agent_registration.xml" value="0.33697916666666666" />
+        <entry key="app/src/main/res/layout/fragment_agent_suits_list.xml" value="0.3880208333333333" />
+        <entry key="app/src/main/res/layout/fragment_create_new_user.xml" value="0.33697916666666666" />
+        <entry key="app/src/main/res/layout/fragment_documents_list_at_agent.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_download_document_from_agent.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_entrance_page.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_home_page_agent.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_search_customer_at_agent.xml" value="0.33697916666666666" />
+        <entry key="app/src/main/res/layout/fragment_send_success_for_customer_info_at_agent.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_suit_info_instruction_page_for_user.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_suit_side2_car_licence.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_suit_submmit_successfully.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/fragment_user_documents_at_user.xml" value="0.33697916666666666" />
+        <entry key="app/src/main/res/layout/fragment_user_home_page.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/new_suit_item_at_agent.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/layout/recycler_view_customer_item_at_agent_search.xml" value="0.35260416666666666" />
       </map>
     </option>
   </component>
