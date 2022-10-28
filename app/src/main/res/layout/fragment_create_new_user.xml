@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="3">
+        android:layout_weight="5">
 
 
         <ImageView
@@ -46,214 +46,266 @@
 
         >
 
-        <TableLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp">
+            android:layout_height="match_parent">
 
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-
-                <TextView
-                    android:id="@+id/private_name_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/first_name"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-
-                <EditText
-                    android:id="@+id/first_name_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_weight="0.6"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:hint="@string/first_name_hint"
-                    android:inputType="textPersonName"
-                    android:maxLines="1" />
-            </TableRow>
-
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-
-                <TextView
-                    android:id="@+id/last_name_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/last_name"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-
-                <EditText
-                    android:id="@+id/last_name_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_weight="0.6"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:hint="@string/last_name_hint"
-                    android:inputType="textPersonName"
-                    android:maxLines="1" />
-            </TableRow>
-
-
-
-        <TableRow
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp">
-            <TextView
-                android:id="@+id/id_number_create_user"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/id_headline"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-        </TableRow>
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-                <EditText
-                    android:id="@+id/id_number_text_create_user"
+                android:orientation="vertical" >
+
+                <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_weight="0.6"
-                    android:inputType="number"
-                    android:hint="@string/id_headline_hint"/>
-            </TableRow>
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-
-                <TextView
-                    android:id="@+id/phone_number_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/phone_number"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-
-                <EditText
-                    android:id="@+id/phone_number_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_weight="0.6"
-                    android:gravity="center"
-                    android:hint="@string/phone_number_hint"
-                    android:inputType="phone" />
-            </TableRow>
-
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-
-                <TextView
-                    android:id="@+id/mail_address_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/mail_header"
-                    android:textSize="20sp"
-                    android:textStyle="bold"/>
-            </TableRow>
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-
-
-                <EditText
-                    android:id="@+id/mail_address_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_weight="0.6"
-                    android:gravity="center"
-                    android:inputType="textEmailAddress"
-                    android:hint="@string/hint_mail_address"/>
-            </TableRow>
-
-
-        <TableRow
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp">
-            <TextView
-                android:id="@+id/address_create_user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/address_customer_info_at_agent"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </TableRow>
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
-                <EditText
-                    android:id="@+id/address_text_create_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_weight="0.6"
-                    android:gravity="center"
-                    android:inputType="text"
-                    android:hint="@string/address_hint"/>
-
-            </TableRow>
-            <TableRow
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp">
-
-                <Button
-                    android:id="@+id/register_user_btn"
-                    android:layout_width="171dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="672dp"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_design"
-                    android:backgroundTint="@color/BTN_background_dark"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:text="@string/confirm_btn"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="20sp" />
+                    android:layout_marginTop="5dp">
 
-            </TableRow>
-        </TableLayout>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/private_name_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/first_name"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/first_name_text_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/edit_text_background"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:hint="@string/first_name_hint"
+                            android:inputType="textPersonName"
+                            android:maxLines="1" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/last_name_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/last_name"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/last_name_text_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/edit_text_background"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:hint="@string/last_name_hint"
+                            android:inputType="textPersonName"
+                            android:maxLines="1" />
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/id_number_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/id_headline"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/id_number_text_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:hint="@string/id_headline_hint"
+                            android:inputType="number" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/phone_number_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/phone_number"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/phone_number_text_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:hint="@string/phone_number_hint"
+                            android:inputType="phone" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/mail_address_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/mail_header"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+
+                        <EditText
+                            android:id="@+id/mail_address_text_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:hint="@string/hint_mail_address"
+                            android:inputType="textEmailAddress" />
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <TextView
+                            android:id="@+id/address_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:text="@string/address_customer_info_at_agent"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/address_text_create_user"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/edit_text_background"
+                            android:gravity="center"
+                            android:hint="@string/address_hint"
+                            android:inputType="text" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_height="73dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="10dp">
+
+                        <Button
+                            android:id="@+id/register_user_btn"
+                            android:layout_width="171dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+
+                            android:layout_weight="1"
+                            android:background="@drawable/button_design"
+                            android:backgroundTint="@color/BTN_background_dark"
+                            android:gravity="center"
+                            android:text="@string/confirm_btn"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
+        </ScrollView>
+
         <!--
             <LinearLayout
                     android:layout_width="match_parent"
