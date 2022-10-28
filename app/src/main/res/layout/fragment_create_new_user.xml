@@ -239,15 +239,17 @@
 
                 <Button
                     android:id="@+id/register_user_btn"
-                    android:layout_width="365dp"
+                    android:layout_width="171dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:background="@drawable/button_design"
                     android:backgroundTint="@color/BTN_background_dark"
+                    android:gravity="center"
                     android:padding="10dp"
-
                     android:text="@string/confirm_btn"
                     android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:textSize="20sp" />
 
             </TableRow>
