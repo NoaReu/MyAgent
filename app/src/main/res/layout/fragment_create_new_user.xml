@@ -93,10 +93,10 @@
                             android:src="@drawable/ic_person"></ImageView>
                     </TableRow>
 
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
 
                         <EditText
                             android:id="@+id/first_name_text_create_user"
