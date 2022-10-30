@@ -330,8 +330,8 @@ public class MainActivity extends AppCompatActivity {
 //                                                agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("agentId"),task1.getString("phone"));
                                                 fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
                                             } else {
-                                                appUser =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("userId"),task1.getString("agentId"),task1.getString("phone"),task1.getString("email"),task1.getString("address"));
-                                                agent=db.collection("users").whereEqualTo("agentId",task1.getString("agentId")).get().getResult().getDocuments().get(0).toObject(User.class);
+                                                agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("userId"),task1.getString("agentId"),task1.getString("phone"),task1.getString("email"),task1.getString("address"));
+//                                                agent=db.collection("users").whereEqualTo("agentId",task1.getString("agentId")).get().getResult().getDocuments().get(0).toObject(User.class);
                                                 fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
                                             }
                                         }
