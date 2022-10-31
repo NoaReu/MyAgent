@@ -114,7 +114,9 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
                 if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED){
                     selectPdf();
                 }else{
-                    ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
+
+                    requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
+//                    ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},9);
 
                 }
             }
@@ -137,12 +139,15 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
         if(requestCode==9 && grantResults[0]== PackageManager.PERMISSION_GRANTED){
             selectPdf();
         }else{
+//            shouldShowRequestPermissionRationale("על מנת להעלות קבצים ממכשירך עליך לאשר גישה לקבצים. אנא אשר גישה");
+//            requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
             Toast.makeText(getContext(), "יש לאשר הרשאה לגישה למסמכים", Toast.LENGTH_SHORT).show();
+
         }
     }
 
-    private void selectPdf(){
 
+    private void selectPdf(){
 
         Intent intent = new Intent();
         intent.setType("application/pdf");

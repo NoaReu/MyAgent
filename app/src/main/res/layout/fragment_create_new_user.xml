@@ -76,7 +76,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
 
-                                android:layout_marginRight="10dp"
+                                android:layout_marginEnd="10dp"
 
                                 android:text="@string/first_name"
                                 android:textColor="@color/black"
@@ -90,7 +90,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginRight="130dp"
                             android:layout_weight="0.2"
-                            android:src="@drawable/ic_person"></ImageView>
+                            android:src="@drawable/ic_person"/>
                     </TableRow>
 
                         <TableRow
@@ -138,7 +138,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginRight="130dp"
                             android:layout_weight="0.2"
-                            android:src="@drawable/ic_lastname"></ImageView>
+                            android:src="@drawable/ic_lastname"/>
                     </TableRow>
 
                     <TableRow
@@ -186,7 +186,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginRight="130dp"
                             android:layout_weight="0.2"
-                            android:src="@drawable/ic_identity"></ImageView>
+                            android:src="@drawable/ic_identity"/>
                     </TableRow>
 
                     <TableRow
@@ -230,7 +230,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginRight="130dp"
                                 android:layout_weight="0.2"
-                                android:src="@drawable/ic_phone"></ImageView>
+                                android:src="@drawable/ic_phone"/>
                     </TableRow>
 
                     <TableRow
@@ -275,7 +275,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginRight="130dp"
                                 android:layout_weight="0.2"
-                                android:src="@drawable/ic_mail"></ImageView>
+                                android:src="@drawable/ic_mail"/>
                     </TableRow>
 
                     <TableRow
@@ -322,7 +322,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginRight="130dp"
                                     android:layout_weight="0.2"
-                                    android:src="@drawable/ic_address"></ImageView>
+                                    android:src="@drawable/ic_address"/>
 
                     </TableRow>
 
