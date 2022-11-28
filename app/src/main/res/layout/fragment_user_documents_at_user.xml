@@ -58,7 +58,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.8"
                         android:gravity="center"
-                        android:text="@string/suits" />
+                        android:text="@string/suits"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
 
                     <TextView
                         android:id="@+id/textView4_UserDocumentsAtUser"
@@ -66,7 +68,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
                         android:gravity="center"
-                        android:text="@string/status" />
+                        android:text="@string/status"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
                 <LinearLayout
