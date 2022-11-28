@@ -31,7 +31,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="Ariel"
             android:gravity="center"
-            android:text="@string/header_create_user"
+            android:text="@string/register_header"
             android:textColor="@color/teal_700"
             android:textSize="40sp" />
 
@@ -69,27 +69,28 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp">
+
+                            android:orientation="horizontal">
 
 
                             <TextView
                                 android:id="@+id/private_name_create_agent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
                                 android:text="שם פרטי"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
 
-                                android:layout_weight="0.2"
-                                android:src="@drawable/ic_person"/>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="270dp"
+                                android:layout_weight="0.1"
+                                android:src="@drawable/ic_person" />
                         </LinearLayout>
+
 
 
                     </TableRow>
@@ -138,6 +139,7 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:layout_marginRight="235dp"
                                 android:layout_weight="0.2"
                                 android:src="@drawable/ic_lastname"/>
                         </LinearLayout>
@@ -190,6 +192,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.2"
+                                android:layout_marginRight="240dp"
                                 android:src="@drawable/ic_identity"/>
                         </LinearLayout>
 
@@ -238,6 +241,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.2"
+                                android:layout_marginRight="315dp"
                                 android:src="@drawable/ic_phone"/>
                         </LinearLayout>
 
@@ -286,6 +290,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.2"
+                                android:layout_marginRight="300dp"
                                 android:src="@drawable/ic_mail"/>
                         </LinearLayout>
 
@@ -336,6 +341,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.2"
+                                android:layout_marginRight="280dp"
                                 android:src="@drawable/ic_password"/>
 
                         </LinearLayout>
@@ -385,6 +391,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.2"
+                                android:layout_marginRight="220dp"
                                 android:src="@drawable/ic_password"/>
                         </LinearLayout>
 
