@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         userForRecyclerView=new ArrayList<>();
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment());
+        fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
 
 
 
