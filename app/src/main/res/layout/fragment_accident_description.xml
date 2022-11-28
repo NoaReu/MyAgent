@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:text="אנא פרט את התרחשות התאונה:"/>
 
         <EditText
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:ems="700"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:inputType="textMultiLine"
             tools:ignore="SpeakableTextPresentCheck"
             android:hint="הכנס תיאור"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:text="@string/whos_fault_to_your_opinion"/>
 
         <RadioGroup
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:text="מתי קרתה התאונה"/>
 
         <RadioGroup
@@ -166,7 +166,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:text="מי נהג ברכב בעת התאונה-"/>
 
         <RadioGroup

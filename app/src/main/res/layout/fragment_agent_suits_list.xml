@@ -60,6 +60,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.8"
                     android:gravity="center"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="@string/suits" />
 
                 <TextView
@@ -68,6 +71,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.2"
                     android:gravity="center"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:text="@string/status" />
             </LinearLayout>
 
