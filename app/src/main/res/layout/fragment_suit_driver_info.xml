@@ -42,206 +42,348 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="horizontal">
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
             >
-        <LinearLayout
-            android:id="@+id/suit_driver_info_fourth_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:orientation="vertical">
-
-
             <LinearLayout
-                android:id="@+id/full_name_suit_driver_info_layout"
+                android:id="@+id/suit_driver_info_fourth_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/full_name_suit_driver_info_text"
+                <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="שם מלא"
-                    android:textSize="24sp" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp">
 
-                <EditText
-                    android:id="@+id/full_name_suit_driver_info_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="text"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
 
+                    <LinearLayout
+                        android:id="@+id/full_name_suit_driver_info_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/full_name_suit_driver_info_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="שם מלא"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="270dp"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/ic_person" />
+                    </LinearLayout>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+
+                            <EditText
+                                android:id="@+id/full_name_suit_driver_info_edit_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_weight="0.6"
+                                android:autofillHints=""
+                                android:ems="10"
+                                android:inputType="text"
+                                android:background="@drawable/edit_text_background"
+                                tools:ignore="SpeakableTextPresentCheck" />
+
+
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+                    <LinearLayout
+                        android:id="@+id/year_of_birth_suit_driver_info_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/year_of_birth_suit_driver_info_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="שנת לידה"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="270dp"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/ic_years" />
+                    </LinearLayout>
+        </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/year_of_birth_suit_driver_info_edit_text"
+
+                            android:layout_weight="0.6"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:autofillHints=""
+                            android:ellipsize="end"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:background="@drawable/edit_text_background"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+                    <LinearLayout
+                        android:id="@+id/id_number_suit_driver_info_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/id_number_suit_driver_info_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/id_customer_info_at_agent"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:layout_marginRight="240dp"
+                            android:src="@drawable/ic_identity"/>
+                    </LinearLayout>
+        </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/id_number_suit_driver_info_edit_text"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/edit_text_background"
+                            android:inputType="number" />
+
+
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+                    <LinearLayout
+                        android:id="@+id/address_suit_driver_info_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/address_suit_driver_info_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/address_customer_info_at_agent"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="130dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/ic_address"/>
+                    </LinearLayout>
+        </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                            <EditText
+                                android:id="@+id/address_suit_driver_info_edit_text"
+
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_weight="0.6"
+                                android:background="@drawable/edit_text_background"
+                                android:inputType="text" />
+
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+                    <LinearLayout
+                        android:id="@+id/family_closeness_suit_driver_info_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/family_closeness_suit_driver_info_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:text="קרבה למבוטח"
+                            android:textSize="20sp"
+                            android:textColor="@color/black" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="130dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/ic_lastname"/>
+                    </LinearLayout>
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/family_closeness_suit_driver_info_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_weight="0.6"
+                            android:background="@drawable/edit_text_background"
+                            android:inputType="text" />
+
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+                    <LinearLayout
+                        android:id="@+id/drivers_license_number_suit_driver_info_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/drivers_license_number_suit_driver_info_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="מספר רשיון נהיגה"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="130dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/ic_numbers"/>
+                    </LinearLayout>
+        </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/drivers_license_number_suit_driver_info_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_weight="0.6"
+                            android:inputType="number"
+                            android:background="@drawable/edit_text_background"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+                    <LinearLayout
+                        android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="שנת הוצאת רישיון נהיגה"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="130dp"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/ic_outline_year"/>
+                    </LinearLayout>
+        </TableRow>
+                    <TableRow
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <EditText
+                            android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_weight="0.6"
+                            android:inputType="number"
+                            android:background="@drawable/edit_text_background"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </TableRow>
+                    <Button
+                        android:id="@+id/submit_suit_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@drawable/button_design"
+                        android:backgroundTint="@color/BTN_background_dark"
+                        android:gravity="center"
+                        android:text="הגש תביעה"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </TableLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/year_of_birth_suit_driver_info_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/year_of_birth_suit_driver_info_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="שנת לידה"
-                    android:textSize="24sp" />
-
-                <EditText
-                    android:id="@+id/year_of_birth_suit_driver_info_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:autofillHints=""
-                    android:ellipsize="end"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/id_number_suit_driver_info_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/id_number_suit_driver_info_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/id_customer_info_at_agent"
-                    android:textSize="24sp" />
-
-                <EditText
-                    android:id="@+id/id_number_suit_driver_info_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:inputType="number" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/address_suit_driver_info_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/address_suit_driver_info_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/address_customer_info_at_agent"
-                    android:textSize="24sp" />
-
-                <EditText
-                    android:id="@+id/address_suit_driver_info_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:inputType="text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/family_closeness_suit_driver_info_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/family_closeness_suit_driver_info_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-
-                    android:text="מה הקרבה למבוטח"
-                    android:textSize="24sp" />
-
-                <EditText
-                    android:id="@+id/family_closeness_suit_driver_info_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:inputType="text" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/drivers_license_number_suit_driver_info_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/drivers_license_number_suit_driver_info_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="מספר רשיון נהיגה"
-                    android:textSize="24sp" />
-
-                <EditText
-                    android:id="@+id/drivers_license_number_suit_driver_info_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:inputType="number"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="שנת הוצאת רישיון נהיגה"
-                    android:textSize="24sp" />
-
-                <EditText
-                    android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:inputType="number"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/submit_suit_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="25dp"
-                android:background="@drawable/button_design"
-                android:backgroundTint="@color/BTN_background_dark"
-                android:gravity="center"
-                android:text="הגש תביעה"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
         </ScrollView>
     </LinearLayout>
     </LinearLayout>
