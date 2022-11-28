@@ -137,7 +137,15 @@ public class SearchCustomerAtAgent extends Fragment {
                         recyclerView.setHasFixedSize(true);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
                         recyclerView.setAdapter(adapter);
-
+                        //try to show less items on list by writing person to search
+                        nameToSearch=view.findViewById(R.id.customer_name_for_search);
+                        nameToSearch.setOnKeyListener(new View.OnKeyListener() {
+                            @Override
+                            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                                Toast.makeText(getContext(), nameToSearch.getText().toString()+" test", Toast.LENGTH_SHORT).show();
+                                return false;
+                            }
+                        });
                     }else{
                         Toast.makeText(getContext(), "No objects from DB!!!", Toast.LENGTH_SHORT).show();
                     }
@@ -168,7 +176,7 @@ public class SearchCustomerAtAgent extends Fragment {
                         adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
                             @Override
                             public void onItemClick(User user) {
-                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
                                 mainActivity=(MainActivity) getActivity();
                                 mainActivity.switchToUserInfoPage(user);
                             }
@@ -178,7 +186,7 @@ public class SearchCustomerAtAgent extends Fragment {
                         adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
                             @Override
                             public void onItemClick(User user) {
-                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
                                 mainActivity=(MainActivity) getActivity();
                                 mainActivity.switchToUserInfoPage(user);
                             }
