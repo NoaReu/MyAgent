@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/customerInfoAtAgent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".agentPages.CustomerInfoAtAgent" >
 
     <LinearLayout
@@ -44,246 +45,379 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="1"
-            android:maxLines="1"
-            android:ellipsize="end"
+            android:orientation="vertical"
+
             >
 
-
-            <LinearLayout
-                android:id="@+id/private_name_customer_info_at_agent_layout"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/private_name_customer_info_at_agent_text"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/private_name_at_customer_info_at_agent"
-                    android:textSize="24sp"/>
+                    android:orientation="vertical" >
 
-                <EditText
-                    android:id="@+id/private_name_customer_info_at_agent"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_weight="0.6"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:inputType="textPersonName|text"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp">
 
-            </LinearLayout>
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
 
-            <LinearLayout
-                android:id="@+id/last_name_customer_info_at_agent_layout"
-                android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/last_name_customer_info_at_agent_text"
+                                <TextView
+                                    android:id="@+id/private_name_customer_info_at_agent_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_marginEnd="10dp"
+
+                                    android:text="@string/first_name"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="120dp"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_person" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <EditText
+                                android:id="@+id/private_name_customer_info_at_agent"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="0.6"
+                                android:background="@drawable/edit_text_background"
+                                android:ellipsize="end"
+                                android:gravity="center"
+
+                                android:inputType="textPersonName"
+                                android:maxLines="1" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/last_name_customer_info_at_agent_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:text="@string/last_name"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="115dp"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_lastname" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <EditText
+                                android:id="@+id/last_name_customer_info_at_agent"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="0.6"
+                                android:background="@drawable/edit_text_background"
+                                android:ellipsize="end"
+                                android:gravity="center"
+
+                                android:inputType="textPersonName"
+                                android:maxLines="1" />
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/id_number_customer_info_at_agent_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:text="@string/id_headline"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="115dp"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_identity" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <EditText
+                                android:id="@+id/id_number_customer_info_at_agent"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="0.6"
+                                android:background="@drawable/edit_text_background"
+                                android:gravity="center"
+
+                                android:inputType="number" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/phone_number_customer_info_at_agent_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:text="@string/phone_number"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="120dp"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_phone" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <EditText
+                                android:id="@+id/phone_number_customer_info_at_agent"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="0.6"
+                                android:background="@drawable/edit_text_background"
+                                android:gravity="center"
+
+                                android:inputType="phone" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/mail_address_customer_info_at_agent_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+
+                                    android:text="@string/mail_header"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="120dp"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_mail" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+
+                            <EditText
+                                android:id="@+id/mail_address_customer_info_at_agent"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="0.6"
+                                android:background="@drawable/edit_text_background"
+                                android:gravity="center"
+
+                                android:inputType="textEmailAddress" />
+                        </TableRow>
+
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/address_customer_info_at_agent_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+
+                                    android:text="@string/address_customer_info_at_agent"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="120dp"
+                                android:layout_weight="0.2"
+                                android:src="@drawable/ic_address" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp">
+
+                            <EditText
+                                android:id="@+id/address_customer_info_at_agent"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="0.6"
+                                android:background="@drawable/edit_text_background"
+                                android:gravity="center"
+                                android:inputType="text"
+                                android:layout_marginBottom="10dp"/>
+
+                        </TableRow>
+
+
+                    </TableLayout>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/last_name_customer_info_at_agent"
-                    android:textSize="24sp" />
 
-                <EditText
-                    android:id="@+id/last_name_customer_info_at_agent"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_weight="0.6"
-                    android:autofillHints=""
-                    android:inputType="textPersonName|text"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    tools:ignore="SpeakableTextPresentCheck"
-                />
+                    >
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/update_customer_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#FFFFFF"
+                        android:text="@string/update_details_at_customer_info_at_agent"
+                        android:textColor="#29ADB6"
+                        android:textSize="20sp"
+                        app:strokeColor="#B3B3B3"
+                        app:strokeWidth="1dp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck"
+                        />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/id_number_customer_info_at_agent_text"
-                    android:layout_width="342dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="24sp"
-                    android:text="@string/id_customer_info_at_agent" />
-
-                <EditText
-                    android:id="@+id/id_number_customer_info_at_agent"
-                    android:layout_width="369dp"
-                    android:layout_height="58dp"
-                    android:layout_weight="0.6"
-                    tools:ignore="SpeakableTextPresentCheck"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:inputType="number"
-                    android:autofillHints="" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/phone_number_customer_info_at_agent_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:layout_weight="1"
-                    android:text="@string/phone_number_at_customer_info_at_agent" />
-
-                <EditText
-                    android:id="@+id/phone_number_customer_info_at_agent"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_weight="0.6"
-                    tools:ignore="SpeakableTextPresentCheck"
-                    android:autofillHints="" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/mail_address_customer_info_at_agent_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:layout_weight="1"
-                    android:text="@string/mail_header" />
-
-                <EditText
-                    android:id="@+id/mail_address_customer_info_at_agent"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_weight="0.6"
-                    tools:ignore="SpeakableTextPresentCheck"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:autofillHints="" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="63dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/address_customer_info_at_agent_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:layout_weight="1"
-                    android:text="@string/address_customer_info_at_agent" />
-
-                <EditText
-                    android:id="@+id/address_customer_info_at_agent"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
-                    android:layout_weight="0.6"
-                    android:autofillHints=""
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:inputType="text"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/update_customer_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FFFFFF"
-                    android:text="@string/update_details_at_customer_info_at_agent"
-                    android:textColor="#29ADB6"
-                    android:textSize="24sp"
-                    app:strokeColor="#B3B3B3"
-                    app:strokeWidth="1dp"
-                    android:textStyle="bold"
-                    tools:ignore="TextContrastCheck"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:paddingBottom="20dp"
-                android:orientation="vertical">
+                    android:layout_gravity="center"
+                    android:paddingBottom="20dp"
+                    android:orientation="vertical">
 
 
 
-<!--                <Button-->
-<!--                    android:id="@+id/go_to_add_documents_to_customer_btn"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:backgroundTint="#29ADB6"-->
-<!--                    android:text="@string/add_documents_for_customer"-->
-<!--                    tools:ignore="HardcodedText"-->
-<!--                    android:textSize="24sp"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    app:strokeColor="#B3B3B3"-->
-<!--                    app:strokeWidth="1dp"-->
-<!--                    android:layout_marginBottom="20dp"-->
-<!--                    android:background="@drawable/button_design"-->
-<!--                    android:paddingRight="10dp"-->
-<!--                    android:paddingLeft="10dp"-->
-<!--                     />-->
-                <Button
-                    android:id="@+id/go_to_customer_documents_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#29ADB6"
-                    android:text="מסמכים"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
-                    app:strokeColor="#B3B3B3"
-                    app:strokeWidth="1dp"
-                    tools:ignore="TextContrastCheck"
-                    android:background="@drawable/button_design"
-                    android:paddingRight="10dp"
-                    android:paddingLeft="10dp"
-                    />
-
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/go_to_customer_documents_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#29ADB6"
+                        android:text="מסמכים"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        app:strokeColor="#B3B3B3"
+                        app:strokeWidth="1dp"
+                        tools:ignore="TextContrastCheck"
+                        android:background="@drawable/button_design"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        />
+                </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
         </LinearLayout>
     </LinearLayout>
-
-</FrameLayout>
-    <!--                <Button-->
-    <!--                    style="?android:attr/buttonBarButtonStyle"-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_marginEnd="15dp"-->
-    <!--                    android:backgroundTint="#29ADB6"-->
-    <!--                    android:textStyle="bold"-->
-    <!--                    android:text="תביעות"-->
-    <!--                    android:textColor="#FFFFFF"-->
-    <!--                    android:textSize="24sp"-->
-    <!--                    app:strokeColor="#B3B3B3"-->
-    <!--                    app:strokeWidth="1dp"-->
-    <!--                    tools:ignore="TextContrastCheck"-->
-    <!--                    app:cornerRadius="@android:dimen/thumbnail_width"-->
-    <!--                    />-->
+</LinearLayout>
