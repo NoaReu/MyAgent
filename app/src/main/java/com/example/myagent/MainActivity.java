@@ -131,80 +131,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    public List<User> getAllCustomersForAgent() {
-
-//        db=FirebaseFirestore.getInstance();
-
-//        Task<DocumentSnapshot> documentSnapshotTask = db.collection("users").document().get();
-//        documentSnapshotTask.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if(task.isSuccessful()){
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        Log.d("get users from db", "DocumentSnapshot data: " + document.getData());
-//                    } else {
-//                        Log.d("get users from db", "No such document");
-//                    }
-//                } else {
-//                    Log.d("get users from db", "get failed with ", task.getException());
-//                }
-//            }
-//        });
-//        Task<QuerySnapshot> querySnapshotTask = db.collection("users").whereEqualTo("anAgent", false).get();
-        //TODO: add- .whereEqualTo("agentId", agent.getAgentID())
-
-        db=FirebaseFirestore.getInstance();
-//        db.collection("users").whereEqualTo("anAgent", false).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//            @Override
-//            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                if(!queryDocumentSnapshots.isEmpty()) {
-//                    userForRecyclerView = new ArrayList<>();
-//                    List<DocumentSnapshot> snapshotList=queryDocumentSnapshots.getDocuments();
-//                    for (DocumentSnapshot d :snapshotList){
-//                        User user= d.toObject(User.class);
-//                        userForRecyclerView.add(user);
-//                    }
-//
-//                }
-//            }
-//        });
-
-        db.collection("users").whereEqualTo("anAgent", false).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//        querySnapshotTask.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    userForRecyclerView = new ArrayList<>();
-                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
-                        Toast.makeText(MainActivity.this,"הצלחנו לקרוא מסמך",Toast.LENGTH_SHORT).show();
-                        userForRecyclerView.add(new User(
-                                documentSnapshot.getData().get("firstName")!=null?documentSnapshot.getData().get("firstName").toString():"",
-                                documentSnapshot.getData().get("lastName")!=null?documentSnapshot.getData().get("lastName").toString():"",
-                                documentSnapshot.getData().get("userId")!=null?documentSnapshot.getData().get("userId").toString():"",
-                                documentSnapshot.getData().get("agentId")!=null?documentSnapshot.getData().get("agentId").toString():"",
-                                documentSnapshot.getData().get("phone")!=null?documentSnapshot.getData().get("phone").toString():"",
-                                documentSnapshot.getData().get("email")!=null?documentSnapshot.getData().get("email").toString():"",
-                                documentSnapshot.getData().get("address")!=null?documentSnapshot.getData().get("address").toString():"",
-                                false));
-                    }
-                    Toast.makeText(MainActivity.this,"הלקוחות נוספו לרשימה",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Log.d("get users from db", "get failed with ", task.getException());
-
-                }
-            }
-
-        });
-        return userForRecyclerView;
-
-    }
-
     public void updateUserInfoAtDB() {
-        //Todo: replace user info at DB
+//        mAuth.getFirebaseAuthSettings().
+//        db.collection("users").endBefore()
+
     }
 
     public void switchToAgentDocToCustomer() {
@@ -213,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void switchToCustomersDocumentsPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //TODO: add page of user documents an option to add documents to the user like insurances or any other relevant document
         fragmentTransaction.replace(R.id.main_activity, new DocumentsListAtAgent()).addToBackStack(null).commit();
     }
     public void switchToUserInfoPage(User user) {
@@ -247,19 +176,19 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new SuitInfoInstructionPageForUser()).addToBackStack(null).commit();
     }
-    public void switchToSuitPage2() { // Todo:change destination
+    public void switchToSuitPage2() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new SuitSide2CarLicenceFragment()).addToBackStack(null).commit();
     }
-    public void switchToSuitPage3() {// Todo:change destination
+    public void switchToSuitPage3() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new AccidentDescription()).addToBackStack(null).commit();
     }
-    public void switchToSuitPage4() {// Todo:change destination
+    public void switchToSuitPage4() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new SuitSubmitSuccessfully()).addToBackStack(null).commit();
     }
-    public void switchToUserHomePage() {// Todo:change destination
+    public void switchToUserHomePage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
     }
@@ -275,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new ForgotPassword()).addToBackStack(null).commit();
     }
+
     public void sendNewPassword(String email) {
         //TODO: search for user in FB authentication if exist
 
@@ -284,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this,"אימייל נשלח",Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,"נשלח מייל לאיפוס סיסמה",Toast.LENGTH_LONG).show();
                             Log.d("reset_password", "Email sent.");
                         }
                     }
@@ -453,6 +383,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+    //static function for validation
     public static boolean isValidEmail(String email){
         if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             return true;

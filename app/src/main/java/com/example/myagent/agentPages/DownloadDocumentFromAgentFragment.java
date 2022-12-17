@@ -1,6 +1,7 @@
 package com.example.myagent.agentPages;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -8,7 +9,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -99,7 +99,6 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
         chooseDocBtn = view.findViewById(R.id.choose_doc_to_upload_btn);
         uploadDocToStorageBtn = view.findViewById(R.id.upload_document_btn);
         notification = view.findViewById(R.id.document_notification);
-
 
 
         return view;

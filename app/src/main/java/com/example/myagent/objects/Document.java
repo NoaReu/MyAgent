@@ -6,17 +6,17 @@ public class Document {
     private String status;
     private String userFullName;
     private String userId;
-    private String url;
+    private String path;
 
     public Document(){}
 
-    public Document(String agentId, String documentName, String status, String userFullName, String userId,String url) {
+    public Document(String agentId, String documentName, String status, String userFullName, String userId,String path) {
         this.agentId = agentId;
         this.documentName = documentName;
         this.status = status;
         this.userFullName = userFullName;
         this.userId = userId;
-        this.url=url;
+        this.path = path;
     }
 
     public String getAgentId() {
@@ -59,11 +59,11 @@ public class Document {
         this.userId = userId;
     }
 
-    public String getUrl() {
-        return url;
+    public String getPath() {
+        return path;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setPath(String path) {
+        this.path = path;
     }
 }
