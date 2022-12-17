@@ -14,12 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.8"
-        android:text="שם מסמך" />
+        android:text="aa שם מסמך" />
 
     <TextView
         android:id="@+id/document_status_at_doc_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:text="סטטוס" />
+        android:text="aa סטטוס" />
 </LinearLayout>
