@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ public class AgentSuitsList extends Fragment {
     private String mParam2;
     RecyclerView recyclerView;
     FirebaseFirestore db;
+    List<Document> documents;
 
 
     public AgentSuitsList() {
@@ -84,10 +86,10 @@ public class AgentSuitsList extends Fragment {
         db.collection("documents").whereEqualTo("agentId", "066465238").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                List<Document> documentList= task.getResult().toObjects(Document.class);
-
+                documents= task.getResult().toObjects(Document.class);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                recyclerView.setAdapter(new DocAdapter(getContext(),documentList));
+                recyclerView.setAdapter(new DocAdapter(getContext(),documents));
+
             }
         });
 
@@ -136,6 +138,15 @@ public class AgentSuitsList extends Fragment {
 
             holder.docName.setText(documents.get(position).getDocumentName());
             holder.docStatus.setText(documents.get(position).getStatus());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FirebaseStorage storage=FirebaseStorage.getInstance();
+
+                    storage.getReference("gs://myagent-6cce7.appspot.com/"+documents.get(holder.getLayoutPosition()).getAgentId()+"/"+documents.get(holder.getLayoutPosition()).getUserId()+"/"+holder.docName);
+//                    gs://myagent-6cce7.appspot.com/066465238/035856038/suit_035856038_28_09_22.pdf
+                }
+            });
         }
 
         @Override
