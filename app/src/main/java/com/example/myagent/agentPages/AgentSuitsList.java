@@ -15,6 +15,10 @@ import android.widget.TextView;
 
 import com.example.myagent.R;
 import com.example.myagent.objects.Document;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +39,8 @@ public class AgentSuitsList extends Fragment {
     private String mParam1;
     private String mParam2;
     RecyclerView recyclerView;
+    FirebaseFirestore db;
+
 
     public AgentSuitsList() {
         // Required empty public constructor
@@ -73,14 +79,21 @@ public class AgentSuitsList extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_agent_suits_list, container, false);
         recyclerView = view.findViewById(R.id.new_suits_at_agent_recycler_view);
-        List<Document> documents = new ArrayList<>();
-        documents.add(new Document("066465238","suit_035856038_28_09_22.pdf","חדש", "אפי טלאור","035856038", "gs://myagent-6cce7.appspot.com/066465238/035856038"));
-        documents.add(new Document("066465238","suit_053974705_28_09_22.pdf","חדש", "אבי כהן","053974705","gs://myagent-6cce7.appspot.com/066465238/053974705"));
+
+        db= FirebaseFirestore.getInstance();
+        db.collection("documents").whereEqualTo("agentId", "066465238").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                List<Document> documentList= task.getResult().toObjects(Document.class);
+
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView.setAdapter(new DocAdapter(getContext(),documentList));
+            }
+        });
 
 
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        recyclerView.setAdapter(new DocAdapter(getContext(),documents));
+
 
 
 
