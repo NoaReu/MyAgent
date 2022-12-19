@@ -7,21 +7,37 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="0.1"
-        android:src="@drawable/ic_attach_file" />
+        android:src="@drawable/ic_attach_file"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/document_name_at_doc_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.8"
-        android:text="aa שם מסמך" />
+        android:gravity="right"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:text=" שם מסמך"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/document_status_at_doc_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:text="aa סטטוס" />
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="right"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:text=" סטטוס"
+        android:layout_marginBottom="10dp"/>
+
 </LinearLayout>
