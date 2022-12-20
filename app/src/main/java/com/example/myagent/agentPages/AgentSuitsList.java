@@ -18,8 +18,11 @@ import com.example.myagent.R;
 import com.example.myagent.objects.Document;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.auth.FirebaseAppCheckTokenProvider;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -154,23 +157,23 @@ public class AgentSuitsList extends Fragment {
                                 prefix(documents.get(holder.getLayoutPosition()).getDocumentName()),
                                 suffix(documents.get(holder.getLayoutPosition()).getDocumentName())
                         );
+                        Toast.makeText(getContext(), file.getName(), Toast.LENGTH_SHORT).show();
                         storage.getReferenceFromUrl("gs://myagent-6cce7.appspot.com/"+
                                 documents.get(holder.getLayoutPosition()).getAgentId()+"/"+
                                 documents.get(holder.getLayoutPosition()).getUserId()+"/"+
                                 holder.docName)
                                 .getFile(file)
-                                .addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
-                                Toast.makeText(getContext(), task.getResult().getTotalByteCount()+"", Toast.LENGTH_SHORT).show();
-                                if(task.isSuccessful()){
-                                    Toast.makeText(getContext(), "file downloaded", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    Toast.makeText(getContext(), "file hasn't been downloaded", Toast.LENGTH_SHORT).show();
+                                .addOnCompleteListener(task -> {
+                                    FirebaseAppCheck appCheck = FirebaseAppCheck.getInstance();
+                                    appCheck.installAppCheckProviderFactory(DebugAppCheckProviderFactory.getInstance());
+                                    Toast.makeText(getContext(), task.getResult().getTotalByteCount()+"", Toast.LENGTH_SHORT).show();
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(getContext(), "file downloaded", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(getContext(), "file hasn't been downloaded", Toast.LENGTH_SHORT).show();
 
-                                }
-                            }
-                        });
+                                    }
+                                });
 //                    gs://myagent-6cce7.appspot.com/066465238/035856038/suit_035856038_28_09_22.pdf
                     } catch (IOException e) {
                         e.printStackTrace();
