@@ -36,6 +36,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -63,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser currentUser;
     User agent;
     public List<User> userForRecyclerView;
-    FirebaseStorage storage = FirebaseStorage.getInstance();
+    FirebaseStorage storage;
+    FirebaseAppCheck appCheck;
 
     User infoUser; // only at agent- to specify the user handling by the agent
 //    User appAgent; // will be initialized only at signed in agent function
@@ -102,7 +106,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
-
+        storage = FirebaseStorage.getInstance();
+        FirebaseApp.initializeApp(this);
+        appCheck = FirebaseAppCheck.getInstance();
+        appCheck.installAppCheckProviderFactory(DebugAppCheckProviderFactory.getInstance());
 
 
     }

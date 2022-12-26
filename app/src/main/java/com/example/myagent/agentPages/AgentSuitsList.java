@@ -18,6 +18,7 @@ import com.example.myagent.R;
 import com.example.myagent.objects.Document;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -158,23 +159,24 @@ public class AgentSuitsList extends Fragment {
                                 suffix(documents.get(holder.getLayoutPosition()).getDocumentName())
                         );
                         Toast.makeText(getContext(), file.getName(), Toast.LENGTH_SHORT).show();
+//                    gs://myagent-6cce7.appspot.com/066465238/035856038/suit_035856038_28_09_22.pdf
                         storage.getReferenceFromUrl("gs://myagent-6cce7.appspot.com/"+
                                 documents.get(holder.getLayoutPosition()).getAgentId()+"/"+
                                 documents.get(holder.getLayoutPosition()).getUserId()+"/"+
                                 holder.docName)
                                 .getFile(file)
                                 .addOnCompleteListener(task -> {
-                                    FirebaseAppCheck appCheck = FirebaseAppCheck.getInstance();
-                                    appCheck.installAppCheckProviderFactory(DebugAppCheckProviderFactory.getInstance());
+//                                    FirebaseApp.initializeApp(getContext());
+
                                     Toast.makeText(getContext(), task.getResult().getTotalByteCount()+"", Toast.LENGTH_SHORT).show();
-                                    if(task.isSuccessful()){
+                                    if(task!=null && task.isSuccessful()){
                                         Toast.makeText(getContext(), "file downloaded", Toast.LENGTH_SHORT).show();
                                     }else{
                                         Toast.makeText(getContext(), "file hasn't been downloaded", Toast.LENGTH_SHORT).show();
 
                                     }
                                 });
-//                    gs://myagent-6cce7.appspot.com/066465238/035856038/suit_035856038_28_09_22.pdf
+
                     } catch (IOException e) {
                         e.printStackTrace();
                         Toast.makeText(getContext(), "error trying to create location to file on device", Toast.LENGTH_SHORT).show();
