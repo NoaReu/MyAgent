@@ -40,6 +40,8 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
         holder.bind(usersList.get(position),recyclerViewInterface);
     }
 
+
+
     @Override
     public int getItemCount() {
         return usersList.size();

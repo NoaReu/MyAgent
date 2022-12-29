@@ -63,6 +63,7 @@ public class SearchCustomerAtAgent extends Fragment {
     EditText nameToSearch;
     FirebaseFirestore db;
     MainActivity mainActivity;
+    ImageView searchBTN;
     Context context;
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -139,13 +140,13 @@ public class SearchCustomerAtAgent extends Fragment {
                         recyclerView.setAdapter(adapter);
                         //try to show less items on list by writing person to search
                         nameToSearch=view.findViewById(R.id.customer_name_for_search);
-                        nameToSearch.setOnKeyListener(new View.OnKeyListener() {
-                            @Override
-                            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                                Toast.makeText(getContext(), nameToSearch.getText().toString()+" test", Toast.LENGTH_SHORT).show();
-                                return false;
-                            }
-                        });
+//                        nameToSearch.setOnKeyListener(new View.OnKeyListener() {
+//                            @Override
+//                            public boolean onKey(View v, int keyCode, KeyEvent event) {
+//                                Toast.makeText(getContext(), nameToSearch.getText().toString()+" test", Toast.LENGTH_SHORT).show();
+//                                return false;
+//                            }
+//                        });
                     }else{
                         Toast.makeText(getContext(), "No objects from DB!!!", Toast.LENGTH_SHORT).show();
                     }
@@ -162,53 +163,68 @@ public class SearchCustomerAtAgent extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         allItems=new ArrayList<>(items);
         nameToSearch=view.findViewById(R.id.customer_name_for_search);
-        nameToSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        searchBTN = view.findViewById(R.id.search_customer_btn);
+        searchBTN.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
-                    if(!nameToSearch.equals(null) && !nameToSearch.equals("")){
-                        for(User user : allItems){
-                            String name=user.getFirstName()+" "+user.getLastName();
-                            if(!name.contains(nameToSearch.getText().toString())){
-                                items.remove(user);
-                            }
+            public void onClick(View v) {
+
+                if(!nameToSearch.equals(null) && !nameToSearch.equals("")){
+                    for(User user : allItems){
+                        String name=user.getFirstName()+" "+user.getLastName();
+                        if(!name.contains(nameToSearch.getText().toString())){
+                            items.remove(user);
                         }
-                        adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
-                            @Override
-                            public void onItemClick(User user) {
-//                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
-                                mainActivity=(MainActivity) getActivity();
-                                mainActivity.switchToUserInfoPage(user);
-                            }
-                        });
-                    }else {
-                        items=new ArrayList<>(allItems);
-                        adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
-                            @Override
-                            public void onItemClick(User user) {
-//                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
-                                mainActivity=(MainActivity) getActivity();
-                                mainActivity.switchToUserInfoPage(user);
-                            }
-                        });
-
                     }
-                    recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
-                    recyclerView.setAdapter(adapter);
-                    nameToSearch.setText("");
+                    adapter.usersList.clear();
+                    adapter.usersList.addAll(items);
+                    adapter.notifyDataSetChanged();
+//                    adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
+//                        @Override
+//                        public void onItemClick(User user) {
+////                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+//                            mainActivity=(MainActivity) getActivity();
+//                            mainActivity.switchToUserInfoPage(user);
+//                        }
+//                    });
+
+                }else {
+                    items=new ArrayList<>(allItems);
+//                    adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
+//                        @Override
+//                        public void onItemClick(User user) {
+////                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
+//                            mainActivity=(MainActivity) getActivity();
+//                            mainActivity.switchToUserInfoPage(user);
+//                        }
+//                    });
+                    adapter.usersList.clear();
+                    adapter.usersList.addAll(items);
+                    adapter.notifyDataSetChanged();
+
                 }
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
+                recyclerView.setAdapter(adapter);
+                nameToSearch.setText("");
             }
         });
-        nameToSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-
-
-
-                return false;
-            }
-        });
+//        nameToSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(!hasFocus){
+//
+//                }
+//            }
+//        });
+//        nameToSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//
+//
+//
+//                return false;
+//            }
+//        });
 
 
 

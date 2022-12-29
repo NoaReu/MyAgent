@@ -62,7 +62,7 @@
     <string name="add_documents_for_customer">הוספת מסמך ללקוח</string>
     <string name="accident_description">תיאור התאונה</string>
     <string name="whos_fault_to_your_opinion">מי לדעתך אשם בתאונה</string>
-    <string-array name="status_of_suit">
+    <string-array name="state_of_status">
         <item>חדש</item>
         <item>בתהליך</item>
         <item>טופל</item>

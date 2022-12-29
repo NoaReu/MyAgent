@@ -1,9 +1,11 @@
 package com.example.myagent.agentPages;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,9 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 import com.example.myagent.objects.Document;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +28,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.auth.FirebaseAppCheckTokenProvider;
 import com.google.firebase.storage.FileDownloadTask;
@@ -116,18 +123,18 @@ public class AgentSuitsList extends Fragment {
     public class DocViewHolder extends RecyclerView.ViewHolder{
 
         TextView docName;
-        TextView docStatus;
+        Spinner docStatus;
 
 
         public DocViewHolder(@NonNull View itemView){
             super(itemView);
             docName= itemView.findViewById(R.id.document_name_at_doc_item);
-            docStatus= itemView.findViewById(R.id.document_status_at_doc_item);
+            docStatus= (Spinner) itemView.findViewById(R.id.document_status_at_doc_item);
 
         }
     }
 
-    public class DocAdapter extends RecyclerView.Adapter<DocViewHolder>{
+    public class DocAdapter extends RecyclerView.Adapter<DocViewHolder>  {//implements AdapterView.OnItemSelectedListener
 
         Context context;
         List<Document> documents;
@@ -142,11 +149,61 @@ public class AgentSuitsList extends Fragment {
             return new DocViewHolder(LayoutInflater.from(context).inflate(R.layout.document_list_item,parent,false));
         }
 
+
+        @RequiresApi(api = Build.VERSION_CODES.O_MR1)//todo: what??????
         @Override
         public void onBindViewHolder(@NonNull DocViewHolder holder, int position) {
 
             holder.docName.setText(documents.get(position).getDocumentName());
-            holder.docStatus.setText(documents.get(position).getStatus());
+//            holder.docStatus.setText(documents.get(position).getStatus());
+
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter
+                    .createFromResource(getContext(),R.array.state_of_status, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+            adapter.setAutofillOptions(documents.get(position).getStatus());
+            holder.docStatus.setAdapter(adapter);
+            holder.docStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+//                    MainActivity mainActivity=(MainActivity) getActivity();
+                    db.collection("documents").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful()){
+                                QuerySnapshot querySnapshot= task.getResult();
+
+                            }
+                        }
+                    });
+                    db.collection("documents")
+                            .whereEqualTo("agentId", documents.get(position).getAgentId())
+                            .whereEqualTo("userId", documents.get(position).getUserId())
+                            .whereEqualTo("documentName", documents.get(position).getDocumentName())
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                            if(task.isSuccessful() && task!=null) {
+                                Document document = task.getResult().toObjects(Document.class).get(0);
+//                                task.
+
+
+                            }
+//
+                        }
+                    });
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -191,6 +248,16 @@ public class AgentSuitsList extends Fragment {
         public int getItemCount() {
             return documents.size();
         }
+
+//        @Override
+//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//        }
+//
+//        @Override
+//        public void onNothingSelected(AdapterView<?> parent) {
+//
+//        }
     }
 
 
