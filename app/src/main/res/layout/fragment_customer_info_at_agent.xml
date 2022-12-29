@@ -213,7 +213,6 @@
                                 android:layout_weight="0.6"
                                 android:background="@drawable/edit_text_background"
                                 android:gravity="center"
-                                android:textColor="@color/black"
                                 android:enabled="false"
                                 android:inputType="number" />
                         </TableRow>
@@ -311,7 +310,6 @@
                                 android:background="@drawable/edit_text_background"
                                 android:gravity="center"
                                 android:enabled="false"
-                                android:textColor="@color/black"
                                 android:inputType="textEmailAddress" />
                         </TableRow>
 
