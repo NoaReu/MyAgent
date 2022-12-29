@@ -213,7 +213,7 @@
                                 android:layout_weight="0.6"
                                 android:background="@drawable/edit_text_background"
                                 android:gravity="center"
-
+                                android:clickable="false"
                                 android:inputType="number" />
                         </TableRow>
 
@@ -309,7 +309,7 @@
                                 android:layout_weight="0.6"
                                 android:background="@drawable/edit_text_background"
                                 android:gravity="center"
-
+                                android:clickable="false"
                                 android:inputType="textEmailAddress" />
                         </TableRow>
 
