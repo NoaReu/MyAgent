@@ -1,6 +1,7 @@
 package com.example.myagent.agentPages;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,25 +21,21 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 import com.example.myagent.objects.Document;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.appcheck.FirebaseAppCheck;
-import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.auth.FirebaseAppCheckTokenProvider;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -58,7 +56,7 @@ public class AgentSuitsList extends Fragment {
     RecyclerView recyclerView;
     FirebaseFirestore db;
     List<Document> documents;
-
+    final long THREE_MEGABYTE = 1024 * 1024 * 3;
 
     public AgentSuitsList() {
         // Required empty public constructor
@@ -123,13 +121,13 @@ public class AgentSuitsList extends Fragment {
     public class DocViewHolder extends RecyclerView.ViewHolder{
 
         TextView docName;
-        Spinner docStatus;
+        Spinner docStatusSpinner;
 
 
         public DocViewHolder(@NonNull View itemView){
             super(itemView);
             docName= itemView.findViewById(R.id.document_name_at_doc_item);
-            docStatus= (Spinner) itemView.findViewById(R.id.document_status_at_doc_item);
+            docStatusSpinner = (Spinner) itemView.findViewById(R.id.document_status_at_doc_item);
 
         }
     }
@@ -157,25 +155,16 @@ public class AgentSuitsList extends Fragment {
             holder.docName.setText(documents.get(position).getDocumentName());
 //            holder.docStatus.setText(documents.get(position).getStatus());
 
-            ArrayAdapter<CharSequence> adapter = ArrayAdapter
-                    .createFromResource(getContext(),R.array.state_of_status, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
-            adapter.setAutofillOptions(documents.get(position).getStatus());
-            holder.docStatus.setAdapter(adapter);
-            holder.docStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter
+                    .createFromResource(getContext(),R.array.state_of_status, android.R.layout.simple_spinner_item);
+            spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//            spinnerAdapter.setAutofillOptions(documents.get(position).getStatus());
+            holder.docStatusSpinner.setAdapter(spinnerAdapter);
+            holder.docStatusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-//                    MainActivity mainActivity=(MainActivity) getActivity();
-                    db.collection("documents").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if(task.isSuccessful()){
-                                QuerySnapshot querySnapshot= task.getResult();
 
-                            }
-                        }
-                    });
                     db.collection("documents")
                             .whereEqualTo("agentId", documents.get(position).getAgentId())
                             .whereEqualTo("userId", documents.get(position).getUserId())
@@ -186,15 +175,28 @@ public class AgentSuitsList extends Fragment {
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
                             if(task.isSuccessful() && task!=null) {
-                                Document document = task.getResult().toObjects(Document.class).get(0);
-//                                task.
-
-
+                                String docId ="";
+                                for(QueryDocumentSnapshot d : task.getResult()){
+                                    docId= d.getId();
+                                    break;
+                                }
+                                db.collection("documents")
+                                        .document(docId).update("status",parent.getItemAtPosition(position).toString())
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()) {
+                                                    Toast.makeText(getContext(), "succeeded", Toast.LENGTH_SHORT).show();
+                                                    Log.d("spinnerUpdate", "succeeded");
+                                                }else {
+                                                    Toast.makeText(getContext(), "failed", Toast.LENGTH_SHORT).show();
+                                                    Log.d("spinnerUpdate", "failed");
+                                                }
+                                            }
+                                        });
                             }
-//
                         }
                     });
-
                 }
 
                 @Override
@@ -208,37 +210,72 @@ public class AgentSuitsList extends Fragment {
                 @Override
                 public void onClick(View v) {
                     FirebaseStorage storage=FirebaseStorage.getInstance();
-                    StorageReference reference = storage.getReference();
+                    StorageReference storageReference = storage.getReference();
+                    StorageReference reference = storageReference.child("/066465238/035856038/suit_035856038_28_09_22.pdf");
+//                            storage.getReferenceFromUrl("gs://myagent-6cce7.appspot.com/"
+//                                    +documents.get(holder.getLayoutPosition()).getAgentId()+"/"
+//                                    +documents.get(holder.getLayoutPosition()).getUserId() +"/"
+//                                    +documents.get(holder.getLayoutPosition()).getDocumentName());
+                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Toast.makeText(getContext(), "file has been downloaded!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(), "file hasn't been downloaded", Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
-                    try {
-                        File file= File.createTempFile(
-                                prefix(documents.get(holder.getLayoutPosition()).getDocumentName()),
-                                suffix(documents.get(holder.getLayoutPosition()).getDocumentName())
-                        );
-                        Toast.makeText(getContext(), file.getName(), Toast.LENGTH_SHORT).show();
-//                    gs://myagent-6cce7.appspot.com/066465238/035856038/suit_035856038_28_09_22.pdf
-                        storage.getReferenceFromUrl("gs://myagent-6cce7.appspot.com/"+
-                                documents.get(holder.getLayoutPosition()).getAgentId()+"/"+
-                                documents.get(holder.getLayoutPosition()).getUserId()+"/"+
-                                holder.docName)
-                                .getFile(file)
-                                .addOnCompleteListener(task -> {
-//                                    FirebaseApp.initializeApp(getContext());
+//                    reference.getBytes(THREE_MEGABYTE).addOnCompleteListener(new OnCompleteListener<byte[]>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<byte[]> task) {
+//                            try {
+//                                File file= File.createTempFile(
+//                                        prefix(documents.get(holder.getLayoutPosition()).getDocumentName()),
+//                                        suffix(documents.get(holder.getLayoutPosition()).getDocumentName())
+//                                );
+//                                reference.getFile(file).addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
+//                                        Toast.makeText(getContext(), "file has been downloaded!!!", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    });
 
-                                    Toast.makeText(getContext(), task.getResult().getTotalByteCount()+"", Toast.LENGTH_SHORT).show();
-                                    if(task!=null && task.isSuccessful()){
-                                        Toast.makeText(getContext(), "file downloaded", Toast.LENGTH_SHORT).show();
-                                    }else{
-                                        Toast.makeText(getContext(), "file hasn't been downloaded", Toast.LENGTH_SHORT).show();
 
-                                    }
-                                });
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        Toast.makeText(getContext(), "error trying to create location to file on device", Toast.LENGTH_SHORT).show();
-
-                    }
+//                    try {
+//                        File file= File.createTempFile(
+//                                prefix(documents.get(holder.getLayoutPosition()).getDocumentName()),
+//                                suffix(documents.get(holder.getLayoutPosition()).getDocumentName())
+//                        );
+//                        Toast.makeText(getContext(), file.getName(), Toast.LENGTH_SHORT).show();
+////                    gs://myagent-6cce7.appspot.com/066465238/035856038/suit_035856038_28_09_22.pdf
+//                        reference+
+//                                +
+//                                +
+//                                holder.docName)
+//                                .getFile(file)
+//                                .addOnCompleteListener(task -> {
+////                                    FirebaseApp.initializeApp(getContext());
+//                                    if(task.isSuccessful() && task != null) {
+////                                        Toast.makeText(getContext(), task.getResult().getTotalByteCount() + "", Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(getContext(), "file downloaded", Toast.LENGTH_SHORT).show();
+//                                    }else if (task.isCanceled()){
+//                                        Toast.makeText(getContext(), "file hasn't been downloaded", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+//
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                        Toast.makeText(getContext(), "error trying to create location to file on device", Toast.LENGTH_SHORT).show();
+//
+//                    }
 
                 }
             });
@@ -249,15 +286,6 @@ public class AgentSuitsList extends Fragment {
             return documents.size();
         }
 
-//        @Override
-//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//        }
-//
-//        @Override
-//        public void onNothingSelected(AdapterView<?> parent) {
-//
-//        }
     }
 
 
