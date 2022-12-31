@@ -1,5 +1,6 @@
 package com.example.myagent.agentPages;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +29,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.api.Logging;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -186,11 +189,12 @@ public class AgentSuitsList extends Fragment {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()) {
-                                                    Toast.makeText(getContext(), "succeeded", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(getContext(), "succeeded", Toast.LENGTH_SHORT).show();
                                                     Log.d("spinnerUpdate", "succeeded");
                                                 }else {
-                                                    Toast.makeText(getContext(), "failed", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(getContext(), "failed", Toast.LENGTH_SHORT).show();
                                                     Log.d("spinnerUpdate", "failed");
+
                                                 }
                                             }
                                         });
@@ -211,22 +215,84 @@ public class AgentSuitsList extends Fragment {
                 public void onClick(View v) {
                     FirebaseStorage storage=FirebaseStorage.getInstance();
                     StorageReference storageReference = storage.getReference();
-                    StorageReference reference = storageReference.child("/066465238/035856038/suit_035856038_28_09_22.pdf");
+                    StorageReference reference = storageReference.child("066465238").child("035856038").child("suit_035856038_28_09_22.pdf");
+
+                    ProgressDialog pd = new ProgressDialog(getContext());
+                    pd.setTitle("Nature.jpg");
+                    pd.setMessage("Downloading Please Wait!");
+                    pd.setIndeterminate(true);
+                    pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    pd.show();
+
+                    final File rootPath = new File(Environment.getExternalStorageDirectory(), "MY AGENT DOWNLOADS");
+
+                    if (!rootPath.exists()) {
+                        rootPath.mkdirs();
+                    }
+
+                    final File localFile = new File(rootPath, "suit_035856038_28_09_22.jpg");
+
 //                            storage.getReferenceFromUrl("gs://myagent-6cce7.appspot.com/"
 //                                    +documents.get(holder.getLayoutPosition()).getAgentId()+"/"
 //                                    +documents.get(holder.getLayoutPosition()).getUserId() +"/"
 //                                    +documents.get(holder.getLayoutPosition()).getDocumentName());
-                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    reference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
                         @Override
-                        public void onSuccess(Uri uri) {
-                            Toast.makeText(getContext(), "file has been downloaded!!!", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getContext(), "file hasn't been downloaded", Toast.LENGTH_SHORT).show();
+                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+
+                            Log.e("firebase ", ";local tem file created  created " + localFile.toString());
+
+                            if (!isVisible()){
+                                return;
+                            }
+
+                            if (localFile.canRead()){
+
+                                pd.dismiss();
+                            }
+
+
                         }
                     });
+
+//                    reference.getBytes(THREE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+//                        @Override
+//                        public void onSuccess(byte[] bytes) {
+//                            try {
+//                                File file= File.createTempFile(
+//                                            prefix(documents.get(holder.getLayoutPosition()).getDocumentName()),
+//                                            suffix(documents.get(holder.getLayoutPosition()).getDocumentName())
+//                                    );
+//                            File rootPath = new File(Environment.getExternalStorageDirectory(),"MY AGENT DOWNLOADS");
+//                            if(!rootPath.exists()) {
+//                                rootPath.mkdirs();
+//                            }
+//                            final File localFile = new File(rootPath,"imageName.txt");
+//
+//                        }
+//                    });
+
+//                    reference.getFile(file).addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
+//                                        Toast.makeText(getContext(), "file has been downloaded!!!", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                });
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+
+//                    reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                        @Override
+//                        public void onSuccess(Uri uri) {
+//                            Toast.makeText(getContext(), "file has been downloaded!!!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            Toast.makeText(getContext(), "file hasn't been downloaded", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
 
 //                    reference.getBytes(THREE_MEGABYTE).addOnCompleteListener(new OnCompleteListener<byte[]>() {
 //                        @Override
