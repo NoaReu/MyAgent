@@ -37,7 +37,7 @@
             <TextView
                 android:id="@+id/the_suit_submit_successfully_text"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
+                android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="התביעה הוגשה בהצלחה"
                 android:textColor="#036A64"
