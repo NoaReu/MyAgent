@@ -26,24 +26,36 @@
             android:orientation="horizontal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
-
-            <TextView
-                android:id="@+id/UserNameTitel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="שם משתמש"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"/>
-            <ImageView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginRight="240dp"
-                android:layout_weight="0.1"
-                android:src="@drawable/ic_person" />
+                android:layout_weight="0.6"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/UserNameTitel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
+                    android:layout_weight="0.9"
+                    android:text="שם משתמש"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="end"
+                android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_person" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -75,23 +87,35 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
 
-
-            <TextView
-                android:id="@+id/passwordTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1.8"
-                android:text="@string/password"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"  />
-            <ImageView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:layout_marginRight="280dp"
-                android:src="@drawable/ic_password"/>
+                android:layout_weight="0.6"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/passwordTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/password"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"  />
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_password"/>
+            </LinearLayout>
         </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

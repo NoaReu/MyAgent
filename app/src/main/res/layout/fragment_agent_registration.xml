@@ -51,114 +51,109 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-
-                >
-
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="703dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp">
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
+                android:orientation="vertical">
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
                             android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="0.9"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/private_name_create_agent"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="שם פרטי"
+                                        android:textColor="@color/black"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="end"
+                                    android:layout_weight="0.1"
+                                    android:layout_marginLeft="10dp"
+                                    android:orientation="vertical">
 
-
-                            <TextView
-                                android:id="@+id/private_name_create_agent"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:text="שם פרטי"
-                                android:textColor="@color/black"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginRight="270dp"
-                                android:layout_weight="0.1"
-                                android:src="@drawable/ic_person" />
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/ic_person" />
+                                </LinearLayout>
                         </LinearLayout>
 
-
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
-                        <EditText
-                            android:id="@+id/reg_agent_private_name_textview"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_weight="0.6"
-                            android:background="@drawable/edit_text_background"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:hint="ישראל"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="10dp"
-                            android:inputType="textPersonName"
-                            android:maxLines="1" />
+                            android:orientation="vertical">
+                                    <EditText
+                                        android:id="@+id/reg_agent_private_name_textview"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
 
-                    </TableRow>
+                                        android:background="@drawable/edit_text_background"
+                                        android:ellipsize="end"
+                                        android:gravity="center"
+                                        android:hint="ישראל"
+                                        android:inputType="textPersonName"
+                                        android:maxLines="1" />
 
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
+                        </LinearLayout>
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
                             android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/last_name_create_user"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:layout_marginRight="10dp"
-                                android:text="@string/last_name"
-                                android:textColor="@color/black"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <ImageView
+                                android:layout_weight="0.9"
+                                android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/last_name_create_user"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/last_name"
+                                        android:textColor="@color/black"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+                            </LinearLayout>
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_marginRight="235dp"
-                                android:layout_weight="0.2"
-                                android:src="@drawable/ic_lastname"/>
+                                android:gravity="end"
+                                android:layout_weight="0.1"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/ic_lastname"/>
+                            </LinearLayout>
                         </LinearLayout>
-
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
                         <EditText
                             android:id="@+id/reg_agent_last_name_textview"
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="0.6"
+                            android:layout_height="match_parent"
                             android:background="@drawable/edit_text_background"
                             android:ellipsize="end"
                             android:gravity="center"
@@ -166,264 +161,314 @@
                             android:inputType="textPersonName"
                             android:maxLines="1" />
 
-                    </TableRow>
+            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
 
+                                    android:orientation="horizontal">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_weight="0.9"
+                                        android:orientation="vertical">
 
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/id_number_create_agent"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-                                android:text="@string/id_headline"
-                                android:textColor="@color/black"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_weight="0.2"
-                                android:layout_marginRight="240dp"
-                                android:src="@drawable/ic_identity"/>
+                                            <TextView
+                                                android:id="@+id/id_number_create_agent"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/id_headline"
+                                                android:textColor="@color/black"
+                                                android:textSize="20sp"
+                                                android:textStyle="bold" />
+                                    </LinearLayout>
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:gravity="end"
+                                        android:layout_weight="0.1"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="vertical">
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="match_parent"
+                                                android:src="@drawable/ic_identity"/>
+                                    </LinearLayout>
                         </LinearLayout>
+                                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
 
                         <EditText
                             android:id="@+id/reg_agent_id_textview"
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="0.6"
+                            android:layout_height="match_parent"
                             android:background="@drawable/edit_text_background"
                             android:gravity="center"
-                            android:hint="@string/id_headline_hint"
-                            android:inputType="number" />
-                    </TableRow>
+                            android:hint="@string/id_headline_hint"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.9"
+                    android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/phone_number_create_agent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
                                 android:text="@string/phone_number"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
-
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:layout_weight="0.1"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.2"
-                                android:layout_marginRight="315dp"
                                 android:src="@drawable/ic_phone"/>
                         </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
 
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
-                        <EditText
+            <EditText
                             android:id="@+id/reg_agent_phone_number_textview"
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="0.6"
+                            android:layout_height="match_parent"
                             android:background="@drawable/edit_text_background"
                             android:gravity="center"
-                            android:hint="@string/phone_number_hint"
-                            android:inputType="phone" />
-                    </TableRow>
+                            android:hint="@string/phone_number_hint"/>
+            </LinearLayout>
 
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.9"
+                    android:orientation="vertical">
 
-                            <TextView
+                        <TextView
                                 android:id="@+id/mail_address_create_agent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
-
                                 android:text="@string/mail_header"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:layout_weight="0.1"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.2"
-                                android:layout_marginRight="300dp"
+
+
                                 android:src="@drawable/ic_mail"/>
+                </LinearLayout>
                         </LinearLayout>
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
 
-                    </TableRow>
 
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
-
-                        <EditText
+            <EditText
                             android:id="@+id/reg_agent_email_textview"
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="0.6"
+                            android:layout_height="match_parent"
                             android:background="@drawable/edit_text_background"
                             android:gravity="center"
                             android:hint="@string/hint_mail_address"
                             android:inputType="textEmailAddress" />
-                    </TableRow>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.9"
+                    android:orientation="vertical">
                             <TextView
                                 android:id="@+id/password_create_agent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
                                 android:text="@string/password_headline"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
-
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:layout_weight="0.1"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.2"
-                                android:layout_marginRight="280dp"
                                 android:src="@drawable/ic_password"/>
-
+                </LinearLayout>
                         </LinearLayout>
 
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
                         <EditText
                             android:id="@+id/reg_agent_password_textview"
                             android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="0.6"
+                            android:layout_height="match_parent"
                             android:background="@drawable/edit_text_background"
                             android:gravity="center"
                             android:hint="@string/password_hint"
                             android:inputType="textPassword" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.9"
+                    android:orientation="vertical">
 
                             <TextView
                                 android:id="@+id/confirmation_password_create_agent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
                                 android:text="@string/password_confirmation_headline"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:layout_weight="0.1"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_weight="0.2"
-                                android:layout_marginRight="220dp"
                                 android:src="@drawable/ic_password"/>
                         </LinearLayout>
-
-
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
+            </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
                         <EditText
                             android:id="@+id/reg_agent_confirmation_password_textview"
-                            android:layout_height="48dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_weight="0.6"
+                            android:layout_height="match_parent"
+                            android:layout_width="match_parent"
                             android:background="@drawable/edit_text_background"
                             android:ems="12"
                             android:gravity="center"
                             android:hint="@string/password_confirmation_headline_hint"
                             android:inputType="textPassword" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_height="73dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp">
-
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
                         <Button
                             android:id="@+id/confirm_agent_info_btn"
                             android:layout_width="171dp"
@@ -432,13 +477,11 @@
                             android:background="@drawable/button_design"
                             android:backgroundTint="@color/BTN_background_dark"
                             android:gravity="center"
-                            android:text="@string/register_header"                            android:textColor="@color/black"
+                            android:text="@string/register_header"
+                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
-
-                    </TableRow>
-                </TableLayout>
-
+            </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
