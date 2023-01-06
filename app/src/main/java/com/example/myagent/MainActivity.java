@@ -99,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseApp.initializeApp(this);
+        appCheck = FirebaseAppCheck.getInstance();
+        appCheck.installAppCheckProviderFactory(DebugAppCheckProviderFactory.getInstance());
+
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         agentUID="";
@@ -107,9 +111,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
         storage = FirebaseStorage.getInstance();
-        FirebaseApp.initializeApp(this);
-        appCheck = FirebaseAppCheck.getInstance();
-        appCheck.installAppCheckProviderFactory(DebugAppCheckProviderFactory.getInstance());
+
+
 
 
     }

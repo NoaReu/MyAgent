@@ -23,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 import com.example.myagent.objects.Document;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,6 +36,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
@@ -211,49 +213,195 @@ public class AgentSuitsList extends Fragment {
 
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.R)
                 @Override
                 public void onClick(View v) {
                     FirebaseStorage storage=FirebaseStorage.getInstance();
                     StorageReference storageReference = storage.getReference();
-                    StorageReference reference = storageReference.child("066465238").child("035856038").child("suit_035856038_28_09_22.pdf");
+
+                    StorageReference reference = storageReference.child("066465238/035856038/suit_035856038_28_09_22.pdf");
 
                     ProgressDialog pd = new ProgressDialog(getContext());
-                    pd.setTitle("Nature.jpg");
+                    pd.setTitle(holder.docName.getText().toString());
                     pd.setMessage("Downloading Please Wait!");
                     pd.setIndeterminate(true);
                     pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                     pd.show();
 
-                    final File rootPath = new File(Environment.getExternalStorageDirectory(), "MY AGENT DOWNLOADS");
 
-                    if (!rootPath.exists()) {
-                        rootPath.mkdirs();
+                    try {
+                        final File localFile = File.createTempFile(
+                                prefix(documents.get(holder.getLayoutPosition()).getDocumentName()),
+                                suffix(documents.get(holder.getLayoutPosition()).getDocumentName()));
+                        reference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                                Log.e("firebase ", ";local tem file created  created " + localFile.toString());
+                                Toast.makeText(getContext(), "נוצר קובץ מקומי", Toast.LENGTH_LONG).show();
+//                                File.
+                                if (!isVisible()){
+                                    Toast.makeText(getContext(), "לא ניתן לצפות במסמך", Toast.LENGTH_LONG).show();
+                                }
+                                if (localFile.canRead()){
+                                    pd.dismiss();
+                                    Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                    } catch (IOException e) {
+                        Log.e("firebase ", ";local temp file not created " + e.toString());
+                        Toast.makeText(getContext(), "לא ניתן לייצר קובץ מקומי", Toast.LENGTH_LONG).show();
+                        e.printStackTrace();
                     }
+//                    final File rootPath = new File(Environment.getStorageDirectory(), "MY AGENT DOWNLOADS");
+//                    if (!rootPath.exists()) {
+//                        rootPath.mkdirs();
+//                        Toast.makeText(getContext(), "נוצרה ספריה להכנסת קובץ", Toast.LENGTH_LONG).show();
+//                    }
+//                    final File localFile = new File(rootPath, holder.docName.getText().toString());
 
-                    final File localFile = new File(rootPath, "suit_035856038_28_09_22.jpg");
+//                    reference.getBytes(Long.MAX_VALUE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+//                        @Override
+//                        public void onSuccess(byte[] bytes) {
+//                            Log.e("firebase ", ";local tem file created  created " + localFile.toString());
+//                            if (!isVisible()){
+//                                Toast.makeText(getContext(), "לא ניתן לצפות במסמך", Toast.LENGTH_LONG).show();
+//                            }
+//                            if (localFile.canRead()){
+//                                pd.dismiss();
+//                                Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//                            }
+//
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            pd.dismiss();
+//                            Log.e("firebase ", ";local tem file not created  created " + e.toString());
+//                            Toast.makeText(getContext(), "לא בוצעה הורדה. משהו השתבש", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(),e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+//                        }
+//                    });
+//                    storageReference.getFile(new File("gs://myagent-6cce7.appspot.com/066465238/035856038/suit_035856038_28_09_22.pdf")).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+//                            Log.e("firebase ", ";local tem file created  created " + localFile.toString());
+//                            if (!isVisible()){
+//                                Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//                            }
+//                            if (localFile.canRead()){
+//                                pd.dismiss();
+//                            }
+//                            Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//                        }
+//                    }).addOnProgressListener(new OnProgressListener<FileDownloadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onProgress(@NonNull FileDownloadTask.TaskSnapshot snapshot) {
+//                            pd.setTitle(holder.docName.getText().toString());
+//                            pd.setMessage("Downloading Please Wait!");
+//                            pd.setIndeterminate(true);
+//                            pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//                            pd.show();
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            pd.dismiss();
+//                            Log.e("firebase ", ";local tem file not created  created " + e.toString());
+//                            Toast.makeText(getContext(), "לא בוצעה הורדה. משהו השתבש", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getContext(),e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+//                        }
+//                    });
+//                   storageReference.getRoot().getFile(new File(reference.child("066465238").child("035856038") + holder.docName.getText().toString()).getAbsoluteFile()).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+//                       @Override
+//                       public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+//                           Log.e("firebase ", ";local tem file created  created " + localFile.toString());
+//                            if (!isVisible()){
+//                                Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//                            }
+//                            if (localFile.canRead()){
+//                                pd.dismiss();
+//                            }
+//                            Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//
+//                       }
+//                   }).addOnProgressListener(new OnProgressListener<FileDownloadTask.TaskSnapshot>() {
+//                       @Override
+//                       public void onProgress(@NonNull FileDownloadTask.TaskSnapshot snapshot) {
+//
+//                       }
+//                   }).addOnFailureListener(new OnFailureListener() {
+//                       @Override
+//                       public void onFailure(@NonNull Exception e) {
+//
+//                       }
+//                   });
+//                           .addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+//                            Log.e("firebase ", ";local tem file created  created " + localFile.toString());
+//
+//
+//                            if (!isVisible()){
+//                                Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//                            }
+//
+//                            if (localFile.canRead()){
+//
+//                                pd.dismiss();
+//                            }
+//                            Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception exception) {
+//                            pd.dismiss();
+//                            Log.e("firebase ", ";local tem file not created  created " + exception.toString());
+//                            Toast.makeText(getContext(), "לא בוצעה הורדה. משהו השתבש", Toast.LENGTH_LONG).show();
+//
+//                        }
+//                    });
+//
+
+
 
 //                            storage.getReferenceFromUrl("gs://myagent-6cce7.appspot.com/"
 //                                    +documents.get(holder.getLayoutPosition()).getAgentId()+"/"
 //                                    +documents.get(holder.getLayoutPosition()).getUserId() +"/"
 //                                    +documents.get(holder.getLayoutPosition()).getDocumentName());
-                    reference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+//                    reference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+//
+//                            Log.e("firebase ", ";local tem file created  created " + localFile.toString());
+//
+//
+//                            if (!isVisible()){
+//                                Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//                            }
+//
+//                            if (localFile.canRead()){
+//
+//                                pd.dismiss();
+//                            }
+//                            Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//
+//
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception exception) {
+//                            pd.dismiss();
+//                            Log.e("firebase ", ";local tem file not created  created " + exception.toString());
+//                            Toast.makeText(getContext(), "לא בוצעה הורדה. משהו השתבש", Toast.LENGTH_LONG).show();
+//
+//                        }
+//                    });
 
-                            Log.e("firebase ", ";local tem file created  created " + localFile.toString());
 
-                            if (!isVisible()){
-                                return;
-                            }
-
-                            if (localFile.canRead()){
-
-                                pd.dismiss();
-                            }
-
-
-                        }
-                    });
 
 //                    reference.getBytes(THREE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
 //                        @Override
