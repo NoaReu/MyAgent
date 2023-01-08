@@ -56,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/new_suits_User_Documents_At_User_recycler_view"
+                            android:id="@+id/user_documents_at_user_recycler_view"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
                     </ScrollView>
