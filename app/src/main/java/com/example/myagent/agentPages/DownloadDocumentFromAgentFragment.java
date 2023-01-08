@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -159,6 +160,7 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==86 && resultCode==-1 && data!=null){
             docUri = data.getData();
+
         } else{
             Toast.makeText(getContext(), "יש לבחור מסמך תחילה", Toast.LENGTH_SHORT).show();
         }
@@ -180,33 +182,26 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
                                 "חדש",
                                 mainActivity.getInfoUser().getFirstName()+" "+mainActivity.getInfoUser().getLastName(),
                                 mainActivity.getInfoUser().getUserId(),
-                                url,"" );
-                        /*
-
-
-                        ----------------------------
-
-
-                                */
+                                url);
                         database.collection("documents")
                                 .document(mainActivity.getInfoUser().getUserId()+"_"+fileName)
                                 .set(doc)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                //todo: delete when publishing the app - only for testing
-                                if(task.isSuccessful())
-                                    Toast.makeText(getContext(), "המידע על הקובץ הועלה למערכת", Toast.LENGTH_SHORT).show();
-                                else
-                                    Toast.makeText(getContext(), "המידע על הקובץ לא הועלה למערכת עקב תקלה. נסה שוב", Toast.LENGTH_SHORT).show();
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        //todo: delete when publishing the app - only for testing
+                                        if(task.isSuccessful())
+                                            Toast.makeText(getContext(), "המידע על הקובץ הועלה למערכת", Toast.LENGTH_SHORT).show();
+                                        else
+                                            Toast.makeText(getContext(), "המידע על הקובץ לא הועלה למערכת עקב תקלה. נסה שוב", Toast.LENGTH_SHORT).show();
 
-                            }
-                        });
+                                    }
+                                });
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-
+                Log.d("App","exception: "+e);
             }
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override

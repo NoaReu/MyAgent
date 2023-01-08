@@ -167,19 +167,21 @@ public class AgentSuitsList extends Fragment {
             ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter
                     .createFromResource(getContext(),R.array.state_of_status, android.R.layout.simple_spinner_item);
             spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            holder.docStatusSpinner.setPrompt(documents.get(holder.getLayoutPosition()).getStatus());
+//            holder.docStatusSpinner.setPrompt(documents.get(holder.getLayoutPosition()).getStatus());
 //            spinnerAdapter.setAutofillOptions(documents.get(position).getStatus());//???
+
             holder.docStatusSpinner.setAdapter(spinnerAdapter);
+//            holder.docStatusSpinner.announceForAccessibility(documents.get(holder.getLayoutPosition()).getStatus());
 
             holder.docStatusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) { // elements of spinner selected!
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
                     db.collection("documents")
-                            .whereEqualTo("agentId", documents.get(position).getAgentId())
-                            .whereEqualTo("userId", documents.get(position).getUserId())
-                            .whereEqualTo("documentName", documents.get(position).getDocumentName())
+                            .whereEqualTo("agentId", documents.get(holder.getLayoutPosition()).getAgentId())
+                            .whereEqualTo("userId", documents.get(holder.getLayoutPosition()).getUserId())
+                            .whereEqualTo("documentName", documents.get(holder.getLayoutPosition()).getDocumentName())
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -197,10 +199,10 @@ public class AgentSuitsList extends Fragment {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful()) {
-//                                                    Toast.makeText(getContext(), "succeeded", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getContext(), "succeeded "+parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
                                                     Log.d("spinnerUpdate", "succeeded");
                                                 }else {
-//                                                    Toast.makeText(getContext(), "failed", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getContext(), "failed "+parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
                                                     Log.d("spinnerUpdate", "failed");
 
                                                 }
@@ -213,8 +215,10 @@ public class AgentSuitsList extends Fragment {
 
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
-//                    spinnerAdapter.setAutofillOptions(documents.get(position).getStatus());
-                    holder.docStatusSpinner.setPrompt(documents.get(holder.getLayoutPosition()).getStatus());
+//                    String state =  documents.get(holder.getLayoutPosition()).getStatus();
+//
+//                    spinnerAdapter.setAutofillOptions(state);
+//                    holder.docStatusSpinner.setPrompt(documents.get(holder.getLayoutPosition()).getStatus());
                 }
             });
 
@@ -228,19 +232,19 @@ public class AgentSuitsList extends Fragment {
 //
 //                    StorageReference reference = storageReference.child("066465238/035856038/suit_035856038_28_09_22.pdf");
 
-//                    ProgressDialog pd = new ProgressDialog(getContext());
-//                    pd.setTitle(holder.docName.getText().toString());
-//                    pd.setMessage("המתן בזמן שהקובץ נטען");
-//                    pd.setIndeterminate(true);
-//                    pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//                    pd.show();
+                    ProgressDialog pd = new ProgressDialog(getContext());
+                    pd.setTitle(holder.docName.getText().toString());
+                    pd.setMessage("המתן בזמן שהקובץ נטען");
+                    pd.setIndeterminate(true);
+                    pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    pd.show();
 
 //                    File file=new File(getExternalFilesDir(null),"Dummy");
 
 
 
                     File file = new File (Environment.DIRECTORY_DOWNLOADS);
-                    DownloadManager downloadmanager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+
                     //todo: request fo specific file
                     Uri uri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/myagent-6cce7.appspot.com/o/066465238%2F335477931%2F1673011447889?alt=media&token=569b34b5-f0e7-41b6-a813-4548ed15d7d3");
                     DownloadManager.Request request=null;
@@ -272,6 +276,7 @@ public class AgentSuitsList extends Fragment {
 //                    request.setDestinationUri(Uri.parse("file://" + "stam" + "/myfile.pdf"));
 
                     DownloadManager downloadManager=(DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+//                    DownloadManager.COLUMN_STATUS.
                     downloadId=downloadManager.enqueue(request);
 
 

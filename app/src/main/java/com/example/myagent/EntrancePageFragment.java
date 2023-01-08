@@ -4,11 +4,17 @@ package com.example.myagent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.myagent.agentPages.HomePageAgentFragment;
+import com.example.myagent.userPages.UserHomePageFragment;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,6 +57,21 @@ public class EntrancePageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+//            if(((MainActivity)getActivity()).anAget){
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
+//            }else{
+//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
+//            }
+//        }
+//        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+//            FirebaseAuth.getInstance().getCurrentUser().reload();
+//            ((MainActivity)getActivity()).switchToUserHomePage();
+//        }
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

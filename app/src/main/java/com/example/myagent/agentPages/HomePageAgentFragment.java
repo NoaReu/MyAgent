@@ -3,14 +3,18 @@ package com.example.myagent.agentPages;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.myagent.EntrancePageFragment;
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -69,7 +73,19 @@ public class HomePageAgentFragment extends Fragment {
         Button searchUser= (Button) view.findViewById(R.id.searchUser_HOME_PAGE_AGENT);
 //        Button insurances= (Button) view.findViewById(R.id.insurances_HOME_PAGE_AGENT);
         Button suits= (Button) view.findViewById(R.id.Suits_HOME_PAGE_AGENT);
+        Button exit = (Button) view.findViewById(R.id.BTN_logoutAgentHomePage);
 
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                FragmentTransaction fragmentTransaction = ( ((MainActivity)getActivity()).getSupportFragmentManager()).beginTransaction();
+                fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
+//                FirebaseFirestore.getInstance().terminate();
+//                FirebaseFirestore.getInstance().terminate();
+
+            }
+        });
         createUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

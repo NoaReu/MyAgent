@@ -4,14 +4,20 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.myagent.EntrancePageFragment;
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,9 +73,29 @@ public class UserHomePageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user_home_page, container, false);
 
         Button toDocuments = view.findViewById(R.id.user_home_page_to_documents_btn);
-        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button toSuit = (Button) view.findViewById(R.id.user_home_page_to_new_suit_btn);
+        Button toSuit = (Button) view.findViewById(R.id.user_home_page_to_new_suit_btn);
+        TextView helloUser = view.findViewById(R.id.WelcomeUserName);
 
         MainActivity mainActivity = (MainActivity) getActivity();
+        String name= mainActivity.getAppAgent().getFirstName()+" "+mainActivity.getAppAgent().getLastName();
+        helloUser.setText(name);
+
+
+        Button exit = (Button) view.findViewById(R.id.BTN_logoutUserHomePage);
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = ( mainActivity.getSupportFragmentManager()).beginTransaction();
+                fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
+
+
+
+
+            }
+        });
+
+
         toDocuments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

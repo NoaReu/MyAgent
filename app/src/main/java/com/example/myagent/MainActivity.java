@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     String agentUID;
     FirebaseUser currentUser;
     User agent;
+    boolean anAget;
     public List<User> userForRecyclerView;
     FirebaseStorage storage;
     FirebaseAppCheck appCheck;
@@ -105,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        agentUID="";
         userForRecyclerView=new ArrayList<>();
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
         storage = FirebaseStorage.getInstance();
 
@@ -267,9 +268,11 @@ public class MainActivity extends AppCompatActivity {
                                             if(task1.getBoolean("anAgent"))//check if (user.isAnAgent())
                                             {
                                                 agent=task.getResult().toObject(User.class);
+                                                anAget=true;
 //                                                agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("agentId"),task1.getString("phone"));
                                                 fragmentTransaction.replace(R.id.main_activity, new HomePageAgentFragment()).addToBackStack(null).commit();
-                                            } else {
+                                            } else { // a user
+                                                anAget=false;
                                                 agent =new User(task1.getString("firstName"),task1.getString("lastName"),task1.getString("userId"),task1.getString("agentId"),task1.getString("phone"),task1.getString("email"),task1.getString("address"));
 //                                                agent=db.collection("users").whereEqualTo("agentId",task1.getString("agentId")).get().getResult().getDocuments().get(0).toObject(User.class);
                                                 fragmentTransaction.replace(R.id.main_activity, new UserHomePageFragment()).addToBackStack(null).commit();
@@ -483,6 +486,10 @@ public class MainActivity extends AppCompatActivity {
         return capital && lowLetter && number && special ;
     }
 
-
-
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//
+//        FirebaseAuth.getInstance().signOut();
+//    }
 }
