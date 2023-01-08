@@ -46,15 +46,18 @@
         </LinearLayout>
 
         <TableLayout
-            android:layout_width="359dp"
-            android:layout_height="287dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="100dp">
 
             <TableRow
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:layout_width="328dp"
+                android:layout_height="49dp">
+
 
                 <Button
                     android:id="@+id/searchUser_HOME_PAGE_AGENT"
@@ -118,20 +121,23 @@
             </TableRow>
             <TableRow
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginTop="60dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="49dp"
+                android:layout_gravity="bottom"
+                >
+
 
                 <Button
                     android:id="@+id/BTN_logoutAgentHomePage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="49dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/logoutbutton_desing"
                     android:text="התנתק"
                     android:gravity="center"
                     android:textColor="#036A64"
-                    android:textSize="16dp"
+                    android:textSize="12dp"
                     android:textStyle="bold"
                      />
 
