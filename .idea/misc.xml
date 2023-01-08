@@ -65,6 +65,7 @@
         <entry key="app/src/main/res/layout/card_view_for_document_item.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/customer_item_at_agent_search.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/document_item_at_agent_documents_list.xml" value="0.30495495495495495" />
+        <entry key="app/src/main/res/layout/document_item_at_user_documents_list.xml" value="0.264453125" />
         <entry key="app/src/main/res/layout/document_list_item.xml" value="0.30495495495495495" />
         <entry key="app/src/main/res/layout/fragment_accident_description.xml" value="0.33697916666666666" />
         <entry key="app/src/main/res/layout/fragment_agent_registration.xml" value="0.33697916666666666" />

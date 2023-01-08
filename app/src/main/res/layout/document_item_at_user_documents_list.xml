@@ -34,7 +34,7 @@
                 android:gravity="right"
                 android:text=" שם מסמך"
                 android:textColor="@color/black"
-                android:textSize="14dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
 
