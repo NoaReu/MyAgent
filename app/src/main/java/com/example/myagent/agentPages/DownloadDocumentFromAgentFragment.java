@@ -180,7 +180,14 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
                                 "חדש",
                                 mainActivity.getInfoUser().getFirstName()+" "+mainActivity.getInfoUser().getLastName(),
                                 mainActivity.getInfoUser().getUserId(),
-                                url);
+                                url,"" );
+                        /*
+
+
+                        ----------------------------
+
+
+                                */
                         database.collection("documents")
                                 .document(mainActivity.getInfoUser().getUserId()+"_"+fileName)
                                 .set(doc)

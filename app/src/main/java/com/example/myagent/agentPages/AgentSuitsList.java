@@ -1,13 +1,20 @@
 package com.example.myagent.agentPages;
 
+import android.Manifest;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -61,7 +68,10 @@ public class AgentSuitsList extends Fragment {
     RecyclerView recyclerView;
     FirebaseFirestore db;
     List<Document> documents;
-    final long THREE_MEGABYTE = 1024 * 1024 * 3;
+//    final long THREE_MEGABYTE = 1024 * 1024 * 3;
+    private static final int PERMISSION_REQUEST_CODE = 1;
+    private static final int REQUEST_GALLERY = 200;
+    private long downloadId;
 
     public AgentSuitsList() {
         // Required empty public constructor
@@ -101,6 +111,7 @@ public class AgentSuitsList extends Fragment {
         View view = inflater.inflate(R.layout.fragment_agent_suits_list, container, false);
         recyclerView = view.findViewById(R.id.new_suits_at_agent_recycler_view);
 
+
         db= FirebaseFirestore.getInstance();
         db.collection("documents").whereEqualTo("agentId", "066465238").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -111,14 +122,6 @@ public class AgentSuitsList extends Fragment {
 
             }
         });
-
-
-
-
-
-
-
-
         return view;
     }
 
@@ -127,13 +130,13 @@ public class AgentSuitsList extends Fragment {
 
         TextView docName;
         Spinner docStatusSpinner;
-
+        TextView customer;
 
         public DocViewHolder(@NonNull View itemView){
             super(itemView);
             docName= itemView.findViewById(R.id.document_name_at_doc_item);
             docStatusSpinner = (Spinner) itemView.findViewById(R.id.document_status_at_doc_item);
-
+            customer = itemView.findViewById(R.id.customer_id_at_doc_item);
         }
     }
 
@@ -157,14 +160,17 @@ public class AgentSuitsList extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull DocViewHolder holder, int position) {
 
-            holder.docName.setText(documents.get(position).getDocumentName());
-//            holder.docStatus.setText(documents.get(position).getStatus());
+            holder.docName.setText(documents.get(holder.getLayoutPosition()).getDocumentName());
+            holder.customer.setText(documents.get(holder.getLayoutPosition()).getUserFullName());
+
 
             ArrayAdapter<CharSequence> spinnerAdapter = ArrayAdapter
                     .createFromResource(getContext(),R.array.state_of_status, android.R.layout.simple_spinner_item);
             spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//            spinnerAdapter.setAutofillOptions(documents.get(position).getStatus());
+            holder.docStatusSpinner.setPrompt(documents.get(holder.getLayoutPosition()).getStatus());
+//            spinnerAdapter.setAutofillOptions(documents.get(position).getStatus());//???
             holder.docStatusSpinner.setAdapter(spinnerAdapter);
+
             holder.docStatusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -207,7 +213,8 @@ public class AgentSuitsList extends Fragment {
 
                 @Override
                 public void onNothingSelected(AdapterView<?> parent) {
-
+//                    spinnerAdapter.setAutofillOptions(documents.get(position).getStatus());
+                    holder.docStatusSpinner.setPrompt(documents.get(holder.getLayoutPosition()).getStatus());
                 }
             });
 
@@ -216,43 +223,83 @@ public class AgentSuitsList extends Fragment {
                 @RequiresApi(api = Build.VERSION_CODES.R)
                 @Override
                 public void onClick(View v) {
-                    FirebaseStorage storage=FirebaseStorage.getInstance();
-                    StorageReference storageReference = storage.getReference();
+//                    FirebaseStorage storage=FirebaseStorage.getInstance();
+//                    StorageReference storageReference = storage.getReference();
+//
+//                    StorageReference reference = storageReference.child("066465238/035856038/suit_035856038_28_09_22.pdf");
 
-                    StorageReference reference = storageReference.child("066465238/035856038/suit_035856038_28_09_22.pdf");
+//                    ProgressDialog pd = new ProgressDialog(getContext());
+//                    pd.setTitle(holder.docName.getText().toString());
+//                    pd.setMessage("המתן בזמן שהקובץ נטען");
+//                    pd.setIndeterminate(true);
+//                    pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//                    pd.show();
 
-                    ProgressDialog pd = new ProgressDialog(getContext());
-                    pd.setTitle(holder.docName.getText().toString());
-                    pd.setMessage("Downloading Please Wait!");
-                    pd.setIndeterminate(true);
-                    pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                    pd.show();
+//                    File file=new File(getExternalFilesDir(null),"Dummy");
 
 
-                    try {
-                        final File localFile = File.createTempFile(
-                                prefix(documents.get(holder.getLayoutPosition()).getDocumentName()),
-                                suffix(documents.get(holder.getLayoutPosition()).getDocumentName()));
-                        reference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                                Log.e("firebase ", ";local tem file created  created " + localFile.toString());
-                                Toast.makeText(getContext(), "נוצר קובץ מקומי", Toast.LENGTH_LONG).show();
-//                                File.
-                                if (!isVisible()){
-                                    Toast.makeText(getContext(), "לא ניתן לצפות במסמך", Toast.LENGTH_LONG).show();
-                                }
-                                if (localFile.canRead()){
-                                    pd.dismiss();
-                                    Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
-                    } catch (IOException e) {
-                        Log.e("firebase ", ";local temp file not created " + e.toString());
-                        Toast.makeText(getContext(), "לא ניתן לייצר קובץ מקומי", Toast.LENGTH_LONG).show();
-                        e.printStackTrace();
+
+                    File file = new File (Environment.DIRECTORY_DOWNLOADS);
+                    DownloadManager downloadmanager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+                    //todo: request fo specific file
+                    Uri uri = Uri.parse("https://firebasestorage.googleapis.com/v0/b/myagent-6cce7.appspot.com/o/066465238%2F335477931%2F1673011447889?alt=media&token=569b34b5-f0e7-41b6-a813-4548ed15d7d3");
+                    DownloadManager.Request request=null;
+
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                        request=new DownloadManager.Request(uri)
+                                .setTitle(holder.docName.getText().toString())
+                                .setDescription("Downloading")
+                                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                                .setDestinationUri(Uri.fromFile(file))
+                                .setRequiresCharging(false)
+                                .setAllowedOverMetered(true)
+                                .setAllowedOverRoaming(true);
                     }
+                    else{
+                        request=new DownloadManager.Request(uri)
+                                .setTitle(holder.docName.getText().toString())
+                                .setDescription("Downloading")
+                                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                                .setDestinationUri(Uri.fromFile(file))
+                                .setAllowedOverRoaming(true);
+                    }
+
+//                    DownloadManager.Request request = new DownloadManager.Request(uri);
+//                    request.setTitle("My File");
+//                    request.setDescription("Downloading");
+//                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+//                    request.setVisibleInDownloadsUi(false);
+//                    request.setDestinationUri(Uri.parse("file://" + "stam" + "/myfile.pdf"));
+
+                    DownloadManager downloadManager=(DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+                    downloadId=downloadManager.enqueue(request);
+
+
+
+//                    try {
+//                        final File localFile = File.createTempFile(
+//                                prefix(documents.get(holder.getLayoutPosition()).getDocumentName()),
+//                                suffix(documents.get(holder.getLayoutPosition()).getDocumentName()));
+//                        reference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+//                            @Override
+//                            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+//                                Log.e("firebase ", ";local tem file created  created " + localFile.toString());
+//                                Toast.makeText(getContext(), "נוצר קובץ מקומי", Toast.LENGTH_LONG).show();
+////                                File.
+//                                if (!isVisible()){
+//                                    Toast.makeText(getContext(), "לא ניתן לצפות במסמך", Toast.LENGTH_LONG).show();
+//                                }
+//                                if (localFile.canRead()){
+//                                    pd.dismiss();
+//                                    Toast.makeText(getContext(), "ההורדה הסתיימה בהצלחה", Toast.LENGTH_LONG).show();
+//                                }
+//                            }
+//                        });
+//                    } catch (IOException e) {
+//                        Log.e("firebase ", ";local temp file not created " + e.toString());
+//                        Toast.makeText(getContext(), "לא ניתן לייצר קובץ מקומי", Toast.LENGTH_LONG).show();
+//                        e.printStackTrace();
+//                    }
 //                    final File rootPath = new File(Environment.getStorageDirectory(), "MY AGENT DOWNLOADS");
 //                    if (!rootPath.exists()) {
 //                        rootPath.mkdirs();
@@ -493,6 +540,33 @@ public class AgentSuitsList extends Fragment {
 
                 }
             });
+        }
+        private BroadcastReceiver onDownloadComplete=new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                long id=intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID,-1);
+                if(downloadId==id){
+                    Toast.makeText(getActivity(), "Download Completed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        };
+
+        private void requestPermission(){
+            if(ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+                Toast.makeText(getContext(), "Please Give Permission to Upload File", Toast.LENGTH_SHORT).show();
+            }
+            else{
+                ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},PERMISSION_REQUEST_CODE);
+            }
+        }
+        private boolean checkPermission(){
+            int result= ContextCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if(result== PackageManager.PERMISSION_GRANTED){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
 
         @Override
