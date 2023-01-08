@@ -27,7 +27,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
     @NonNull
     @Override
-    public CustomerAdapter.CustomerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CustomerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_customer_item_at_agent_search,parent, false);
         return new CustomerHolder(itemView);
     }

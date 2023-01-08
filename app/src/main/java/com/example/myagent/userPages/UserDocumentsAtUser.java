@@ -2,14 +2,27 @@ package com.example.myagent.userPages;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.myagent.MainActivity;
 import com.example.myagent.R;
+import com.example.myagent.agentPages.AgentSuitsList;
+import com.example.myagent.agentPages.UserDocumentsAdapter;
+import com.example.myagent.objects.Document;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,7 +76,23 @@ public class UserDocumentsAtUser extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_documents_at_user, container, false);
-        RecyclerView recyclerView= view.findViewById(R.id.new_suits_User_Documents_At_User_recycler_view);
+        RecyclerView recyclerView= view.findViewById(R.id.user_documents_at_user_recycler_view);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("documents").whereEqualTo("userId", ((MainActivity)getActivity()).getAppAgent().getUserId()).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                List<Document> documentList = queryDocumentSnapshots.toObjects(Document.class);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView.setAdapter(new UserDocumentsAdapter(getContext(),documentList));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "לא ניתן לגשת למסמכים עבור משתמש זה", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
 
