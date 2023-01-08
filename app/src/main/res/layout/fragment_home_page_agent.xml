@@ -116,6 +116,27 @@
 
 
             </TableRow>
+            <TableRow
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp">
+
+                <Button
+                    android:id="@+id/BTN_logoutAgentHomePage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="49dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/logoutbutton_desing"
+                    android:text="התנתק"
+                    android:gravity="center"
+                    android:textColor="#036A64"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                     />
+
+
+            </TableRow>
         </TableLayout>
     </LinearLayout>
 
