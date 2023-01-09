@@ -33,7 +33,11 @@
         android:id="@+id/agentSuitsList"
         android:name="com.example.myagent.agentPages.AgentSuitsList"
         android:label="fragment_agent_suits_list"
-        tools:layout="@layout/fragment_agent_suits_list" />
+        tools:layout="@layout/fragment_agent_suits_list" >
+        <action
+            android:id="@+id/action_agentSuitsList_to_pdfViewer"
+            app:destination="@id/pdfViewer" />
+    </fragment>
     <fragment
         android:id="@+id/agentRegistration"
         android:name="com.example.myagent.agentPages.AgentRegistration"
@@ -56,7 +60,11 @@
         android:id="@+id/customerInfoAtAgent2"
         android:name="com.example.myagent.agentPages.CustomerInfoAtAgent"
         android:label="fragment_customer_info_at_agent"
-        tools:layout="@layout/fragment_customer_info_at_agent" />
+        tools:layout="@layout/fragment_customer_info_at_agent" >
+        <action
+            android:id="@+id/action_customerInfoAtAgent2_to_documentsListAtAgent"
+            app:destination="@id/documentsListAtAgent" />
+    </fragment>
     <fragment
         android:id="@+id/homePageAgentFragment"
         android:name="com.example.myagent.agentPages.HomePageAgentFragment"
@@ -133,7 +141,11 @@
         android:id="@+id/userDocuments"
         android:name="com.example.myagent.userPages.UserDocumentsAtUser"
         android:label="fragment_user_documents"
-        tools:layout="@layout/fragment_user_documents_at_user" />
+        tools:layout="@layout/fragment_user_documents_at_user" >
+        <action
+            android:id="@+id/action_userDocuments_to_pdfViewer"
+            app:destination="@id/pdfViewer" />
+    </fragment>
     <fragment
         android:id="@+id/accidentDescription"
         android:name="com.example.myagent.userPages.suitPages.AccidentDescription"
@@ -163,5 +175,19 @@
         <action
             android:id="@+id/action_suitSubmitSuccessfully_to_userHomePageFragment"
             app:destination="@id/userHomePageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pdfViewer"
+        android:name="com.example.myagent.userPages.PdfViewer"
+        android:label="fragment_pdf_viewer"
+        tools:layout="@layout/fragment_pdf_viewer" />
+    <fragment
+        android:id="@+id/documentsListAtAgent"
+        android:name="com.example.myagent.agentPages.DocumentsListAtAgent"
+        android:label="fragment_documents_list_at_agent"
+        tools:layout="@layout/fragment_documents_list_at_agent" >
+        <action
+            android:id="@+id/action_documentsListAtAgent_to_pdfViewer"
+            app:destination="@id/pdfViewer" />
     </fragment>
 </navigation>
