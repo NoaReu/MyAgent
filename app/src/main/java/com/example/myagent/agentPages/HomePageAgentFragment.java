@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.myagent.EntrancePageFragment;
 import com.example.myagent.MainActivity;
@@ -74,6 +75,9 @@ public class HomePageAgentFragment extends Fragment {
 //        Button insurances= (Button) view.findViewById(R.id.insurances_HOME_PAGE_AGENT);
         Button suits= (Button) view.findViewById(R.id.Suits_HOME_PAGE_AGENT);
         Button exit = (Button) view.findViewById(R.id.BTN_logoutAgentHomePage);
+        TextView name = (TextView) view.findViewById((R.id.WelcomeAgentName));
+        MainActivity mainActivity = (MainActivity) getActivity();
+        name.setText(" " +mainActivity.getAppAgent().getFirstName()+" "+mainActivity.getAppAgent().getLastName());
 
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
