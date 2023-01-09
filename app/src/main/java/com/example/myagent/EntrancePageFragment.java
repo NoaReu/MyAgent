@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.userPages.UserHomePageFragment;
@@ -83,6 +84,7 @@ public class EntrancePageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_entrance_page, container, false);
+
         Button regBtn= (Button) view.findViewById(R.id.RegistrationBtn);
         Button connectBtn= (Button) view.findViewById(R.id.ConnectionBtn);
         Button forgotPWBtn= (Button) view.findViewById(R.id.forgotMyPassBtnEntrancePage);

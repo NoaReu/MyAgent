@@ -24,6 +24,7 @@ import com.example.myagent.agentPages.DownloadDocumentFromAgentFragment;
 import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.agentPages.SearchCustomerAtAgent;
 import com.example.myagent.objects.User;
+import com.example.myagent.userPages.PdfViewer;
 import com.example.myagent.userPages.UserDocumentsAtUser;
 import com.example.myagent.userPages.UserHomePageFragment;
 import com.example.myagent.userPages.UserLoginPageFragment;
@@ -54,8 +55,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity {
+    public interface LoginResponse{
+        void  response(boolean success,String message);
+    }
     private static final int MY_PERMISSIONS_REQUEST_SEND_SMS =0 ;
     private SharedPreferences mPreferences;
     private String sharedPrefFile ="sharedPreferences";
@@ -69,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
     public List<User> userForRecyclerView;
     FirebaseStorage storage;
     FirebaseAppCheck appCheck;
+
+
 
     User infoUser; // only at agent- to specify the user handling by the agent
 //    User appAgent; // will be initialized only at signed in agent function
@@ -109,11 +115,8 @@ public class MainActivity extends AppCompatActivity {
         userForRecyclerView=new ArrayList<>();
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
         storage = FirebaseStorage.getInstance();
-
-
 
 
     }
@@ -207,9 +210,15 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new AgentRegistration()).addToBackStack(null).commit();
     }
+
     public void switchToLoginPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.main_activity, new UserLoginPageFragment()).addToBackStack(null).commit();
+    }
+
+    public void switchToLoginPdfPage(String path) {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main_activity, new PdfViewer(path)).addToBackStack(null).commit();
     }
     public void switchToForgotPasswordPage() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -246,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
         return pWord;
     }
 
-    public void login(String email, String pw ) {
+    public void login(String email, String pw ,LoginResponse callback) {
         // if(!emailLog.isEmpty() && !passLog.isEmpty())
         mAuth.signInWithEmailAndPassword(email, pw)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -264,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
                                     task.addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                         @Override
                                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                            callback.response(true,null);
                                             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                                             if(task1.getBoolean("anAgent"))//check if (user.isAnAgent())
                                             {
@@ -282,7 +292,8 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                         } else {
-                            Toast.makeText(MainActivity.this, "you failed to login", Toast.LENGTH_LONG).show();
+                            callback.response(false,"you failed to login");
+
                         }
                     }
                 });

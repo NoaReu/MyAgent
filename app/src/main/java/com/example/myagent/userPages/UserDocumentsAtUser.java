@@ -84,7 +84,15 @@ public class UserDocumentsAtUser extends Fragment {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 List<Document> documentList = queryDocumentSnapshots.toObjects(Document.class);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                recyclerView.setAdapter(new UserDocumentsAdapter(getContext(),documentList));
+                recyclerView.setAdapter(new UserDocumentsAdapter(getContext(), documentList, new RecyclerViewInterfaceItem() {
+                    @Override
+                    public void onClick(int index) {
+                        Document doc = documentList.get(index);
+                        MainActivity mainActivity = (MainActivity) getActivity();
+                        mainActivity.switchToLoginPdfPage(doc.getPath());
+                    }
+                }));
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

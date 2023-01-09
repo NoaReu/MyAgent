@@ -5,48 +5,32 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
 import com.example.myagent.objects.User;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SearchCustomerAtAgent#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SearchCustomerAtAgent extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -54,8 +38,8 @@ public class SearchCustomerAtAgent extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    List<User> items=new ArrayList<>();
-    List<User> allItems;
+    List<User> itemsFromFirebase = new ArrayList<>();
+    List<User> filterdItems = new ArrayList<>();
     RecyclerView recyclerView;
     RecyclerView.LayoutManager recyclerviewLayoutManager;
 
@@ -97,60 +81,61 @@ public class SearchCustomerAtAgent extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search_customer_at_agent, container, false);
-
         recyclerView = view.findViewById(R.id.search_customer_recycler_view);
         recyclerviewLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(recyclerviewLayoutManager);
-
         db = FirebaseFirestore.getInstance();
-
         loadUsersFromDb(view);
-//        nameToSearch.setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                loadUsersFromDb(view);
-//                return false;
-//            }
-//        });
-
         return view;
     }
 
     private void loadUsersFromDb(View view) {
-        items.clear();
-        db.collection("users").whereEqualTo("anAgent",false).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        itemsFromFirebase.clear();
+        db.collection("users").whereEqualTo("anAgent", false).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    List<DocumentSnapshot> documents= task.getResult().getDocuments();
-                    if(!documents.isEmpty()){
-                        for (DocumentSnapshot doc: documents) {
-                            items.add(doc.toObject(User.class));
+                if (task.isSuccessful()) {
+                    List<DocumentSnapshot> documents = task.getResult().getDocuments();
+                    if (!documents.isEmpty()) {
+                        for (DocumentSnapshot doc : documents) {
+                            itemsFromFirebase.add(doc.toObject(User.class));
                         }
-                        adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
+                        filterList("");
+                        adapter = new CustomerAdapter(filterdItems, new RecyclerViewInterface() {
                             @Override
                             public void onItemClick(User user) {
 //                                Toast.makeText(getContext(), "Item clicked", Toast.LENGTH_SHORT).show();
-                                mainActivity=(MainActivity) getActivity();
+                                mainActivity = (MainActivity) getActivity();
                                 mainActivity.switchToUserInfoPage(user);
                             }
                         });
                         recyclerView.setHasFixedSize(true);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
                         recyclerView.setAdapter(adapter);
                         //try to show less items on list by writing person to search
-                        nameToSearch=view.findViewById(R.id.customer_name_for_search);
-//                        nameToSearch.setOnKeyListener(new View.OnKeyListener() {
-//                            @Override
-//                            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                                Toast.makeText(getContext(), nameToSearch.getText().toString()+" test", Toast.LENGTH_SHORT).show();
-//                                return false;
-//                            }
-//                        });
-                    }else{
+                        nameToSearch = view.findViewById(R.id.customer_name_for_search);
+                        nameToSearch.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void afterTextChanged(Editable s) {
+                                // TODO Auto-generated method stub
+                            }
+
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                                // TODO Auto-generated method stub
+                            }
+
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                Log.d("App", "text:" + s);
+                                filterList(s.toString());
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
+                    } else {
                         Toast.makeText(getContext(), "No objects from DB!!!", Toast.LENGTH_SHORT).show();
                     }
-                }else{
+                } else {
                     Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -158,25 +143,38 @@ public class SearchCustomerAtAgent extends Fragment {
 
     }
 
+    void filterList(String text) {
+        if (text == null || text == "") {
+            filterdItems = new ArrayList<>(itemsFromFirebase);
+        } else {
+            filterdItems.clear();
+            for (User user : itemsFromFirebase) {
+                if (user.getFirstName().contains(text) || user.getLastName().contains(text)) {
+                    filterdItems.add(user);
+                }
+            }
+        }
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        allItems=new ArrayList<>(items);
-        nameToSearch=view.findViewById(R.id.customer_name_for_search);
+        filterdItems = new ArrayList<>(itemsFromFirebase);
+        nameToSearch = view.findViewById(R.id.customer_name_for_search);
         searchBTN = view.findViewById(R.id.search_customer_btn);
         searchBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(!nameToSearch.equals(null) && !nameToSearch.equals("")){
-                    for(User user : allItems){
-                        String name=user.getFirstName()+" "+user.getLastName();
-                        if(!name.contains(nameToSearch.getText().toString())){
-                            items.remove(user);
+                if (!nameToSearch.equals(null) && !nameToSearch.equals("")) {
+                    for (User user : filterdItems) {
+                        String name = user.getFirstName() + " " + user.getLastName();
+                        if (!name.contains(nameToSearch.getText().toString())) {
+                            itemsFromFirebase.remove(user);
                         }
                     }
                     adapter.usersList.clear();
-                    adapter.usersList.addAll(items);
+                    adapter.usersList.addAll(itemsFromFirebase);
                     adapter.notifyDataSetChanged();
 //                    adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
 //                        @Override
@@ -187,8 +185,8 @@ public class SearchCustomerAtAgent extends Fragment {
 //                        }
 //                    });
 
-                }else {
-                    items=new ArrayList<>(allItems);
+                } else {
+                    itemsFromFirebase = new ArrayList<>(filterdItems);
 //                    adapter= new CustomerAdapter(items,  new RecyclerViewInterface(){
 //                        @Override
 //                        public void onItemClick(User user) {
@@ -198,48 +196,16 @@ public class SearchCustomerAtAgent extends Fragment {
 //                        }
 //                    });
                     adapter.usersList.clear();
-                    adapter.usersList.addAll(items);
+                    adapter.usersList.addAll(itemsFromFirebase);
                     adapter.notifyDataSetChanged();
 
                 }
                 recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL, false));
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
                 recyclerView.setAdapter(adapter);
                 nameToSearch.setText("");
             }
         });
-//        nameToSearch.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//            @Override
-//            public void onFocusChange(View v, boolean hasFocus) {
-//                if(!hasFocus){
-//
-//                }
-//            }
-//        });
-//        nameToSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//
-//
-//
-//                return false;
-//            }
-//        });
-
-
-
-
-    }
-    /* //experiment
-    nameToSearch=view.findViewById(R.id.search_customer_recycler_view);
-    if(!nameToSearch.equals(null) && !nameToSearch.equals("")){
-        for(User user : allItems){
-            String name=user.getFirstName()+" "+user.getLastName();
-            if(!name.contains(nameToSearch.getText().toString())){
-                items.remove(user);
-            }
-        }
     }
 
-    */
 }

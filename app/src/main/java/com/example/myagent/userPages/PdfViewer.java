@@ -1,14 +1,29 @@
 package com.example.myagent.userPages;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
+import com.example.myagent.EntrancePageFragment;
 import com.example.myagent.R;
+import com.github.barteksc.pdfviewer.PDFView;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,12 +37,16 @@ public class PdfViewer extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    public static String url="";
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public PdfViewer() {
+String path;
+    public PdfViewer(String path) {
         // Required empty public constructor
+        this.path = path;
     }
 
     /**
@@ -39,14 +58,14 @@ public class PdfViewer extends Fragment {
      * @return A new instance of fragment PdfViewer.
      */
     // TODO: Rename and change types and number of parameters
-    public static PdfViewer newInstance(String param1, String param2) {
-        PdfViewer fragment = new PdfViewer();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+//    public static PdfViewer newInstance(String param1, String param2) {
+//        PdfViewer fragment = new PdfViewer();
+//        Bundle args = new Bundle();
+//        args.putString(ARG_PARAM1, param1);
+//        args.putString(ARG_PARAM2, param2);
+//        fragment.setArguments(args);
+//        return fragment;
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,11 +75,49 @@ public class PdfViewer extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    PDFView pdfView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pdf_viewer, container, false);
+        View view = inflater.inflate(R.layout.fragment_pdf_viewer, container, false);
+         pdfView = view.findViewById(R.id.idPDFView);
+        new RetrivePDFfromUrl().execute(path);
+        return view;
     }
+    //create an async task class for loading pdf file from URL.
+    class RetrivePDFfromUrl extends AsyncTask<String, Void, InputStream> {
+
+        @Override
+        protected InputStream doInBackground(String... strings) {
+            //we are using inputstream for getting out PDF.
+            InputStream inputStream = null;
+            try {
+                URL url = new URL(strings[0]);
+                // below is the step where we are creating our connection.
+                HttpURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
+                if (urlConnection.getResponseCode() == 200) {
+                    //response is success.
+                    //we are getting input stream from url and storing it in our variable.
+                    inputStream = new BufferedInputStream(urlConnection.getInputStream());
+
+                }
+
+            } catch (IOException e) {
+                //this is the method to handle errors.
+                e.printStackTrace();
+                return null;
+            }
+
+            return inputStream;
+        }
+
+        @Override
+        protected void onPostExecute(InputStream inputStream) {
+            // after the execution of our async task we are loading our pdf in our pdf view.
+            pdfView.fromStream(inputStream).load();
+
+        }
+    }
+
 }
