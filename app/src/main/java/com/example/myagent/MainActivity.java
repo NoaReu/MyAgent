@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseStorage storage;
     FirebaseAppCheck appCheck;
 
+
+
     User infoUser; // only at agent- to specify the user handling by the agent
 //    User appAgent; // will be initialized only at signed in agent function
     User appUser; // will be initialized only at signed in user function for user app
@@ -109,11 +111,8 @@ public class MainActivity extends AppCompatActivity {
         userForRecyclerView=new ArrayList<>();
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
         storage = FirebaseStorage.getInstance();
-
-
 
 
     }
