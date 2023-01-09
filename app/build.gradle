@@ -52,7 +52,7 @@ dependencies {
 
 //    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 //    implementation 'com.mindorks.android:prdownloader:0.6.0'
-
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
     // FirebaseUI for Firebase Realtime Database
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
 

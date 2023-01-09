@@ -65,15 +65,21 @@ public class UserDocumentsAdapter extends RecyclerView.Adapter<UserDocumentsAdap
                         @Override
                         public void onSuccess(DocumentSnapshot snapshot) {
 
-                            Document d = snapshot.toObject(Document.class);
-                            try {
-                                Intent intent = new Intent(Intent.ACTION_VIEW);
-                                intent.setDataAndType(Uri.parse(d.getPath()), "application/pdf");
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                               itemView.getContext().startActivity(intent);
-                            } catch (Exception e) {
-                                Toast.makeText(itemView.getContext(), "המסמך לא הצליח להיטען", Toast.LENGTH_SHORT).show();
+                            if(snapshot!=null) {
+                                Document d = snapshot.toObject(Document.class);
+                                try {
+                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                                    intent.setDataAndType(Uri.parse(snapshot.getString("path")), "application/pdf");
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                    itemView.getContext().startActivity(intent);
+                                } catch (Exception e) {
+                                    Toast.makeText(itemView.getContext(), "המסמך לא הצליח להיטען" + e.getMessage(), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(itemView.getContext(), "המסמך לא הצליח להיטען" + e.getMessage(), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(itemView.getContext(), "המסמך לא הצליח להיטען" + e.getMessage(), Toast.LENGTH_LONG).show();
 
+                                }
+                            }else{
+                                Toast.makeText(itemView.getContext(), "אין מסמכים לתצוגה", Toast.LENGTH_LONG).show();
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
