@@ -90,9 +90,10 @@ public class DocumentsListAtAgent extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.search_document_recycler_view);
         db= FirebaseFirestore.getInstance();
-        db.collection("documents").whereEqualTo("agentId", "066465238").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("documents").whereEqualTo("userId", mainActivity.getInfoUser().getUserId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful())
                 documents= task.getResult().toObjects(Document.class);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 recyclerView.setAdapter(new UserDocumentsAdapter(getContext(), documents, new RecyclerViewInterfaceItem() {

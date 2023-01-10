@@ -98,36 +98,7 @@ public class UserDocumentsAdapter extends RecyclerView.Adapter<UserDocumentsAdap
         public UserDocumentHolder(@NonNull View itemView) {
             super(itemView);
             docName= itemView.findViewById(R.id.document_name_at_doc_item_at_agent);
-//            docName.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
 
-//                    FirebaseFirestore db = FirebaseFirestore.getInstance();
-//                    db.collection("documents").document(docName.getText().toString()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//                        @Override
-//                        public void onSuccess(DocumentSnapshot snapshot) {
-//
-//                            if(snapshot!=null) {
-//                                Document d = snapshot.toObject(Document.class);
-//
-//                                    String format = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
-//                                    String fullPath = String.format(Locale.ENGLISH, format, d.getPath());
-//
-//
-//
-//
-//                            }else{
-//                                Toast.makeText(itemView.getContext(), "אין מסמכים לתצוגה", Toast.LENGTH_LONG).show();
-//                            }
-//                        }
-//                    }).addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Toast.makeText(itemView.getContext(), "לא ניתן לפנות אל המסמך", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//                }
-//            });
         }
 
     }

@@ -73,7 +73,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="shulital20@gmail.com"
+
+
                 android:background="@drawable/edit_text_background"
                 tools:ignore="SpeakableTextPresentCheck"
                 android:autofillHints="" />
@@ -132,7 +133,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/edit_text_background"
                 android:ems="10"
-                android:text="Aa123456!"
                 android:inputType="textPassword"
                 tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
