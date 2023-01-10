@@ -35,6 +35,10 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link DownloadDocumentFromAgentFragment#newInstance} factory method to
@@ -57,6 +61,7 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
     TextView notification;
     Uri docUri;
     MainActivity mainActivity;
+    TextView docName;
 
     public DownloadDocumentFromAgentFragment() {
         // Required empty public constructor
@@ -100,6 +105,7 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
         chooseDocBtn = view.findViewById(R.id.choose_doc_to_upload_btn);
         uploadDocToStorageBtn = view.findViewById(R.id.upload_document_btn);
         notification = view.findViewById(R.id.document_notification);
+        docName= view.findViewById(R.id.document_notification);
 
 
         return view;
@@ -160,7 +166,6 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==86 && resultCode==-1 && data!=null){
             docUri = data.getData();
-
         } else{
             Toast.makeText(getContext(), "יש לבחור מסמך תחילה", Toast.LENGTH_SHORT).show();
         }
@@ -168,6 +173,7 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
 
     private void uploadFile(Uri docUri){
         String fileName = System.currentTimeMillis()+"";
+
         StorageReference reference = storage.getReference();//return root path
         reference.child(mainActivity.getAppAgent().getAgentId())
                 .child(mainActivity.getInfoUser().getUserId())
@@ -176,27 +182,38 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        String url=taskSnapshot.getUploadSessionUri().toString();
-                        Document doc = new Document(mainActivity.getAppAgent().getAgentId(),
-                                fileName,
-                                "חדש",
-                                mainActivity.getInfoUser().getFirstName()+" "+mainActivity.getInfoUser().getLastName(),
-                                mainActivity.getInfoUser().getUserId(),
-                                url);
-                        database.collection("documents")
-                                .document(mainActivity.getInfoUser().getUserId()+"_"+fileName)
-                                .set(doc)
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        //todo: delete when publishing the app - only for testing
-                                        if(task.isSuccessful())
-                                            Toast.makeText(getContext(), "המידע על הקובץ הועלה למערכת", Toast.LENGTH_SHORT).show();
-                                        else
-                                            Toast.makeText(getContext(), "המידע על הקובץ לא הועלה למערכת עקב תקלה. נסה שוב", Toast.LENGTH_SHORT).show();
 
-                                    }
-                                });
+
+
+
+                            Document doc = new Document(mainActivity.getAppAgent().getAgentId(),
+                                    fileName,
+                                    "חדש",
+                                    mainActivity.getInfoUser().getFirstName()+" "+mainActivity.getInfoUser().getLastName(),
+                                    mainActivity.getInfoUser().getUserId(),
+                                    taskSnapshot.getUploadSessionUri().toString());
+                            docName.setText(fileName);
+                            docName.setVisibility(View.VISIBLE);
+                            database.collection("documents")
+                                    .document(mainActivity.getInfoUser().getUserId()+"_"+fileName)
+                                    .set(doc)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            //todo: delete when publishing the app - only for testing
+                                            if(task.isSuccessful())
+                                                Toast.makeText(getContext(), "המידע על הקובץ הועלה למערכת", Toast.LENGTH_SHORT).show();
+                                            else
+                                                Toast.makeText(getContext(), "המידע על הקובץ לא הועלה למערכת עקב תקלה. נסה שוב", Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    });
+
+
+
+
+
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override

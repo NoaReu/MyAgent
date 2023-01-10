@@ -57,24 +57,7 @@
             android:background="@drawable/button_design"
             />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
-            <TextView
-                android:id="@+id/document_notification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="20dp"
-                android:hint="לא נבחר מסמך"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold">
 
-            </TextView>
-        </LinearLayout>
         <Button
             android:id="@+id/upload_document_btn"
             android:layout_width="match_parent"
@@ -91,7 +74,25 @@
             app:strokeWidth="1dp"
             android:background="@drawable/button_design"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+            <TextView
+                android:id="@+id/document_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:hint="לא נבחר מסמך"
+                android:gravity="center"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
 
+            </TextView>
+        </LinearLayout>
     </LinearLayout>
 
     </LinearLayout>
