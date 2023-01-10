@@ -98,11 +98,7 @@
         android:id="@+id/suitSide2CarLicenceFragment"
         android:name="com.example.myagent.userPages.suitPages.SuitSide2CarLicenceFragment"
         android:label="fragment_suit_side2_car_licence"
-        tools:layout="@layout/fragment_suit_side2_car_licence" >
-        <action
-            android:id="@+id/action_suitSide2CarLicenceFragment_to_accidentDescription"
-            app:destination="@id/accidentDescription" />
-    </fragment>
+        tools:layout="@layout/fragment_suit_side2_car_licence" />
 
     <fragment
         android:id="@+id/userLoginPageFragment"
@@ -125,8 +121,8 @@
         android:label="fragment_suit_info_instruction_page_for_user"
         tools:layout="@layout/fragment_suit_info_instruction_page_for_user" >
         <action
-            android:id="@+id/action_suitInfoInstructionPageForUser_to_suitSide2CarLicenceFragment"
-            app:destination="@id/suitSide2CarLicenceFragment" />
+            android:id="@+id/action_suitInfoInstructionPageForUser_to_accidentDescription"
+            app:destination="@id/accidentDescription" />
     </fragment>
     <fragment
         android:id="@+id/forgotPassword"
