@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -23,6 +24,7 @@ import com.example.myagent.agentPages.DocumentsListAtAgent;
 import com.example.myagent.agentPages.DownloadDocumentFromAgentFragment;
 import com.example.myagent.agentPages.HomePageAgentFragment;
 import com.example.myagent.agentPages.SearchCustomerAtAgent;
+import com.example.myagent.objects.Document;
 import com.example.myagent.objects.User;
 import com.example.myagent.userPages.PdfViewer;
 import com.example.myagent.userPages.UserDocumentsAtUser;
@@ -73,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     public List<User> userForRecyclerView;
     FirebaseStorage storage;
     FirebaseAppCheck appCheck;
-
+    FragmentTransaction fragmentTransaction;
 
 
     User infoUser; // only at agent- to specify the user handling by the agent
@@ -101,6 +103,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,16 +118,31 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         userForRecyclerView=new ArrayList<>();
         fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).commit();
         storage = FirebaseStorage.getInstance();
 
 
     }
+    public void logOut(){
+//        fragmentTransaction.replace(R.id.main_activity, new EntrancePageFragment());
+        mAuth.signOut();
+        onDestroy();
+
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        this.finish();
+    }
 
     public void setInfoUser(User user) {
-        this.infoUser=user;
-        WriteBatch batch= db.batch();
+
+//        WriteBatch batch= db.batch();
 //        db.collection("users")
 //                .whereEqualTo("userID",user.getUserId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 //            @Override
@@ -307,17 +326,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "success user registration", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "משתמש נרשם בהצלחה", Toast.LENGTH_SHORT).show();
                     agentUID=task.getResult().getUser().getUid();
                     FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
                     firebaseFirestore.collection("users").document(task.getResult().getUser().getUid()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
-                            Toast.makeText(MainActivity.this,"success upload data to db",Toast.LENGTH_LONG).show();
+//                            Toast.makeText(MainActivity.this,"success upload data to db",Toast.LENGTH_LONG).show();
                             task.getResult().getUser().sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    Toast.makeText(MainActivity.this, "משתמש חדש נוצר. על מנת להתחבר יש להנחות את המשתמש ליצור סיסמה חדשה על ידי כניסה לאיפוס סיסמה באפליקציה", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "משתמש חדש נוצר. על מנת להתחבר יש להנחות את המשתמש ליצור סיסמה חדשה על ידי כניסה לאיפוס סיסמה באפליקציה", Toast.LENGTH_LONG).show();
                                     String message="שלום "+user.getFirstName()+". קיבלת משתמש חדש לאפליקציית הסוכן שלי. על מנת להתחבר למערכת יש להיכנס עם המייל שלך והסיסמה שלך היא "+upw+" . תודה שבחרת בסוכן הביטוח שלך. נסיעה בטוחה";
                                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                                         if(checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){

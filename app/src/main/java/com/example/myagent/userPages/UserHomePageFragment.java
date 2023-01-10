@@ -89,12 +89,7 @@ public class UserHomePageFragment extends Fragment {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = ( mainActivity.getSupportFragmentManager()).beginTransaction();
-                fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
-
-
-
-
+                mainActivity.logOut();
             }
         });
 

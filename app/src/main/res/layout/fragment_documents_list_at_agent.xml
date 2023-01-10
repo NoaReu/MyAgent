@@ -46,76 +46,9 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:src="@drawable/ic_baseline_insert_drive_file_24" />
-
-                <EditText
-                    android:id="@+id/customer_name_for_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.8"
-                    android:ems="10"
-                    android:hint="שם המסמך"
-                    android:inputType="textPersonName" />
 
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/sort_header"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="15dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:fontFamily="arial"
-                    android:gravity="center"
-                    android:text="מיין לפי" />
-                <Button
-                    android:id="@+id/sort_doc_by_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="15dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:background="@drawable/button_design"
-                    android:paddingHorizontal="15dp"
-                    android:text="תאריך"/>
-                <Button
-                    android:id="@+id/sort_doc_by_a_b"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingHorizontal="15dp"
-                    android:layout_marginHorizontal="15dp"
-                    android:background="@drawable/button_design"
-                    android:text="א-ב"/>
-
-            </LinearLayout>
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -124,27 +57,27 @@
                     android:id="@+id/search_document_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="48dp" />
-
-            </ScrollView>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/upload_doc_page_agent_to_customer"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="15dp"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="העלאת מסמך ללקוח"
-                    android:background="@drawable/button_design"
-                    />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/upload_doc_page_agent_to_customer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="15dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="העלאת מסמך ללקוח"
+                        android:background="@drawable/button_design"
+                        />
+
+                </LinearLayout>
+            </ScrollView>
+
         </LinearLayout>
 
 
@@ -152,3 +85,77 @@
     </LinearLayout>
 
 </FrameLayout>
+
+
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:orientation="horizontal"-->
+<!--android:gravity="center"-->
+<!--android:padding="10dp">-->
+
+<!--<TextView-->
+<!--    android:id="@+id/sort_header"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_marginHorizontal="15dp"-->
+<!--    android:textSize="20sp"-->
+<!--    android:textStyle="bold"-->
+<!--    android:textColor="@color/black"-->
+<!--    android:fontFamily="arial"-->
+<!--    android:gravity="center"-->
+<!--    android:text="מיין לפי" />-->
+<!--<Button-->
+<!--    android:id="@+id/sort_doc_by_date"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_marginHorizontal="15dp"-->
+<!--    android:textSize="20sp"-->
+<!--    android:textStyle="bold"-->
+<!--    android:gravity="center"-->
+<!--    android:paddingLeft="10dp"-->
+<!--    android:paddingRight="10dp"-->
+<!--    android:background="@drawable/button_design"-->
+<!--    android:paddingHorizontal="15dp"-->
+<!--    android:text="תאריך"/>-->
+<!--<Button-->
+<!--    android:id="@+id/sort_doc_by_a_b"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:textSize="20sp"-->
+<!--    android:textStyle="bold"-->
+<!--    android:gravity="center"-->
+<!--    android:paddingLeft="10dp"-->
+<!--    android:paddingRight="10dp"-->
+<!--    android:paddingHorizontal="15dp"-->
+<!--    android:layout_marginHorizontal="15dp"-->
+<!--    android:background="@drawable/button_design"-->
+<!--    android:text="א-ב"/>-->
+
+<!--</LinearLayout>-->
+
+
+
+<!--<LinearLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="48dp"-->
+<!--android:orientation="horizontal">-->
+
+<!--<ImageView-->
+<!--    android:id="@+id/imageView4"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_weight="0.2"-->
+<!--    android:src="@drawable/ic_baseline_insert_drive_file_24" />-->
+
+<!--<EditText-->
+<!--    android:id="@+id/customer_name_for_search"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:layout_weight="0.8"-->
+<!--    android:ems="10"-->
+<!--    android:hint="שם המסמך"-->
+<!--    android:inputType="textPersonName" />-->
+
+
+<!--</LinearLayout>-->

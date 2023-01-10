@@ -69,7 +69,7 @@ public class SuitInfoInstructionPageForUser extends Fragment {
             @Override
             public void onClick(View view) {
                 MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.switchToSuitPage2();
+                mainActivity.switchToSuitPage3();
             }
         });
 

@@ -86,12 +86,7 @@ public class HomePageAgentFragment extends Fragment {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                FragmentTransaction fragmentTransaction = ( ((MainActivity)getActivity()).getSupportFragmentManager()).beginTransaction();
-
-                fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
-//                FirebaseFirestore.getInstance().terminate();
-//                FirebaseFirestore.getInstance().terminate();
+               mainActivity.logOut();
 
             }
         });

@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,14 @@ import android.widget.Button;
 
 import com.example.myagent.MainActivity;
 import com.example.myagent.R;
+import com.example.myagent.objects.Document;
+import com.example.myagent.userPages.RecyclerViewInterfaceItem;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +38,8 @@ public class DocumentsListAtAgent extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    FirebaseFirestore db;
+    List<Document> documents;
     MainActivity mainActivity;
 
     public DocumentsListAtAgent() {
@@ -77,6 +88,24 @@ public class DocumentsListAtAgent extends Fragment {
             }
         });
 
+        RecyclerView recyclerView = view.findViewById(R.id.search_document_recycler_view);
+        db= FirebaseFirestore.getInstance();
+        db.collection("documents").whereEqualTo("agentId", "066465238").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                documents= task.getResult().toObjects(Document.class);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                recyclerView.setAdapter(new UserDocumentsAdapter(getContext(), documents, new RecyclerViewInterfaceItem() {
+                    @Override
+                    public void onClick(int index) {
+                        Document doc = documents.get(index);
+                        MainActivity mainActivity = (MainActivity) getActivity();
+                        mainActivity.switchToLoginPdfPage(doc.getPath());
+                    }
+                }));
+
+            }
+        });
 
 
         return view;

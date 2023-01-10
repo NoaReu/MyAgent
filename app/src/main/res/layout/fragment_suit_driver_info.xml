@@ -85,7 +85,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:src="@drawable/ic_person" />
-                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -95,15 +95,15 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical">
-                            <EditText
-                                android:id="@+id/full_name_suit_driver_info_edit_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:autofillHints=""
-                                android:ems="10"
-                                android:inputType="text"
-                                android:background="@drawable/edit_text_background"
-                                tools:ignore="SpeakableTextPresentCheck" />
+                <EditText
+                    android:id="@+id/full_name_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:inputType="text"
+                    android:background="@drawable/edit_text_background"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
             <LinearLayout
@@ -117,14 +117,14 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="0.9"
                 android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/year_of_birth_suit_driver_info_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="שנת לידה"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
-                            android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/year_of_birth_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="שנת לידה"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -135,8 +135,8 @@
                 android:orientation="vertical">
 
             <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"/>
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
             </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -148,16 +148,16 @@
                 android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
-                        <EditText
-                            android:id="@+id/year_of_birth_suit_driver_info_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:autofillHints=""
-                            android:ellipsize="end"
-                            android:inputType="number"
-                            android:maxLines="1"
-                            android:background="@drawable/edit_text_background"
-                            tools:ignore="SpeakableTextPresentCheck" />
+                <EditText
+                    android:id="@+id/year_of_birth_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints=""
+                    android:ellipsize="end"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:background="@drawable/edit_text_background"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
             <LinearLayout
@@ -172,14 +172,14 @@
                 android:layout_weight="0.9"
                 android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/id_number_suit_driver_info_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/id_customer_info_at_agent"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
-                            android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/id_number_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/id_customer_info_at_agent"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -188,10 +188,10 @@
                 android:layout_weight="0.1"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_identity"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_identity"/>
             </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -202,12 +202,12 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical">
-                        <EditText
-                            android:id="@+id/id_number_suit_driver_info_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/edit_text_background"
-                            android:inputType="number" />
+                <EditText
+                    android:id="@+id/id_number_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_background"
+                    android:inputType="number" />
 
             </LinearLayout>
             <LinearLayout
@@ -222,15 +222,14 @@
                 android:layout_weight="0.9"
                 android:orientation="vertical">
 
-
-                        <TextView
-                            android:id="@+id/address_suit_driver_info_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/address_customer_info_at_agent"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
-                            android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/address_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address_customer_info_at_agent"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -239,10 +238,10 @@
                 android:layout_weight="0.1"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_address"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_address"/>
             </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -253,12 +252,12 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical">
-                            <EditText
-                                android:id="@+id/address_suit_driver_info_edit_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/edit_text_background"
-                                android:inputType="text" />
+                <EditText
+                    android:id="@+id/address_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_background"
+                    android:inputType="text" />
 
 
             </LinearLayout>
@@ -273,14 +272,14 @@
                 android:layout_marginRight="10dp"
                 android:layout_weight="0.9"
                 android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/family_closeness_suit_driver_info_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:text="קרבה למבוטח"
-                            android:textSize="20sp"
-                            android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/family_closeness_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="קרבה למבוטח"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -289,10 +288,10 @@
                 android:layout_weight="0.1"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_lastname"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_lastname"/>
             </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -303,12 +302,12 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical">
-                        <EditText
-                            android:id="@+id/family_closeness_suit_driver_info_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/edit_text_background"
-                            android:inputType="text" />
+                <EditText
+                    android:id="@+id/family_closeness_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_background"
+                    android:inputType="text" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -322,14 +321,14 @@
                 android:layout_weight="0.9"
                 android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/drivers_license_number_suit_driver_info_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="מספר רשיון נהיגה"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
-                            android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/drivers_license_number_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="מספר רשיון נהיגה"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -338,10 +337,10 @@
                 android:layout_weight="0.1"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/ic_numbers"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_numbers"/>
             </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -352,13 +351,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical">
-                        <EditText
-                            android:id="@+id/drivers_license_number_suit_driver_info_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:inputType="number"
-                            android:background="@drawable/edit_text_background"
-                            tools:ignore="SpeakableTextPresentCheck" />
+                <EditText
+                    android:id="@+id/drivers_license_number_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_background"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -372,14 +371,14 @@
                 android:layout_weight="0.9"
                 android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="שנת הוצאת רישיון נהיגה"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
-                            android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="שנת הוצאת רישיון נהיגה"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -402,13 +401,13 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical">
-                        <EditText
-                            android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:inputType="number"
-                            android:background="@drawable/edit_text_background"
-                            tools:ignore="SpeakableTextPresentCheck" />
+                <EditText
+                    android:id="@+id/year_of_issuance_of_drivers_license_suit_driver_info_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="number"
+                    android:background="@drawable/edit_text_background"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
             </LinearLayout>
                     <Button
@@ -420,7 +419,7 @@
                         android:background="@drawable/button_design"
                         android:backgroundTint="@color/BTN_background_dark"
                         android:gravity="center"
-                        android:text="הגש תביעה"
+                        android:text="שלח פרטי תאונה לסוכן"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         android:textStyle="bold" />
