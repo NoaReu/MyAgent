@@ -148,9 +148,6 @@
         android:label="fragment_accident_description"
         tools:layout="@layout/fragment_accident_description" >
         <action
-            android:id="@+id/action_accidentDescription_to_suitDriverInfo"
-            app:destination="@id/suitDriverInfo" />
-        <action
             android:id="@+id/action_accidentDescription_to_suitSubmitSuccessfully"
             app:destination="@id/suitSubmitSuccessfully" />
     </fragment>
@@ -158,11 +155,7 @@
         android:id="@+id/suitDriverInfo"
         android:name="com.example.myagent.userPages.suitPages.SuitDriverInfo"
         android:label="fragment_suit_driver_info"
-        tools:layout="@layout/fragment_suit_driver_info" >
-        <action
-            android:id="@+id/action_suitDriverInfo_to_suitSubmitSuccessfully"
-            app:destination="@id/suitSubmitSuccessfully" />
-    </fragment>
+        tools:layout="@layout/fragment_suit_driver_info" />
     <fragment
         android:id="@+id/suitSubmitSuccessfully"
         android:name="com.example.myagent.userPages.suitPages.SuitSubmitSuccessfully"
