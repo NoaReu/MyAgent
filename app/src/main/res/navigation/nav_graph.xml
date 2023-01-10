@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_userHomePageFragment_to_userDocuments"
             app:destination="@id/userDocuments" />
+        <action
+            android:id="@+id/action_userHomePageFragment_to_entrancePageFragment"
+            app:destination="@id/entrancePageFragment" />
     </fragment>
     <fragment
         android:id="@+id/agentSuitsList"
@@ -79,6 +82,9 @@
         <action
             android:id="@+id/action_homePageAgentFragment_to_createNewUserFragment2"
             app:destination="@id/createNewUserFragment2" />
+        <action
+            android:id="@+id/action_homePageAgentFragment_to_entrancePageFragment"
+            app:destination="@id/entrancePageFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchCustomerAtAgent"
