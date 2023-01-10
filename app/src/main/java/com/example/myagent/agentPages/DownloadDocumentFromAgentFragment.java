@@ -182,10 +182,6 @@ public class DownloadDocumentFromAgentFragment extends Fragment {
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-
-
-
                             Document doc = new Document(mainActivity.getAppAgent().getAgentId(),
                                     fileName,
                                     "חדש",
