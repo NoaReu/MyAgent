@@ -70,7 +70,7 @@ public class UserLoginPageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_login_page, container, false);
-        spinner = (ProgressBar) view.findViewById(R.id.spinner);
+        spinner = (ProgressBar) view.findViewById(R.id.spinnerloginpage);
         TextView email = view.findViewById(R.id.usernameUserForgotPassword);
         TextView pW = view.findViewById(R.id.PasswordUSERLOGIN);
         Button confirmBtn = (Button) view.findViewById(R.id.loginBtnForgotPassword);

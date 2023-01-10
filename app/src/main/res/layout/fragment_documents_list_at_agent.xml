@@ -30,6 +30,7 @@
                 android:layout_weight="0.8"
                 android:backgroundTint="@color/white"
                 android:fontFamily="ariel"
+                android:gravity="center"
                 android:text="מסמכים"
                 android:textColor="@color/teal_700"
                 android:textSize="40sp"/>

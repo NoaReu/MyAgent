@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.myagent.EntrancePageFragment;
@@ -65,13 +66,15 @@ public class UserHomePageFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    ProgressBar spinner;
+    ProgressBar spinner2;//not used!!
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_user_home_page, container, false);
-
+        spinner = (ProgressBar) view.findViewById(R.id.spinner_suit_list_at_agent);
+        spinner2 = (ProgressBar) view.findViewById(R.id.spinner_UserDocumentsAtUser);
         Button toDocuments = view.findViewById(R.id.user_home_page_to_documents_btn);
         Button toSuit = (Button) view.findViewById(R.id.user_home_page_to_new_suit_btn);
         TextView helloUser = view.findViewById(R.id.WelcomeUserName);

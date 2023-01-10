@@ -3,12 +3,14 @@ package com.example.myagent.agentPages;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.myagent.EntrancePageFragment;
@@ -63,13 +65,15 @@ public class HomePageAgentFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    ProgressBar spinner1;
+    ProgressBar spinner2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home_page_agent, container, false);
-
+        spinner1 = (ProgressBar) view.findViewById(R.id.spinner_suit_list_at_agent);
+        spinner2 = (ProgressBar) view.findViewById(R.id.spinner_SearchCustomerAtAgent);
         Button createUser= (Button) view.findViewById(R.id.createUser_HOME_PAGE_AGENT);
         Button searchUser= (Button) view.findViewById(R.id.searchUser_HOME_PAGE_AGENT);
 //        Button insurances= (Button) view.findViewById(R.id.insurances_HOME_PAGE_AGENT);
@@ -84,6 +88,7 @@ public class HomePageAgentFragment extends Fragment {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 FragmentTransaction fragmentTransaction = ( ((MainActivity)getActivity()).getSupportFragmentManager()).beginTransaction();
+
                 fragmentTransaction.add(R.id.main_activity, new EntrancePageFragment()).addToBackStack(null).commit();
 //                FirebaseFirestore.getInstance().terminate();
 //                FirebaseFirestore.getInstance().terminate();
@@ -115,10 +120,16 @@ public class HomePageAgentFragment extends Fragment {
         suits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 MainActivity mainActivity= (MainActivity) getActivity();
                 mainActivity.switchToSuitsListPage();
+
             }
+
         });
+
         return view;
+
     }
+
 }

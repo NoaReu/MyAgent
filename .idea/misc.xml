@@ -78,7 +78,7 @@
         <entry key="app/src/main/res/layout/fragment_entrance_page.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/fragment_home_page_agent.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_pdf_viewer.xml" value="0.264453125" />
-        <entry key="app/src/main/res/layout/fragment_search_customer_at_agent.xml" value="0.33697916666666666" />
+        <entry key="app/src/main/res/layout/fragment_search_customer_at_agent.xml" value="0.30612244897959184" />
         <entry key="app/src/main/res/layout/fragment_send_success_for_customer_info_at_agent.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/fragment_suit_info_instruction_page_for_user.xml" value="0.35260416666666666" />
         <entry key="app/src/main/res/layout/fragment_suit_side2_car_licence.xml" value="0.35260416666666666" />

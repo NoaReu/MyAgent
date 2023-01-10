@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/suit_list_at_agent_layout"
     android:layout_width="match_parent"
@@ -94,4 +94,14 @@
         </LinearLayout>
 
     </LinearLayout>
-</FrameLayout>
+    <ProgressBar
+
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/spinner_suit_list_at_agent"
+        android:indeterminateOnly="true"
+        android:keepScreenOn="true"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+</RelativeLayout>
